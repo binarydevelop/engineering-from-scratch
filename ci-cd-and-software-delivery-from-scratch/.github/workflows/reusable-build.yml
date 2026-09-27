@@ -1,0 +1,52 @@
+name: Reusable Build & Test Workflow
+
+# Phase 143: Reusable Workflows
+# Phase 144: Workflow Inputs
+# Phase 145: Workflow Outputs
+# Phase 146: Version Reusable Workflows
+
+on:
+  workflow_call:
+    inputs:
+      service_path:
+        description: 'Subdirectory path containing service code'
+        required: true
+        type: string
+      python_version:
+        description: 'Python runtime version'
+        required: false
+        default: '3.12'
+        type: string
+    outputs:
+      artifact_digest:
+        description: 'SHA-256 digest of produced artifact'
+        value: ${{ jobs.build-service.outputs.digest }}
+
+permissions: {}
+
+jobs:
+  build-service:
+    name: Build & Verify Service
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    outputs:
+      digest: ${{ steps.package.outputs.digest }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Runtime
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: ${{ inputs.python_version }}
+
+      - name: Run Tests
+        run: bash scripts/test.sh
+
+      - name: Package Artifact
+        id: package
+        run: |
+          bash scripts/package.sh
+          DIGEST=$(cat outputs/delivery-service-1.0.0.tar.gz.sha256 || echo "unknown")
+          echo "digest=${DIGEST}" >> "$GITHUB_OUTPUT"

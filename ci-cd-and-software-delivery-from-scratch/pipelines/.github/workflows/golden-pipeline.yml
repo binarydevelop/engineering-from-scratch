@@ -1,0 +1,23 @@
+name: Platform Golden Pipeline
+
+# Phase 148: Pipeline as Product
+# Phase 149: Golden Pipeline
+# Phase 150: Repository Template Standard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  golden-delivery:
+    name: Call Platform Golden Workflow
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      service_path: 'sample-apps/delivery-service'
+      python_version: '3.12'
+    permissions:
+      contents: read

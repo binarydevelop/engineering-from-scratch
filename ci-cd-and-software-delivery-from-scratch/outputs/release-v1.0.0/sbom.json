@@ -1,0 +1,55 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:19922f1f70e4f87c81e5ff8c8bdf834d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-27T03:02:12Z",
+    "tools": [
+      {
+        "vendor": "delivery-from-scratch",
+        "name": "sbom-generator",
+        "version": "1.0.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "delivery-service-1.0.0.tar.gz",
+      "version": "1.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7041b28e74403e789f88bbf6cc2474c8fd7995b283c62819f80b4165b0fb47f0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "python-runtime",
+      "version": "3.14.7",
+      "purl": "pkg:generic/python@3.14.7",
+      "licenses": [
+        {
+          "license": {
+            "id": "PSF-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sqlite3",
+      "version": "3.x",
+      "purl": "pkg:generic/sqlite3@3.x",
+      "licenses": [
+        {
+          "license": {
+            "id": "Public-Domain"
+          }
+        }
+      ]
+    }
+  ]
+}

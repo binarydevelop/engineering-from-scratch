@@ -1,0 +1,9 @@
+{
+  "artifact_name": "delivery-service-1.0.0.tar.gz",
+  "artifact_type": "tarball",
+  "version": "1.0.0",
+  "git_commit": "c477286c99d56c965cd1afddc5862b17ce5661ad",
+  "sha256_digest": "029382503163c8752aa09d643f4ac88396e874533094ca4a2a7508788af47820",
+  "size_bytes": 8216,
+  "packaged_at": "2026-09-27T03:11:15Z"
+}

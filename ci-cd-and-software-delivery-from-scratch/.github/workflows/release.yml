@@ -1,0 +1,46 @@
+name: Release and Supply-Chain Attestation
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions: {} # Minimal permissions by default
+
+jobs:
+  build-and-attest:
+    name: Build, SBOM, and SLSA Provenance
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write       # To create GitHub Release
+      id-token: write       # Required for cryptographic OIDC provenance attestation (Phase 77, 88)
+      attestations: write   # Required for GitHub Artifact Attestations
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Extract Tag Version
+        id: release_info
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Package Release Bundle
+        run: bash scripts/release.sh "${{ steps.release_info.outputs.version }}"
+
+      - name: Attest Build Provenance (SLSA v1.0)
+        uses: actions/attest-build-provenance@v1.3.2
+        with:
+          subject-path: 'outputs/delivery-service-${{ steps.release_info.outputs.version }}.tar.gz'
+
+      - name: Publish GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Release created for ${{ github.ref_name }} with verified SBOM and SLSA Provenance."

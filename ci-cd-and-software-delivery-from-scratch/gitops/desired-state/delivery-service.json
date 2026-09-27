@@ -1,0 +1,16 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "delivery-service",
+    "namespace": "production"
+  },
+  "spec": {
+    "replicas": 3,
+    "image": "ghcr.io/binarydevelop/delivery-service:1.0.0",
+    "digest": "sha256:7041b28e74403e789f88bbf6cc2474c8fd7995b283c62819f80b4165b0fb47f0",
+    "env": {
+      "ENVIRONMENT": "production"
+    }
+  }
+}

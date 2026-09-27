@@ -1,0 +1,42 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "delivery-service-1.0.0.tar.gz",
+      "digest": {
+        "sha256": "7041b28e74403e789f88bbf6cc2474c8fd7995b283c62819f80b4165b0fb47f0"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://actions.github.com/buildtypes/runner/v1",
+      "externalParameters": {
+        "workflow": ".github/workflows/release.yml",
+        "source": "https://github.com/binarydevelop/ci-cd-and-software-delivery-from-scratch"
+      },
+      "internalParameters": {
+        "runnerOS": "linux-x64",
+        "builderImage": "ghcr.io/actions/runner:latest"
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "git+https://github.com/binarydevelop/ci-cd-and-software-delivery-from-scratch",
+          "digest": {
+            "gitCommit": "c477286c99d56c965cd1afddc5862b17ce5661ad"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://github.com/binarydevelop/ci-cd-and-software-delivery-from-scratch/runner"
+      },
+      "metadata": {
+        "invocationId": "run-1790478132",
+        "startedOn": "2026-09-27T03:02:12Z"
+      }
+    }
+  }
+}

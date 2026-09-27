@@ -1,0 +1,61 @@
+name: Production Progressive Delivery
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release semantic version to promote (e.g. 1.0.0)'
+        required: true
+        default: '1.0.0'
+      canary_steps:
+        description: 'Canary traffic progression percentages'
+        required: true
+        default: '1,10,50,100'
+
+permissions: {}
+
+concurrency:
+  group: production-deployment-lock # Serialize deployments to prevent race conditions (Phase 127, 198)
+  cancel-in-progress: false
+
+jobs:
+  deploy-canary:
+    name: Production Canary Rollout & Health Analysis
+    runs-on: ubuntu-24.04
+    environment:
+      name: production # Gated by environment protection rules & reviewer approvals (Phase 74)
+      url: https://delivery-service.internal
+    permissions:
+      contents: read
+      id-token: write # Short-lived OIDC exchange with Cloud Provider (Phase 77)
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Workload Identity OIDC Authentication (Simulated)
+        run: python3 security-labs/oidc_simulator.py
+
+      - name: Pre-Flight Database Migration Compatibility Check (Phase 108)
+        run: |
+          echo "Verifying database backward compatibility before container rollout..."
+          python3 sample-apps/delivery-service/db/migration_engine.py
+
+      - name: Execute Progressive Canary Deployment
+        run: |
+          python3 deployment-labs/deploy_simulator.py \
+            --strategy canary \
+            --steps "${{ github.event.inputs.canary_steps }}"
+
+      - name: Post-Deployment Smoke Verification (Phase 95)
+        run: python3 sample-apps/delivery-service/tests/smoke/test_smoke.py
+
+      - name: Automated Rollback on Failure (Phase 104)
+        if: failure()
+        run: |
+          echo "CRITICAL: Health analysis failed! Triggering automated rollback..."
+          bash scripts/rollback.sh production prev-known-good

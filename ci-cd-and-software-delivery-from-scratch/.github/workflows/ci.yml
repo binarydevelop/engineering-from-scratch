@@ -1,0 +1,112 @@
+name: CI Pull Request Validation
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions: {} # Least privilege by default (Phase 78)
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true # Cancel superseded runs (Phase 126)
+
+jobs:
+  lint-and-validate:
+    name: Static Verification & Lint
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python Runtime
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Environment Preflight Check
+        run: bash scripts/check-environment.sh
+
+      - name: Static Syntax & Bytecode Compilation
+        run: python3 -m py_compile sample-apps/delivery-service/app.py
+
+      - name: Secret Leak Scanner (Phase 41)
+        run: python3 security-labs/secret_leak_scanner.py --scan-dir sample-apps
+
+  unit-tests:
+    name: Unit Tests (Shard ${{ matrix.shard }})
+    needs: [lint-and-validate]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false # Collect diagnostics across all shards (Phase 30, 124)
+      matrix:
+        shard: [1]
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python Runtime
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Run Unit Tests
+        run: python3 sample-apps/delivery-service/tests/unit/test_orders.py
+
+  integration-tests:
+    name: Database Integration & Contract Tests
+    needs: [lint-and-validate]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python Runtime
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Run Integration Tests
+        run: python3 sample-apps/delivery-service/tests/integration/test_db.py
+
+      - name: Run API Contract Tests
+        run: python3 sample-apps/delivery-service/tests/contract/test_api_contract.py
+
+  build-and-verify:
+    name: Deterministic Build & Package Verification
+    needs: [unit-tests, integration-tests]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout Source Revision
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Python Runtime
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: '3.12'
+
+      - name: Build Software Artifact
+        run: bash scripts/build.sh
+
+      - name: Package Artifact & Compute SHA-256
+        run: bash scripts/package.sh
+
+      - name: Upload Diagnostic Artifact (Phase 54)
+        uses: actions/upload-artifact@v4.3.4
+        with:
+          name: delivery-service-artifact
+          path: outputs/artifact-metadata.json
+          retention-days: 7

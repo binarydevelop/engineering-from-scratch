@@ -1,0 +1,4 @@
+# Core dependencies for delivery-service
+# Standard library is primary, but common production tools are pinned here for caching/lockfile labs
+# Pinned versions adhering to VERSIONS.md
+# Empty by default to allow zero-dependency operation across all local platforms
