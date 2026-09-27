@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 64 - The Consensus Problem
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Assuming simple majority votes guarantee consensus in async networks.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Consensus state machine replication (Paxos / Raft).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

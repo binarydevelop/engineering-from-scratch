@@ -1,0 +1,1 @@
+SELECT id, (unit_price / 3.0) AS raw_val, ROUND(unit_price / 3.0, 2) AS rounded_val, CEIL(unit_price / 3.0) AS ceil_val, FLOOR(unit_price / 3.0) AS floor_val FROM ecommerce.order_items WHERE order_id = 1 ORDER BY id ASC;

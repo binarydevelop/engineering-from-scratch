@@ -1,0 +1,1 @@
+SELECT p.id AS post_id, p.user_id, COUNT(DISTINCT l.user_id) AS likes_count, COUNT(DISTINCT c.id) AS comments_count, (COUNT(DISTINCT l.user_id) * 2 + COUNT(DISTINCT c.id) * 3) AS engagement_score FROM social.posts p LEFT JOIN social.likes l ON p.id = l.post_id LEFT JOIN social.comments c ON p.id = c.post_id GROUP BY p.id, p.user_id ORDER BY engagement_score DESC, post_id ASC;

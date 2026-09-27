@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 92 - Single Points of Failure (SPOF)
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Redundant app servers connected to a single un-replicated database or DNS provider.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Comprehensive SPOF audit: multi-AZ database clustering, redundant load balancers.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 175 - Design a Distributed Job Scheduler
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Single crontab process running on one virtual machine.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Distributed scheduler: Partitioned task database + worker heartbeat leasing + retry manager.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

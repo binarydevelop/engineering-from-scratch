@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 140 - Metrics Collection & Storage System
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Services pushing unthrottled metrics over UDP to overloaded collector.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Pull-based scraping architecture with scrape intervals and target discovery.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

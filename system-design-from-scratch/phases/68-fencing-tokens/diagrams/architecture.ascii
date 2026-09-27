@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 68 - Fencing Tokens
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Naive distributed lock without fencing tokens.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Storage layer checks: `UPDATE resource SET data = ? WHERE token > last_token`.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

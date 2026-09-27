@@ -1,0 +1,1 @@
+SELECT payment_method, SUM(amount) AS total_amount, ROUND((SUM(amount) / (SELECT SUM(amount) FROM ecommerce.payments WHERE status = 'completed')) * 100, 2) AS share_pct FROM ecommerce.payments WHERE status = 'completed' GROUP BY payment_method ORDER BY share_pct DESC;

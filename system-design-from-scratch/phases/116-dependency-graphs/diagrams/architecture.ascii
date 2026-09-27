@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 116 - Dependency Graphs & Blast Radius
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Undocumented hidden microservice dependencies.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Explicit dependency graph mapping critical path vs optional fallback services.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

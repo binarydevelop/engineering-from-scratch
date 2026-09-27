@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 34 - Queue Semantics & Visibility
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Queue deletes message immediately upon delivery to worker.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Visibility timeout: worker must ACK upon completion; unacked messages re-appear.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

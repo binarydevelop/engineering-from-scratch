@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 66 - Consensus vs Replication
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Confusing primary-replica asynchronous replication with consensus.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Using consensus (etcd/Raft) for critical metadata; async replication for bulk data.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

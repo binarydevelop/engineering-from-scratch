@@ -1,0 +1,74 @@
+[
+  {
+    "source": "P-01",
+    "target": "S-01",
+    "type": "HAS_SKILL",
+    "years": 10
+  },
+  {
+    "source": "P-01",
+    "target": "S-02",
+    "type": "HAS_SKILL",
+    "years": 8
+  },
+  {
+    "source": "P-02",
+    "target": "S-01",
+    "type": "HAS_SKILL",
+    "years": 6
+  },
+  {
+    "source": "P-02",
+    "target": "S-03",
+    "type": "HAS_SKILL",
+    "years": 5
+  },
+  {
+    "source": "P-03",
+    "target": "S-01",
+    "type": "HAS_SKILL",
+    "years": 15
+  },
+  {
+    "source": "P-03",
+    "target": "S-04",
+    "type": "HAS_SKILL",
+    "years": 12
+  },
+  {
+    "source": "P-04",
+    "target": "S-05",
+    "type": "HAS_SKILL",
+    "years": 7
+  },
+  {
+    "source": "P-01",
+    "target": "C-01",
+    "type": "WORKS_AT",
+    "title": "Principal Architect"
+  },
+  {
+    "source": "P-02",
+    "target": "C-01",
+    "type": "WORKS_AT",
+    "title": "Staff Engineer"
+  },
+  {
+    "source": "P-03",
+    "target": "C-02",
+    "type": "WORKS_AT",
+    "title": "CTO"
+  },
+  {
+    "source": "P-01",
+    "target": "P-02",
+    "type": "COLLABORATED_WITH",
+    "project": "Global Event Bus"
+  },
+  {
+    "source": "P-02",
+    "target": "P-03",
+    "type": "COLLABORATED_WITH",
+    "project": "LSM Storage Engine"
+  }
+]

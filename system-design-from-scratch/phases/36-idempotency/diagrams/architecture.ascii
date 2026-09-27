@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 36 - Idempotency in Distributed Systems
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Non-idempotent `POST /payments` incrementing balance on every invocation.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Idempotent `POST /payments` with `Idempotency-Key` header verified against DB store.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

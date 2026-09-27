@@ -1,0 +1,1 @@
+-- Kill process mid-write in CSV vs PostgreSQL transaction rollback.

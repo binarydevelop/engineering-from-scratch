@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 10 - Stateless Services
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Application server stores user session in local RAM.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Externalize session state into centralized Redis / Memcached cluster.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

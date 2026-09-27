@@ -1,0 +1,13 @@
+# BROKEN ALERT RULE: Pages on internal cause rather than user symptom
+groups:
+  - name: broken_cpu_alert
+    rules:
+      - alert: HostCPUAbove85Percent
+        expr: process_cpu_seconds_total > 0.85
+        for: 1m
+        labels:
+          severity: critical # High-priority wake-up page!
+        annotations:
+          summary: "CPU utilization exceeded 85%"
+          description: "Process CPU is running hot."
+          # Missing: User impact, actionability, runbook link!

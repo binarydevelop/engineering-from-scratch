@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 80 - Rate Limiting Algorithms
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Unrestricted API accepting unbounded requests from single IP address.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Token Bucket rate limiter allowing controlled burstiness with constant refill rate.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

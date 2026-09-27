@@ -1,0 +1,8 @@
+# .dockerignore
+# Volatile, large, and sensitive host files to exclude from Docker build context
+*.tmp
+*.log
+large_asset.bin
+.git
+__pycache__
+.venv

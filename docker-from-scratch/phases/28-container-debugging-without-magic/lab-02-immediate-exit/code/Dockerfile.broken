@@ -1,0 +1,3 @@
+FROM alpine:latest
+# BUG: Calling non-existent binary path /usr/bin/python
+CMD ["/usr/bin/python", "--version"]

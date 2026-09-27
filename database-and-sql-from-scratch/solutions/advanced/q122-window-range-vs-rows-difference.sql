@@ -1,0 +1,1 @@
+SELECT id, total_amount, SUM(total_amount) OVER (ORDER BY total_amount ASC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS rows_sum, SUM(total_amount) OVER (ORDER BY total_amount ASC RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS range_sum FROM ecommerce.orders WHERE status = 'completed' ORDER BY total_amount ASC, id ASC;

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 62 - The Coordination Problem
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Each server independently decides who performs background cron jobs.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Centralized distributed coordination service (ZooKeeper / Consul / etcd).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

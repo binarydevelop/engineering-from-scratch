@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 107 - Observability From First Principles
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Guessing root cause of outages from user bug reports.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Integrated observability pipeline: Prometheus metrics, structured logs, and OpenTelemetry traces.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

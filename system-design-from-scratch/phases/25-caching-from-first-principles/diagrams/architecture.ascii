@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 25 - Caching From First Principles
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Every read hits the primary relational database.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   In-memory key-value cache layer (Redis/Memcached).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

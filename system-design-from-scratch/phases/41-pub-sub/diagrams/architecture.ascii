@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 41 - Publish-Subscribe Pattern
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Direct point-to-point queues between services.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Topic-based Pub/Sub broker (SNS, Kafka, RabbitMQ Fanout).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

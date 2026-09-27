@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 83 - Circuit Breakers
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Service A blocks for 30s waiting on unresponsive Service B until thread pool dies.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Circuit breaker tripping to OPEN after 5 consecutive failures, fast-failing for 30s.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

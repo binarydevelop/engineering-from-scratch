@@ -1,0 +1,101 @@
+user_id,email,full_name,city,tier,signup_date
+usr_0001,user1@example.com,User 1,New York,STANDARD,2025-11-24
+usr_0002,user2@example.com,User 2,San Francisco,STANDARD,2025-05-21
+usr_0003,user3@example.com,User 3,Tokyo,STANDARD,2025-03-13
+usr_0004,user4@example.com,User 4,Tokyo,VIP,2025-12-13
+usr_0005,user5@example.com,User 5,Berlin,PREMIUM,2025-02-14
+usr_0006,user6@example.com,User 6,New York,STANDARD,2025-01-17
+usr_0007,user7@example.com,User 7,San Francisco,VIP,2025-04-22
+usr_0008,user8@example.com,User 8,New York,VIP,2025-11-05
+usr_0009,user9@example.com,User 9,Tokyo,VIP,2025-04-12
+usr_0010,user10@example.com,User 10,Berlin,PREMIUM,2025-12-26
+usr_0011,user11@example.com,User 11,London,VIP,2025-04-23
+usr_0012,user12@example.com,User 12,Toronto,STANDARD,2025-05-23
+usr_0013,user13@example.com,User 13,Tokyo,PREMIUM,2025-03-23
+usr_0014,user14@example.com,User 14,Austin,STANDARD,2025-06-24
+usr_0015,user15@example.com,User 15,Toronto,PREMIUM,2025-04-21
+usr_0016,user16@example.com,User 16,New York,PREMIUM,2025-02-22
+usr_0017,user17@example.com,User 17,Austin,PREMIUM,2025-02-19
+usr_0018,user18@example.com,User 18,Austin,STANDARD,2025-11-06
+usr_0019,user19@example.com,User 19,Berlin,STANDARD,2025-08-24
+usr_0020,user20@example.com,User 20,New York,VIP,2025-07-13
+usr_0021,user21@example.com,User 21,Toronto,VIP,2025-05-31
+usr_0022,user22@example.com,User 22,Toronto,PREMIUM,2025-11-13
+usr_0023,user23@example.com,User 23,San Francisco,VIP,2025-10-23
+usr_0024,user24@example.com,User 24,New York,VIP,2025-02-05
+usr_0025,user25@example.com,User 25,Toronto,PREMIUM,2025-04-27
+usr_0026,user26@example.com,User 26,Toronto,STANDARD,2025-02-10
+usr_0027,user27@example.com,User 27,London,PREMIUM,2025-02-21
+usr_0028,user28@example.com,User 28,Tokyo,PREMIUM,2025-08-21
+usr_0029,user29@example.com,User 29,Austin,PREMIUM,2025-03-25
+usr_0030,user30@example.com,User 30,Tokyo,PREMIUM,2025-04-18
+usr_0031,user31@example.com,User 31,Tokyo,VIP,2025-12-26
+usr_0032,user32@example.com,User 32,Berlin,VIP,2025-02-06
+usr_0033,user33@example.com,User 33,Berlin,VIP,2025-03-29
+usr_0034,user34@example.com,User 34,San Francisco,PREMIUM,2025-05-06
+usr_0035,user35@example.com,User 35,Austin,VIP,2025-07-14
+usr_0036,user36@example.com,User 36,Berlin,STANDARD,2025-12-19
+usr_0037,user37@example.com,User 37,Austin,STANDARD,2025-12-17
+usr_0038,user38@example.com,User 38,Toronto,STANDARD,2025-04-28
+usr_0039,user39@example.com,User 39,London,PREMIUM,2025-06-11
+usr_0040,user40@example.com,User 40,San Francisco,VIP,2025-02-03
+usr_0041,user41@example.com,User 41,San Francisco,VIP,2025-06-11
+usr_0042,user42@example.com,User 42,London,VIP,2025-09-13
+usr_0043,user43@example.com,User 43,San Francisco,PREMIUM,2025-08-23
+usr_0044,user44@example.com,User 44,San Francisco,VIP,2025-03-13
+usr_0045,user45@example.com,User 45,Berlin,PREMIUM,2025-10-15
+usr_0046,user46@example.com,User 46,London,VIP,2025-10-27
+usr_0047,user47@example.com,User 47,Austin,STANDARD,2025-07-24
+usr_0048,user48@example.com,User 48,Berlin,PREMIUM,2025-03-12
+usr_0049,user49@example.com,User 49,Toronto,STANDARD,2025-02-16
+usr_0050,user50@example.com,User 50,San Francisco,VIP,2025-02-26
+usr_0051,user51@example.com,User 51,Toronto,VIP,2025-03-23
+usr_0052,user52@example.com,User 52,Berlin,STANDARD,2025-08-05
+usr_0053,user53@example.com,User 53,London,VIP,2025-07-17
+usr_0054,user54@example.com,User 54,Berlin,PREMIUM,2025-08-28
+usr_0055,user55@example.com,User 55,Toronto,STANDARD,2025-10-11
+usr_0056,user56@example.com,User 56,Tokyo,STANDARD,2025-12-15
+usr_0057,user57@example.com,User 57,Berlin,PREMIUM,2025-12-16
+usr_0058,user58@example.com,User 58,Austin,STANDARD,2025-11-25
+usr_0059,user59@example.com,User 59,London,STANDARD,2025-05-31
+usr_0060,user60@example.com,User 60,New York,VIP,2025-08-21
+usr_0061,user61@example.com,User 61,Berlin,STANDARD,2025-05-15
+usr_0062,user62@example.com,User 62,New York,VIP,2025-09-17
+usr_0063,user63@example.com,User 63,Toronto,VIP,2025-06-02
+usr_0064,user64@example.com,User 64,Berlin,STANDARD,2025-09-17
+usr_0065,user65@example.com,User 65,Austin,STANDARD,2025-03-20
+usr_0066,user66@example.com,User 66,Toronto,VIP,2025-10-04
+usr_0067,user67@example.com,User 67,Berlin,PREMIUM,2025-01-01
+usr_0068,user68@example.com,User 68,New York,STANDARD,2025-09-08
+usr_0069,user69@example.com,User 69,Toronto,PREMIUM,2025-07-05
+usr_0070,user70@example.com,User 70,New York,STANDARD,2025-05-03
+usr_0071,user71@example.com,User 71,New York,STANDARD,2025-10-18
+usr_0072,user72@example.com,User 72,Toronto,STANDARD,2025-09-06
+usr_0073,user73@example.com,User 73,Toronto,STANDARD,2025-09-30
+usr_0074,user74@example.com,User 74,Tokyo,PREMIUM,2025-03-07
+usr_0075,user75@example.com,User 75,San Francisco,PREMIUM,2025-10-09
+usr_0076,user76@example.com,User 76,Toronto,VIP,2025-09-28
+usr_0077,user77@example.com,User 77,San Francisco,VIP,2025-08-05
+usr_0078,user78@example.com,User 78,San Francisco,VIP,2025-12-20
+usr_0079,user79@example.com,User 79,London,VIP,2025-06-09
+usr_0080,user80@example.com,User 80,Austin,PREMIUM,2025-11-29
+usr_0081,user81@example.com,User 81,London,STANDARD,2025-09-22
+usr_0082,user82@example.com,User 82,San Francisco,STANDARD,2025-05-07
+usr_0083,user83@example.com,User 83,New York,VIP,2025-06-23
+usr_0084,user84@example.com,User 84,San Francisco,VIP,2025-10-11
+usr_0085,user85@example.com,User 85,New York,STANDARD,2025-04-23
+usr_0086,user86@example.com,User 86,Tokyo,STANDARD,2025-12-29
+usr_0087,user87@example.com,User 87,New York,STANDARD,2025-04-28
+usr_0088,user88@example.com,User 88,New York,VIP,2025-06-19
+usr_0089,user89@example.com,User 89,Austin,VIP,2025-05-02
+usr_0090,user90@example.com,User 90,San Francisco,VIP,2025-09-06
+usr_0091,user91@example.com,User 91,Tokyo,VIP,2025-03-09
+usr_0092,user92@example.com,User 92,London,STANDARD,2025-10-23
+usr_0093,user93@example.com,User 93,Toronto,PREMIUM,2025-08-31
+usr_0094,user94@example.com,User 94,New York,STANDARD,2025-04-08
+usr_0095,user95@example.com,User 95,London,PREMIUM,2025-12-04
+usr_0096,user96@example.com,User 96,London,PREMIUM,2025-08-05
+usr_0097,user97@example.com,User 97,Tokyo,VIP,2025-01-28
+usr_0098,user98@example.com,User 98,New York,STANDARD,2025-11-27
+usr_0099,user99@example.com,User 99,Tokyo,PREMIUM,2025-07-26
+usr_0100,user100@example.com,User 100,San Francisco,STANDARD,2025-02-25

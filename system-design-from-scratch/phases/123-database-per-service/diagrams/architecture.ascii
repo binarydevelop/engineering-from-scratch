@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 123 - Database Per Service Pattern
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   All services querying a single shared database.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Orders Service owns PostgreSQL; Analytics owns ClickHouse; Users owns MongoDB.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

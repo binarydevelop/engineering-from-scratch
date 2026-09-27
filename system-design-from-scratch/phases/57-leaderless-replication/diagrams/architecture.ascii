@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 57 - Leaderless Replication
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Strict leader routing failing when leader is partitioned.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Leaderless writes to $W$ replicas with Read Repair and Hinted Handoff.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

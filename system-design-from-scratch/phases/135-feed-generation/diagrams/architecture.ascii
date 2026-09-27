@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 135 - Feed Generation: Push vs Pull
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Pushing post to 50 million follower inboxes on every single tweet.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Hybrid model: Push for regular users (< 10k followers); Pull on-read for celebrities.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

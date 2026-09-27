@@ -1,0 +1,1 @@
+SELECT DISTINCT s.id AS session_id, s.user_id FROM analytics.sessions s JOIN analytics.events e ON s.id = e.session_id WHERE e.event_name = 'view_product' AND NOT EXISTS (SELECT 1 FROM analytics.events e2 WHERE e2.session_id = s.id AND e2.event_name IN ('begin_checkout', 'purchase')) ORDER BY session_id ASC;

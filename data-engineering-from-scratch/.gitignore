@@ -1,0 +1,38 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data & Output Artifacts (Keep sample datasets, ignore large generated runtime files)
+outputs/runs/
+data/runtime/
+data/warehouse/
+data/lakehouse/
+data/parquet_temp/
+data/iceberg_catalog/
+data/spark_warehouse/
+data/postgres_data/
+
+# DuckDB & DB temp files
+*.duckdb
+*.duckdb.wal
+*.db-journal
+*.sqlite-journal

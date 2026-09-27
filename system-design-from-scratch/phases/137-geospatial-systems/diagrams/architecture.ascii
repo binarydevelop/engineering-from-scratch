@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 137 - Geospatial Indexing & Proximity Search
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Calculating bounding box distance with SQL `WHERE lat BETWEEN ... AND lng BETWEEN ...`.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Geohash spatial indexing mapping latitude/longitude to hierarchical alphanumeric strings.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

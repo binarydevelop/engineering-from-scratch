@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 144 - Enterprise Distributed Rate Limiter
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Querying centralized database counter on every incoming request.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Two-tier rate limiter: local token cache + Redis cluster synchronized asynchronously.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

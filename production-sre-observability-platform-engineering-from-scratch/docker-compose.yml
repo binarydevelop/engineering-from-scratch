@@ -1,0 +1,181 @@
+version: '3.8'
+
+networks:
+  sre-lab-net:
+    driver: bridge
+
+services:
+  # ----------------------------------------------------
+  # Application Microservices
+  # ----------------------------------------------------
+  api-gateway:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+    command: ["python3", "-m", "uvicorn", "services.api-gateway.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=lab-local
+      - CHECKOUT_SERVICE_URL=http://checkout-service:8001
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    networks:
+      - sre-lab-net
+    depends_on:
+      - checkout-service
+
+  checkout-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+    command: ["python3", "-m", "uvicorn", "services.checkout-service.main:app", "--host", "0.0.0.0", "--port", "8001"]
+    ports:
+      - "8001:8001"
+    environment:
+      - ENVIRONMENT=lab-local
+      - INVENTORY_SERVICE_URL=http://inventory-service:8002
+      - PAYMENT_SERVICE_URL=http://payment-service:8003
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    networks:
+      - sre-lab-net
+    depends_on:
+      - inventory-service
+      - payment-service
+
+  inventory-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+    command: ["python3", "-m", "uvicorn", "services.inventory-service.main:app", "--host", "0.0.0.0", "--port", "8002"]
+    ports:
+      - "8002:8002"
+    environment:
+      - ENVIRONMENT=lab-local
+      - POSTGRES_HOST=postgres
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    networks:
+      - sre-lab-net
+    depends_on:
+      - postgres
+
+  payment-service:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+    command: ["python3", "-m", "uvicorn", "services.payment-service.main:app", "--host", "0.0.0.0", "--port", "8003"]
+    ports:
+      - "8003:8003"
+    environment:
+      - ENVIRONMENT=lab-local
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    networks:
+      - sre-lab-net
+
+  notification-worker:
+    build:
+      context: .
+      dockerfile: services/Dockerfile
+    command: ["python3", "-m", "uvicorn", "services.notification-worker.main:app", "--host", "0.0.0.0", "--port", "8004"]
+    ports:
+      - "8004:8004"
+    environment:
+      - ENVIRONMENT=lab-local
+      - REDIS_HOST=redis
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+    networks:
+      - sre-lab-net
+    depends_on:
+      - redis
+
+  # ----------------------------------------------------
+  # State Stores & Caches
+  # ----------------------------------------------------
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_DB=production_store
+      - POSTGRES_USER=sre_admin
+      - POSTGRES_PASSWORD=reliable_production_secret_2026
+    ports:
+      - "5432:5432"
+    networks:
+      - sre-lab-net
+
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - sre-lab-net
+
+  # ----------------------------------------------------
+  # OpenTelemetry Collector
+  # ----------------------------------------------------
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.104.0
+    command: ["--config=/etc/otelcol-contrib/config.yaml"]
+    volumes:
+      - ./otel/otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml:ro
+    ports:
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+      - "8889:8889" # Prometheus metrics exporter
+      - "8888:8888" # Internal collector metrics
+    networks:
+      - sre-lab-net
+    depends_on:
+      - tempo
+
+  # ----------------------------------------------------
+  # Observability & Monitoring Backends
+  # ----------------------------------------------------
+  prometheus:
+    image: prom/prometheus:v2.53.0
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
+      - "--web.enable-lifecycle"
+    volumes:
+      - ./alerts/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerts/prometheus-rules.yaml:/etc/prometheus/rules/prometheus-rules.yaml:ro
+    ports:
+      - "9090:9090"
+    networks:
+      - sre-lab-net
+    depends_on:
+      - alertmanager
+
+  alertmanager:
+    image: prom/alertmanager:v0.27.0
+    command:
+      - "--config.file=/etc/alertmanager/config.yml"
+    volumes:
+      - ./alerts/alertmanager-config.yaml:/etc/alertmanager/config.yml:ro
+    ports:
+      - "9093:9093"
+    networks:
+      - sre-lab-net
+
+  tempo:
+    image: grafana/tempo:2.5.0
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./otel/tempo-config.yaml:/etc/tempo.yaml:ro
+    ports:
+      - "3200:3200"
+    networks:
+      - sre-lab-net
+
+  grafana:
+    image: grafana/grafana:11.1.0
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - "3000:3000"
+    networks:
+      - sre-lab-net
+    depends_on:
+      - prometheus
+      - tempo

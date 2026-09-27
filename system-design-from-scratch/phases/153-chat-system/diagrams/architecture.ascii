@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 153 - Design a 1-to-1 Real-Time Chat System
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   HTTP short polling querying database every 2 seconds for new messages.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   WebSocket gateway servers + Redis Pub/Sub routing + Cassandra message history store.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,1 @@
+SELECT (SELECT SUM(total_amount) FROM ecommerce.orders WHERE status = 'completed') AS gross_rev, (SELECT SUM(amount) FROM ecommerce.refunds) AS refunded_rev, ROUND(((SELECT SUM(amount) FROM ecommerce.refunds) / (SELECT SUM(total_amount) FROM ecommerce.orders WHERE status = 'completed')) * 100, 2) AS refund_loss_pct;

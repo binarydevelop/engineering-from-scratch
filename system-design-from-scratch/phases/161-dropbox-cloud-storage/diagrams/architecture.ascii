@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 161 - Design Dropbox / Google Drive
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Uploading entire 1 GB file on every small text edit.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Block chunking + SHA-256 content-addressing + metadata DB + sync protocol notifications.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

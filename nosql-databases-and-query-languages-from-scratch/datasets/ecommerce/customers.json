@@ -1,0 +1,902 @@
+[
+  {
+    "customer_id": "CUST-0001",
+    "email": "customer_1@example.com",
+    "name": "Customer 1",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2026-01-15T00:00:00Z",
+    "lifetime_spend": 1411.4
+  },
+  {
+    "customer_id": "CUST-0002",
+    "email": "customer_2@example.com",
+    "name": "Customer 2",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2026-01-13T00:00:00Z",
+    "lifetime_spend": 557.35
+  },
+  {
+    "customer_id": "CUST-0003",
+    "email": "customer_3@example.com",
+    "name": "Customer 3",
+    "country": "DE",
+    "tier": "VIP",
+    "created_at": "2025-08-05T00:00:00Z",
+    "lifetime_spend": 207.32
+  },
+  {
+    "customer_id": "CUST-0004",
+    "email": "customer_4@example.com",
+    "name": "Customer 4",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-04-30T00:00:00Z",
+    "lifetime_spend": 2551.51
+  },
+  {
+    "customer_id": "CUST-0005",
+    "email": "customer_5@example.com",
+    "name": "Customer 5",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-04-12T00:00:00Z",
+    "lifetime_spend": 3594.3
+  },
+  {
+    "customer_id": "CUST-0006",
+    "email": "customer_6@example.com",
+    "name": "Customer 6",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2025-08-18T00:00:00Z",
+    "lifetime_spend": 2966.87
+  },
+  {
+    "customer_id": "CUST-0007",
+    "email": "customer_7@example.com",
+    "name": "Customer 7",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2025-12-24T00:00:00Z",
+    "lifetime_spend": 2141.94
+  },
+  {
+    "customer_id": "CUST-0008",
+    "email": "customer_8@example.com",
+    "name": "Customer 8",
+    "country": "JP",
+    "tier": "STANDARD",
+    "created_at": "2025-04-21T00:00:00Z",
+    "lifetime_spend": 4788.2
+  },
+  {
+    "customer_id": "CUST-0009",
+    "email": "customer_9@example.com",
+    "name": "Customer 9",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2025-02-17T00:00:00Z",
+    "lifetime_spend": 1930.64
+  },
+  {
+    "customer_id": "CUST-0010",
+    "email": "customer_10@example.com",
+    "name": "Customer 10",
+    "country": "CA",
+    "tier": "PREMIUM",
+    "created_at": "2025-11-06T00:00:00Z",
+    "lifetime_spend": 1359.38
+  },
+  {
+    "customer_id": "CUST-0011",
+    "email": "customer_11@example.com",
+    "name": "Customer 11",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-08-24T00:00:00Z",
+    "lifetime_spend": 2704.33
+  },
+  {
+    "customer_id": "CUST-0012",
+    "email": "customer_12@example.com",
+    "name": "Customer 12",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2025-10-10T00:00:00Z",
+    "lifetime_spend": 1501.23
+  },
+  {
+    "customer_id": "CUST-0013",
+    "email": "customer_13@example.com",
+    "name": "Customer 13",
+    "country": "CA",
+    "tier": "VIP",
+    "created_at": "2025-04-09T00:00:00Z",
+    "lifetime_spend": 3537.63
+  },
+  {
+    "customer_id": "CUST-0014",
+    "email": "customer_14@example.com",
+    "name": "Customer 14",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-04-27T00:00:00Z",
+    "lifetime_spend": 3876.69
+  },
+  {
+    "customer_id": "CUST-0015",
+    "email": "customer_15@example.com",
+    "name": "Customer 15",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2026-03-20T00:00:00Z",
+    "lifetime_spend": 549.96
+  },
+  {
+    "customer_id": "CUST-0016",
+    "email": "customer_16@example.com",
+    "name": "Customer 16",
+    "country": "JP",
+    "tier": "PREMIUM",
+    "created_at": "2025-11-22T00:00:00Z",
+    "lifetime_spend": 4178.85
+  },
+  {
+    "customer_id": "CUST-0017",
+    "email": "customer_17@example.com",
+    "name": "Customer 17",
+    "country": "IN",
+    "tier": "PREMIUM",
+    "created_at": "2025-07-01T00:00:00Z",
+    "lifetime_spend": 1087.06
+  },
+  {
+    "customer_id": "CUST-0018",
+    "email": "customer_18@example.com",
+    "name": "Customer 18",
+    "country": "JP",
+    "tier": "VIP",
+    "created_at": "2026-04-25T00:00:00Z",
+    "lifetime_spend": 3433.56
+  },
+  {
+    "customer_id": "CUST-0019",
+    "email": "customer_19@example.com",
+    "name": "Customer 19",
+    "country": "DE",
+    "tier": "VIP",
+    "created_at": "2025-11-22T00:00:00Z",
+    "lifetime_spend": 897.14
+  },
+  {
+    "customer_id": "CUST-0020",
+    "email": "customer_20@example.com",
+    "name": "Customer 20",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2025-08-25T00:00:00Z",
+    "lifetime_spend": 1928.3
+  },
+  {
+    "customer_id": "CUST-0021",
+    "email": "customer_21@example.com",
+    "name": "Customer 21",
+    "country": "GB",
+    "tier": "VIP",
+    "created_at": "2025-06-16T00:00:00Z",
+    "lifetime_spend": 4222.12
+  },
+  {
+    "customer_id": "CUST-0022",
+    "email": "customer_22@example.com",
+    "name": "Customer 22",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2026-02-25T00:00:00Z",
+    "lifetime_spend": 208.9
+  },
+  {
+    "customer_id": "CUST-0023",
+    "email": "customer_23@example.com",
+    "name": "Customer 23",
+    "country": "CA",
+    "tier": "PREMIUM",
+    "created_at": "2025-05-18T00:00:00Z",
+    "lifetime_spend": 377.63
+  },
+  {
+    "customer_id": "CUST-0024",
+    "email": "customer_24@example.com",
+    "name": "Customer 24",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2025-12-02T00:00:00Z",
+    "lifetime_spend": 2521.19
+  },
+  {
+    "customer_id": "CUST-0025",
+    "email": "customer_25@example.com",
+    "name": "Customer 25",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2025-05-16T00:00:00Z",
+    "lifetime_spend": 741.17
+  },
+  {
+    "customer_id": "CUST-0026",
+    "email": "customer_26@example.com",
+    "name": "Customer 26",
+    "country": "JP",
+    "tier": "VIP",
+    "created_at": "2025-10-27T00:00:00Z",
+    "lifetime_spend": 2170.75
+  },
+  {
+    "customer_id": "CUST-0027",
+    "email": "customer_27@example.com",
+    "name": "Customer 27",
+    "country": "FR",
+    "tier": "PREMIUM",
+    "created_at": "2025-04-23T00:00:00Z",
+    "lifetime_spend": 4986.76
+  },
+  {
+    "customer_id": "CUST-0028",
+    "email": "customer_28@example.com",
+    "name": "Customer 28",
+    "country": "IN",
+    "tier": "VIP",
+    "created_at": "2025-09-10T00:00:00Z",
+    "lifetime_spend": 500.0
+  },
+  {
+    "customer_id": "CUST-0029",
+    "email": "customer_29@example.com",
+    "name": "Customer 29",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2025-03-20T00:00:00Z",
+    "lifetime_spend": 3155.86
+  },
+  {
+    "customer_id": "CUST-0030",
+    "email": "customer_30@example.com",
+    "name": "Customer 30",
+    "country": "FR",
+    "tier": "VIP",
+    "created_at": "2025-02-02T00:00:00Z",
+    "lifetime_spend": 1954.6
+  },
+  {
+    "customer_id": "CUST-0031",
+    "email": "customer_31@example.com",
+    "name": "Customer 31",
+    "country": "AU",
+    "tier": "VIP",
+    "created_at": "2025-05-09T00:00:00Z",
+    "lifetime_spend": 4856.84
+  },
+  {
+    "customer_id": "CUST-0032",
+    "email": "customer_32@example.com",
+    "name": "Customer 32",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2026-01-05T00:00:00Z",
+    "lifetime_spend": 617.03
+  },
+  {
+    "customer_id": "CUST-0033",
+    "email": "customer_33@example.com",
+    "name": "Customer 33",
+    "country": "JP",
+    "tier": "VIP",
+    "created_at": "2025-06-24T00:00:00Z",
+    "lifetime_spend": 602.18
+  },
+  {
+    "customer_id": "CUST-0034",
+    "email": "customer_34@example.com",
+    "name": "Customer 34",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2025-08-21T00:00:00Z",
+    "lifetime_spend": 66.06
+  },
+  {
+    "customer_id": "CUST-0035",
+    "email": "customer_35@example.com",
+    "name": "Customer 35",
+    "country": "JP",
+    "tier": "VIP",
+    "created_at": "2026-01-26T00:00:00Z",
+    "lifetime_spend": 934.33
+  },
+  {
+    "customer_id": "CUST-0036",
+    "email": "customer_36@example.com",
+    "name": "Customer 36",
+    "country": "DE",
+    "tier": "VIP",
+    "created_at": "2025-06-02T00:00:00Z",
+    "lifetime_spend": 4216.26
+  },
+  {
+    "customer_id": "CUST-0037",
+    "email": "customer_37@example.com",
+    "name": "Customer 37",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2025-07-11T00:00:00Z",
+    "lifetime_spend": 3824.43
+  },
+  {
+    "customer_id": "CUST-0038",
+    "email": "customer_38@example.com",
+    "name": "Customer 38",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-06-15T00:00:00Z",
+    "lifetime_spend": 2468.6
+  },
+  {
+    "customer_id": "CUST-0039",
+    "email": "customer_39@example.com",
+    "name": "Customer 39",
+    "country": "DE",
+    "tier": "PREMIUM",
+    "created_at": "2026-03-26T00:00:00Z",
+    "lifetime_spend": 4927.34
+  },
+  {
+    "customer_id": "CUST-0040",
+    "email": "customer_40@example.com",
+    "name": "Customer 40",
+    "country": "JP",
+    "tier": "STANDARD",
+    "created_at": "2025-01-30T00:00:00Z",
+    "lifetime_spend": 1242.31
+  },
+  {
+    "customer_id": "CUST-0041",
+    "email": "customer_41@example.com",
+    "name": "Customer 41",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2026-01-10T00:00:00Z",
+    "lifetime_spend": 2455.65
+  },
+  {
+    "customer_id": "CUST-0042",
+    "email": "customer_42@example.com",
+    "name": "Customer 42",
+    "country": "DE",
+    "tier": "VIP",
+    "created_at": "2026-01-28T00:00:00Z",
+    "lifetime_spend": 672.51
+  },
+  {
+    "customer_id": "CUST-0043",
+    "email": "customer_43@example.com",
+    "name": "Customer 43",
+    "country": "AU",
+    "tier": "VIP",
+    "created_at": "2025-03-26T00:00:00Z",
+    "lifetime_spend": 1362.03
+  },
+  {
+    "customer_id": "CUST-0044",
+    "email": "customer_44@example.com",
+    "name": "Customer 44",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2026-04-21T00:00:00Z",
+    "lifetime_spend": 2719.52
+  },
+  {
+    "customer_id": "CUST-0045",
+    "email": "customer_45@example.com",
+    "name": "Customer 45",
+    "country": "GB",
+    "tier": "VIP",
+    "created_at": "2025-06-09T00:00:00Z",
+    "lifetime_spend": 2025.01
+  },
+  {
+    "customer_id": "CUST-0046",
+    "email": "customer_46@example.com",
+    "name": "Customer 46",
+    "country": "CA",
+    "tier": "PREMIUM",
+    "created_at": "2026-04-06T00:00:00Z",
+    "lifetime_spend": 2612.0
+  },
+  {
+    "customer_id": "CUST-0047",
+    "email": "customer_47@example.com",
+    "name": "Customer 47",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-04-26T00:00:00Z",
+    "lifetime_spend": 366.93
+  },
+  {
+    "customer_id": "CUST-0048",
+    "email": "customer_48@example.com",
+    "name": "Customer 48",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-10-11T00:00:00Z",
+    "lifetime_spend": 1189.07
+  },
+  {
+    "customer_id": "CUST-0049",
+    "email": "customer_49@example.com",
+    "name": "Customer 49",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2025-02-06T00:00:00Z",
+    "lifetime_spend": 3553.81
+  },
+  {
+    "customer_id": "CUST-0050",
+    "email": "customer_50@example.com",
+    "name": "Customer 50",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2025-02-04T00:00:00Z",
+    "lifetime_spend": 4531.83
+  },
+  {
+    "customer_id": "CUST-0051",
+    "email": "customer_51@example.com",
+    "name": "Customer 51",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2025-09-21T00:00:00Z",
+    "lifetime_spend": 1228.12
+  },
+  {
+    "customer_id": "CUST-0052",
+    "email": "customer_52@example.com",
+    "name": "Customer 52",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2025-10-04T00:00:00Z",
+    "lifetime_spend": 704.94
+  },
+  {
+    "customer_id": "CUST-0053",
+    "email": "customer_53@example.com",
+    "name": "Customer 53",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2026-02-06T00:00:00Z",
+    "lifetime_spend": 2391.22
+  },
+  {
+    "customer_id": "CUST-0054",
+    "email": "customer_54@example.com",
+    "name": "Customer 54",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2025-02-18T00:00:00Z",
+    "lifetime_spend": 529.81
+  },
+  {
+    "customer_id": "CUST-0055",
+    "email": "customer_55@example.com",
+    "name": "Customer 55",
+    "country": "FR",
+    "tier": "PREMIUM",
+    "created_at": "2025-08-05T00:00:00Z",
+    "lifetime_spend": 2084.96
+  },
+  {
+    "customer_id": "CUST-0056",
+    "email": "customer_56@example.com",
+    "name": "Customer 56",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2025-12-01T00:00:00Z",
+    "lifetime_spend": 4921.62
+  },
+  {
+    "customer_id": "CUST-0057",
+    "email": "customer_57@example.com",
+    "name": "Customer 57",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-07-26T00:00:00Z",
+    "lifetime_spend": 3654.66
+  },
+  {
+    "customer_id": "CUST-0058",
+    "email": "customer_58@example.com",
+    "name": "Customer 58",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-04-09T00:00:00Z",
+    "lifetime_spend": 991.53
+  },
+  {
+    "customer_id": "CUST-0059",
+    "email": "customer_59@example.com",
+    "name": "Customer 59",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2025-08-05T00:00:00Z",
+    "lifetime_spend": 958.27
+  },
+  {
+    "customer_id": "CUST-0060",
+    "email": "customer_60@example.com",
+    "name": "Customer 60",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2026-03-24T00:00:00Z",
+    "lifetime_spend": 4620.16
+  },
+  {
+    "customer_id": "CUST-0061",
+    "email": "customer_61@example.com",
+    "name": "Customer 61",
+    "country": "AU",
+    "tier": "VIP",
+    "created_at": "2025-02-20T00:00:00Z",
+    "lifetime_spend": 300.41
+  },
+  {
+    "customer_id": "CUST-0062",
+    "email": "customer_62@example.com",
+    "name": "Customer 62",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2026-04-20T00:00:00Z",
+    "lifetime_spend": 3780.15
+  },
+  {
+    "customer_id": "CUST-0063",
+    "email": "customer_63@example.com",
+    "name": "Customer 63",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2025-07-28T00:00:00Z",
+    "lifetime_spend": 2453.92
+  },
+  {
+    "customer_id": "CUST-0064",
+    "email": "customer_64@example.com",
+    "name": "Customer 64",
+    "country": "GB",
+    "tier": "PREMIUM",
+    "created_at": "2026-04-08T00:00:00Z",
+    "lifetime_spend": 340.25
+  },
+  {
+    "customer_id": "CUST-0065",
+    "email": "customer_65@example.com",
+    "name": "Customer 65",
+    "country": "FR",
+    "tier": "STANDARD",
+    "created_at": "2025-07-19T00:00:00Z",
+    "lifetime_spend": 1362.76
+  },
+  {
+    "customer_id": "CUST-0066",
+    "email": "customer_66@example.com",
+    "name": "Customer 66",
+    "country": "AU",
+    "tier": "PREMIUM",
+    "created_at": "2025-08-05T00:00:00Z",
+    "lifetime_spend": 3498.13
+  },
+  {
+    "customer_id": "CUST-0067",
+    "email": "customer_67@example.com",
+    "name": "Customer 67",
+    "country": "AU",
+    "tier": "STANDARD",
+    "created_at": "2025-04-08T00:00:00Z",
+    "lifetime_spend": 1518.7
+  },
+  {
+    "customer_id": "CUST-0068",
+    "email": "customer_68@example.com",
+    "name": "Customer 68",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2026-01-12T00:00:00Z",
+    "lifetime_spend": 2733.87
+  },
+  {
+    "customer_id": "CUST-0069",
+    "email": "customer_69@example.com",
+    "name": "Customer 69",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2025-01-26T00:00:00Z",
+    "lifetime_spend": 2941.68
+  },
+  {
+    "customer_id": "CUST-0070",
+    "email": "customer_70@example.com",
+    "name": "Customer 70",
+    "country": "IN",
+    "tier": "STANDARD",
+    "created_at": "2026-05-07T00:00:00Z",
+    "lifetime_spend": 2563.75
+  },
+  {
+    "customer_id": "CUST-0071",
+    "email": "customer_71@example.com",
+    "name": "Customer 71",
+    "country": "IN",
+    "tier": "STANDARD",
+    "created_at": "2025-11-01T00:00:00Z",
+    "lifetime_spend": 386.41
+  },
+  {
+    "customer_id": "CUST-0072",
+    "email": "customer_72@example.com",
+    "name": "Customer 72",
+    "country": "GB",
+    "tier": "PREMIUM",
+    "created_at": "2025-03-03T00:00:00Z",
+    "lifetime_spend": 4710.9
+  },
+  {
+    "customer_id": "CUST-0073",
+    "email": "customer_73@example.com",
+    "name": "Customer 73",
+    "country": "GB",
+    "tier": "VIP",
+    "created_at": "2025-11-01T00:00:00Z",
+    "lifetime_spend": 246.72
+  },
+  {
+    "customer_id": "CUST-0074",
+    "email": "customer_74@example.com",
+    "name": "Customer 74",
+    "country": "DE",
+    "tier": "PREMIUM",
+    "created_at": "2025-12-03T00:00:00Z",
+    "lifetime_spend": 2939.18
+  },
+  {
+    "customer_id": "CUST-0075",
+    "email": "customer_75@example.com",
+    "name": "Customer 75",
+    "country": "CA",
+    "tier": "PREMIUM",
+    "created_at": "2025-04-15T00:00:00Z",
+    "lifetime_spend": 3365.14
+  },
+  {
+    "customer_id": "CUST-0076",
+    "email": "customer_76@example.com",
+    "name": "Customer 76",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2025-05-16T00:00:00Z",
+    "lifetime_spend": 2009.14
+  },
+  {
+    "customer_id": "CUST-0077",
+    "email": "customer_77@example.com",
+    "name": "Customer 77",
+    "country": "JP",
+    "tier": "PREMIUM",
+    "created_at": "2025-06-11T00:00:00Z",
+    "lifetime_spend": 4648.64
+  },
+  {
+    "customer_id": "CUST-0078",
+    "email": "customer_78@example.com",
+    "name": "Customer 78",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-08-23T00:00:00Z",
+    "lifetime_spend": 3124.74
+  },
+  {
+    "customer_id": "CUST-0079",
+    "email": "customer_79@example.com",
+    "name": "Customer 79",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-10-03T00:00:00Z",
+    "lifetime_spend": 1105.11
+  },
+  {
+    "customer_id": "CUST-0080",
+    "email": "customer_80@example.com",
+    "name": "Customer 80",
+    "country": "JP",
+    "tier": "STANDARD",
+    "created_at": "2026-04-23T00:00:00Z",
+    "lifetime_spend": 1777.59
+  },
+  {
+    "customer_id": "CUST-0081",
+    "email": "customer_81@example.com",
+    "name": "Customer 81",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-07-09T00:00:00Z",
+    "lifetime_spend": 1460.69
+  },
+  {
+    "customer_id": "CUST-0082",
+    "email": "customer_82@example.com",
+    "name": "Customer 82",
+    "country": "AU",
+    "tier": "VIP",
+    "created_at": "2025-12-27T00:00:00Z",
+    "lifetime_spend": 1547.46
+  },
+  {
+    "customer_id": "CUST-0083",
+    "email": "customer_83@example.com",
+    "name": "Customer 83",
+    "country": "US",
+    "tier": "VIP",
+    "created_at": "2026-02-23T00:00:00Z",
+    "lifetime_spend": 2795.28
+  },
+  {
+    "customer_id": "CUST-0084",
+    "email": "customer_84@example.com",
+    "name": "Customer 84",
+    "country": "DE",
+    "tier": "STANDARD",
+    "created_at": "2025-05-16T00:00:00Z",
+    "lifetime_spend": 621.37
+  },
+  {
+    "customer_id": "CUST-0085",
+    "email": "customer_85@example.com",
+    "name": "Customer 85",
+    "country": "DE",
+    "tier": "VIP",
+    "created_at": "2025-10-11T00:00:00Z",
+    "lifetime_spend": 819.47
+  },
+  {
+    "customer_id": "CUST-0086",
+    "email": "customer_86@example.com",
+    "name": "Customer 86",
+    "country": "JP",
+    "tier": "VIP",
+    "created_at": "2025-04-18T00:00:00Z",
+    "lifetime_spend": 3602.18
+  },
+  {
+    "customer_id": "CUST-0087",
+    "email": "customer_87@example.com",
+    "name": "Customer 87",
+    "country": "GB",
+    "tier": "VIP",
+    "created_at": "2025-11-21T00:00:00Z",
+    "lifetime_spend": 4271.92
+  },
+  {
+    "customer_id": "CUST-0088",
+    "email": "customer_88@example.com",
+    "name": "Customer 88",
+    "country": "AU",
+    "tier": "PREMIUM",
+    "created_at": "2026-04-09T00:00:00Z",
+    "lifetime_spend": 4545.39
+  },
+  {
+    "customer_id": "CUST-0089",
+    "email": "customer_89@example.com",
+    "name": "Customer 89",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2025-11-21T00:00:00Z",
+    "lifetime_spend": 2146.7
+  },
+  {
+    "customer_id": "CUST-0090",
+    "email": "customer_90@example.com",
+    "name": "Customer 90",
+    "country": "JP",
+    "tier": "STANDARD",
+    "created_at": "2025-01-02T00:00:00Z",
+    "lifetime_spend": 1701.1
+  },
+  {
+    "customer_id": "CUST-0091",
+    "email": "customer_91@example.com",
+    "name": "Customer 91",
+    "country": "IN",
+    "tier": "VIP",
+    "created_at": "2025-05-15T00:00:00Z",
+    "lifetime_spend": 849.83
+  },
+  {
+    "customer_id": "CUST-0092",
+    "email": "customer_92@example.com",
+    "name": "Customer 92",
+    "country": "AU",
+    "tier": "VIP",
+    "created_at": "2025-12-28T00:00:00Z",
+    "lifetime_spend": 2167.05
+  },
+  {
+    "customer_id": "CUST-0093",
+    "email": "customer_93@example.com",
+    "name": "Customer 93",
+    "country": "US",
+    "tier": "STANDARD",
+    "created_at": "2025-02-08T00:00:00Z",
+    "lifetime_spend": 4728.0
+  },
+  {
+    "customer_id": "CUST-0094",
+    "email": "customer_94@example.com",
+    "name": "Customer 94",
+    "country": "IN",
+    "tier": "VIP",
+    "created_at": "2025-01-19T00:00:00Z",
+    "lifetime_spend": 4181.25
+  },
+  {
+    "customer_id": "CUST-0095",
+    "email": "customer_95@example.com",
+    "name": "Customer 95",
+    "country": "IN",
+    "tier": "PREMIUM",
+    "created_at": "2025-03-07T00:00:00Z",
+    "lifetime_spend": 257.05
+  },
+  {
+    "customer_id": "CUST-0096",
+    "email": "customer_96@example.com",
+    "name": "Customer 96",
+    "country": "CA",
+    "tier": "STANDARD",
+    "created_at": "2026-04-06T00:00:00Z",
+    "lifetime_spend": 1821.16
+  },
+  {
+    "customer_id": "CUST-0097",
+    "email": "customer_97@example.com",
+    "name": "Customer 97",
+    "country": "GB",
+    "tier": "VIP",
+    "created_at": "2025-02-22T00:00:00Z",
+    "lifetime_spend": 1800.71
+  },
+  {
+    "customer_id": "CUST-0098",
+    "email": "customer_98@example.com",
+    "name": "Customer 98",
+    "country": "FR",
+    "tier": "VIP",
+    "created_at": "2026-01-19T00:00:00Z",
+    "lifetime_spend": 815.04
+  },
+  {
+    "customer_id": "CUST-0099",
+    "email": "customer_99@example.com",
+    "name": "Customer 99",
+    "country": "GB",
+    "tier": "STANDARD",
+    "created_at": "2026-05-15T00:00:00Z",
+    "lifetime_spend": 4009.44
+  },
+  {
+    "customer_id": "CUST-0100",
+    "email": "customer_100@example.com",
+    "name": "Customer 100",
+    "country": "IN",
+    "tier": "PREMIUM",
+    "created_at": "2025-01-13T00:00:00Z",
+    "lifetime_spend": 937.84
+  }
+]

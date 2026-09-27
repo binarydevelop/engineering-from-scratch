@@ -1,0 +1,27 @@
+{
+  "tableName": "web_events_REALTIME",
+  "tableType": "REALTIME",
+  "segmentsConfig": {
+    "timeColumnName": "event_time",
+    "timeType": "MILLISECONDS",
+    "retentionTimeUnit": "DAYS",
+    "retentionTimeValue": "30",
+    "segmentPushType": "APPEND",
+    "segmentAssignmentStrategy": "BalanceNumSegmentAssignmentStrategy"
+  },
+  "tableIndexConfig": {
+    "loadMode": "MMAP",
+    "bloomFilterColumns": ["user_id", "session_id"],
+    "invertedIndexColumns": ["page_url", "event_type", "browser"],
+    "starTreeIndexConfigs": [
+      {
+        "dimensionsSplitOrder": ["page_url", "browser"],
+        "skipStarNodeCreationForDimensions": [],
+        "functionColumnPairs": ["COUNT__*", "SUM__duration_ms"],
+        "maxLeafRecords": 10000
+      }
+    ]
+  },
+  "tenants": {},
+  "metadata": {}
+}

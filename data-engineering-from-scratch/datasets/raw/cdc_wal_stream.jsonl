@@ -1,0 +1,4 @@
+{"lsn": 1001, "timestamp": "2026-09-01T10:00:00Z", "table": "orders", "op": "INSERT", "before": null, "after": {"order_id": "ord_90001", "user_id": "usr_0010", "status": "PENDING", "amount": 120.5}}
+{"lsn": 1002, "timestamp": "2026-09-01T10:02:15Z", "table": "orders", "op": "UPDATE", "before": {"order_id": "ord_90001", "user_id": "usr_0010", "status": "PENDING", "amount": 120.5}, "after": {"order_id": "ord_90001", "user_id": "usr_0010", "status": "COMPLETED", "amount": 120.5}}
+{"lsn": 1003, "timestamp": "2026-09-01T10:05:00Z", "table": "orders", "op": "INSERT", "before": null, "after": {"order_id": "ord_90002", "user_id": "usr_0045", "status": "PENDING", "amount": 55.0}}
+{"lsn": 1004, "timestamp": "2026-09-01T10:10:30Z", "table": "orders", "op": "DELETE", "before": {"order_id": "ord_90002", "user_id": "usr_0045", "status": "PENDING", "amount": 55.0}, "after": null}

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 114 - Heartbeats & Lease Expirations
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Fixed 1-second lease with 1-second heartbeat interval.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Lease timeout set to $3	imes$ heartbeat interval with jitter.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

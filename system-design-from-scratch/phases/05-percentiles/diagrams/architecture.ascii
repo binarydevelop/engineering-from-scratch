@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 05 - Percentiles and Tail Latency
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Track mean request duration.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Implement histogram tracking for p50, p95, and p99 latency.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

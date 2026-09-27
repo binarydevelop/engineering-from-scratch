@@ -1,0 +1,57 @@
+apiVersion: platform.internal/v1
+kind: SoftwareCatalog
+services:
+  - name: api-gateway
+    team: platform-edge
+    tier: tier-1
+    repo: "https://github.com/internal/api-gateway"
+    language: python
+    port: 8000
+    dependencies:
+      - checkout-service
+    slo_ref: "slo-labs/checkout_slo.yaml"
+    runbook: "https://runbooks.internal/services/api-gateway"
+
+  - name: checkout-service
+    team: checkout-core
+    tier: tier-1
+    repo: "https://github.com/internal/checkout-service"
+    language: python
+    port: 8001
+    dependencies:
+      - inventory-service
+      - payment-service
+    slo_ref: "slo-labs/checkout_slo.yaml"
+    runbook: "https://runbooks.internal/services/checkout"
+
+  - name: inventory-service
+    team: warehouse-ops
+    tier: tier-1
+    repo: "https://github.com/internal/inventory-service"
+    language: python
+    port: 8002
+    dependencies:
+      - postgres
+    slo_ref: "slo-labs/checkout_slo.yaml"
+    runbook: "https://runbooks.internal/services/inventory"
+
+  - name: payment-service
+    team: payments-billing
+    tier: tier-1
+    repo: "https://github.com/internal/payment-service"
+    language: python
+    port: 8003
+    dependencies:
+      - stripe-card-network
+    slo_ref: "slo-labs/checkout_slo.yaml"
+    runbook: "https://runbooks.internal/services/payment"
+
+  - name: notification-worker
+    team: customer-comms
+    tier: tier-2
+    repo: "https://github.com/internal/notification-worker"
+    language: python
+    port: 8004
+    dependencies:
+      - redis
+    runbook: "https://runbooks.internal/services/notifications"

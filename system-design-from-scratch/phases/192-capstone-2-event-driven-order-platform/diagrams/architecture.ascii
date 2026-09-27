@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 192 - Capstone 2: Event-Driven Order Platform
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Direct HTTP calls from order handler to payment, inventory, and notification services.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Orders API + SQLite WAL transaction + Outbox poller + Worker queue dispatch.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

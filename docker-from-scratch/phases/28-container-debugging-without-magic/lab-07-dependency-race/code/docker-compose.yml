@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: lab07-broken-db
+    environment:
+      POSTGRES_PASSWORD: secret
+
+  app:
+    image: python:3.11-slim
+    container_name: lab07-broken-app
+    volumes:
+      - ./app.py:/app.py
+    command: python /app.py
+    depends_on:
+      - db

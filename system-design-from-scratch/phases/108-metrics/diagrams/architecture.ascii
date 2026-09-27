@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 108 - Metrics: Counters, Gauges, & Histograms
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Logging every request to text file and parsing with regex.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Prometheus metric types: Counters (total requests), Gauges (active connections), Histograms (latency).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

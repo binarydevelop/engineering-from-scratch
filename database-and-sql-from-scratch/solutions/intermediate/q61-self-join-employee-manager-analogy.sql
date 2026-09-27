@@ -1,0 +1,1 @@
+SELECT c.name AS category_name, p.name AS parent_name, gp.name AS grandparent_name FROM ecommerce.categories c LEFT JOIN ecommerce.categories p ON c.parent_id = p.id LEFT JOIN ecommerce.categories gp ON p.parent_id = gp.id ORDER BY category_name ASC;

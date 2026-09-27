@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 86 - Retry Amplification
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Every microservice retries failed downstream calls 3 times.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Retry budgets: limit retries to maximum 10% of total traffic; retry only at edge gateway.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

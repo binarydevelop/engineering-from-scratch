@@ -1,0 +1,33 @@
+name: dfs-trace-project
+
+services:
+  database:
+    image: postgres:${PG_TAG:-16-alpine}
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS:-secret}
+    volumes:
+      - pg-storage:/var/lib/postgresql/data
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 1s
+      retries: 3
+
+  api:
+    image: alpine:latest
+    command: ["sleep", "60"]
+    ports:
+      - "${API_PORT:-8090}:80"
+    networks:
+      - backend
+    depends_on:
+      database:
+        condition: service_healthy
+
+volumes:
+  pg-storage:
+
+networks:
+  backend:

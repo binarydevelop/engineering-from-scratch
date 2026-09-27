@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 81 - Distributed Rate Limiting
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Local in-memory rate limiting counters on each app server.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Centralized Redis sliding window counter evaluated via atomic Lua scripts.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

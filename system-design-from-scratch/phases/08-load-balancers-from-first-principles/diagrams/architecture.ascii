@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 08 - Load Balancers From First Principles
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Client connecting directly to server IP.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Reverse proxy with passive and active health checks.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

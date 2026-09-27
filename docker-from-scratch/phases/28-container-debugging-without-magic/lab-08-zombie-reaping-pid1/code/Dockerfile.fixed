@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+COPY worker.py /worker.py
+# Exec form allows python to receive signals directly, or use with --init
+ENTRYPOINT ["python", "-u", "/worker.py"]

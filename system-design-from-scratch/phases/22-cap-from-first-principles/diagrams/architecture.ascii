@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 22 - CAP Theorem From First Principles
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Two nodes accepting writes without cross-network communication.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Choose CP (reject writes on minority partition) or AP (accept writes with divergence).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

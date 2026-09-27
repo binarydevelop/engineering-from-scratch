@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 117 - Critical Path Latency Optimization
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Sequentially invoking 6 microservices on the synchronous checkout path.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Parallelizing independent RPC calls and moving non-critical operations to async queues.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

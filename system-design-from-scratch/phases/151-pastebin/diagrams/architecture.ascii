@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 151 - Design Pastebin
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Storing multi-megabyte code pastes as text fields in relational database tables.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Relational metadata DB + S3 object store for text bytes + Redis cache for hot pastes.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

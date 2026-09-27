@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 51 - Shard Key Selection
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Sharding by `country_code` where 80% of users reside in one country.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Compound shard key (`tenant_id + user_id`) guaranteeing uniform distribution.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,3 @@
+FROM alpine:latest
+# FIXED: Using installed shell/echo command
+CMD ["/bin/sh", "-c", "echo 'Container successfully executed and stayed clean!'"]

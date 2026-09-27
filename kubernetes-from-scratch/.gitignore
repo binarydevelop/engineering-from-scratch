@@ -1,0 +1,60 @@
+# Git Ignore for kubernetes-from-scratch
+
+# Local cluster configs and tokens
+*.kubeconfig
+kubeconfig.yaml
+.kube/
+*.token
+*.pem
+*.key
+*.crt
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Evidence scratches
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+scratch/
+outputs/evidence-*.md
+!outputs/evidence-template.md
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

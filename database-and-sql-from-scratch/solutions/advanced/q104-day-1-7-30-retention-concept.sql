@@ -1,0 +1,1 @@
+SELECT uc.first_seen_at::DATE AS first_seen_date, COUNT(DISTINCT uc.user_id) AS total_users, COUNT(DISTINCT e.user_id) AS retained_7d FROM analytics.user_cohorts uc LEFT JOIN analytics.events e ON uc.user_id = e.user_id AND e.event_timestamp > uc.first_seen_at AND e.event_timestamp <= uc.first_seen_at + INTERVAL '7 days' GROUP BY 1 ORDER BY first_seen_date ASC;

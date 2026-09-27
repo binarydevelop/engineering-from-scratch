@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 122 - The Shared Database Anti-Pattern
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   5 microservices sharing a single monolithic MySQL database schema.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Database-Per-Service: each service owns its private datastore; communication via API/events.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

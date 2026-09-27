@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 164 - Design Uber / Lyft Ride-Sharing Engine
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Calculating distance to all global drivers in relational database on every match request.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Location update service (Redis Geospatial) + Geohash dispatch engine + trip state machine.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

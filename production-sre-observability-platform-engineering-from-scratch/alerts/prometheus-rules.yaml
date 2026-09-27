@@ -1,0 +1,124 @@
+groups:
+  - name: production_service_symptoms
+    rules:
+      # Paging symptom alert: High Error Rate on Checkout
+      - alert: CheckoutHighErrorRate
+        expr: |
+          (
+            sum(rate(http_requests_total{service="checkout-service", status=~"5.."}[2m]))
+            /
+            sum(rate(http_requests_total{service="checkout-service"}[2m]))
+          ) > 0.05
+        for: 1m
+        labels:
+          severity: critical
+          tier: tier-1
+          service: checkout-service
+        annotations:
+          summary: "Checkout API error rate exceeded 5% for > 1 minute"
+          description: "Currently {{ $value | humanizePercentage }} of checkout requests are failing with HTTP 5xx."
+          user_impact: "Customers are unable to complete purchases. Direct revenue impact."
+          action: "Check recent deployments to checkout-service and payment-service. Verify database connection pool."
+          runbook_url: "https://runbooks.internal/services/checkout/high-error-rate"
+
+      # Paging symptom alert: High p99 Latency on Checkout
+      - alert: CheckoutHighTailLatency
+        expr: |
+          histogram_quantile(
+            0.99,
+            sum(rate(http_request_duration_seconds_bucket{service="checkout-service", route="/checkout"}[2m])) by (le)
+          ) > 0.500
+        for: 2m
+        labels:
+          severity: warning
+          tier: tier-1
+          service: checkout-service
+        annotations:
+          summary: "Checkout p99 latency exceeded 500ms for > 2 minutes"
+          description: "Current p99 latency is {{ $value | humanizeDuration }}."
+          user_impact: "Shopping cart checkout is hanging or timing out for customers."
+          runbook_url: "https://runbooks.internal/services/checkout/high-latency"
+
+  - name: multi_window_multi_burn_rate_slo
+    rules:
+      # Critical Page: 14.4x Burn Rate (2% of monthly budget consumed in 1 hour)
+      - alert: CheckoutSLOCriticalBurnRate1h
+        expr: |
+          (
+            sum(rate(http_requests_total{service="checkout-service", status=~"5.."}[1h]))
+            /
+            sum(rate(http_requests_total{service="checkout-service"}[1h]))
+          ) > (14.4 * 0.001)
+          and
+          (
+            sum(rate(http_requests_total{service="checkout-service", status=~"5.."}[5m]))
+            /
+            sum(rate(http_requests_total{service="checkout-service"}[5m]))
+          ) > (14.4 * 0.001)
+        labels:
+          severity: critical
+          type: slo_burn_rate
+          window: 1h_5m
+          burn_rate: "14.4x"
+          service: checkout-service
+        annotations:
+          summary: "CRITICAL: Checkout error budget exhausting rapidly (14.4x burn rate)"
+          description: "The service will completely exhaust its 30-day error budget in under 48 hours if sustained."
+          action: "Page on-call engineer immediately. Triage downstream dependencies and recent releases."
+          runbook_url: "https://runbooks.internal/sre/slo-burn-rate"
+
+      # Warning Page: 6x Burn Rate (5% of monthly budget consumed in 6 hours)
+      - alert: CheckoutSLOWarningBurnRate6h
+        expr: |
+          (
+            sum(rate(http_requests_total{service="checkout-service", status=~"5.."}[6h]))
+            /
+            sum(rate(http_requests_total{service="checkout-service"}[6h]))
+          ) > (6.0 * 0.001)
+          and
+          (
+            sum(rate(http_requests_total{service="checkout-service", status=~"5.."}[30m]))
+            /
+            sum(rate(http_requests_total{service="checkout-service"}[30m]))
+          ) > (6.0 * 0.001)
+        labels:
+          severity: warning
+          type: slo_burn_rate
+          window: 6h_30m
+          burn_rate: "6.0x"
+          service: checkout-service
+        annotations:
+          summary: "WARNING: Checkout error budget burning at 6x rate"
+          description: "5% of monthly error budget consumed over the last 6 hours."
+          runbook_url: "https://runbooks.internal/sre/slo-burn-rate"
+
+  - name: resource_saturation_and_causes
+    rules:
+      # Saturation Warning: DB Connection Pool Saturated
+      - alert: DatabaseConnectionPoolNearExhaustion
+        expr: |
+          (
+            db_pool_active_connections{database="production_store"}
+            /
+            db_pool_max_connections{database="production_store"}
+          ) > 0.85
+        for: 1m
+        labels:
+          severity: warning
+          component: postgresql
+        annotations:
+          summary: "PostgreSQL connection pool is > 85% saturated"
+          description: "Active connections: {{ $value | humanizePercentage }} of maximum capacity."
+          action: "Check for unindexed queries, long-running locks, or idle connections."
+
+      # Queue Worker Lagging
+      - alert: NotificationWorkerLagElevated
+        expr: worker_processing_lag_seconds{queue_name="order_notifications"} > 30
+        for: 2m
+        labels:
+          severity: warning
+          component: worker
+        annotations:
+          summary: "Order notification worker lag is > 30 seconds"
+          description: "Oldest pending message age: {{ $value }}s."
+          action: "Check consumer process health or scale worker instances."

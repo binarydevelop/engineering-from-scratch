@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+WORKDIR /app
+
+# Copies everything (including junk files) into image
+COPY . .
+
+# Separate RUN commands leave junk files trapped in intermediate layers!
+RUN mkdir -p /tmp/build_debris && dd if=/dev/zero of=/tmp/build_debris/large.bin bs=1M count=15
+RUN rm -rf /tmp/build_debris/large.bin
+
+CMD ["python3", "app.py"]

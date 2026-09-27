@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 17 - Read Scaling Strategies
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   All reads and writes directed to primary database node.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Primary handles writes; read replicas handle read traffic.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

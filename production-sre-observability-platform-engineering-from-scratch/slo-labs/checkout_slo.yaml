@@ -1,0 +1,46 @@
+apiVersion: sre.production.internal/v1
+kind: ServiceLevelObjective
+metadata:
+  name: checkout-availability-latency-slo
+  service: checkout-service
+  tier: tier-1
+spec:
+  description: "99.9% of valid checkout requests must complete successfully with latency <= 500ms over a rolling 30-day window."
+  user_journey: "Customer Checkout & Order Completion"
+  target: 0.999
+  window_days: 30
+  
+  sli:
+    good_events_query: |
+      sum(rate(http_requests_total{service="checkout-service", route="/checkout", status!~"5..|429"}[5m]))
+      and
+      histogram_quantile(0.99, sum(rate(http_request_duration_seconds_bucket{service="checkout-service", route="/checkout"}[5m])) by (le)) <= 0.500
+    total_events_query: |
+      sum(rate(http_requests_total{service="checkout-service", route="/checkout"}[5m]))
+    exclusions:
+      - "HTTP 400 Bad Request (Client Validation Error)"
+      - "HTTP 401 Unauthorized"
+      - "Automated platform health probes (/healthz, /ready)"
+
+  error_budget:
+    total_allowable_unreliability_percent: 0.1 # 100% - 99.9%
+    policy:
+      burn_rate_alerts:
+        - name: CriticalPage
+          burn_rate: 14.4
+          short_window: 5m
+          long_window: 1h
+          budget_consumed_percent: 2.0
+          severity: critical
+        - name: WarningNotification
+          burn_rate: 6.0
+          short_window: 30m
+          long_window: 6h
+          budget_consumed_percent: 5.0
+          severity: warning
+        - name: TicketBacklog
+          burn_rate: 1.0
+          short_window: 2h
+          long_window: 3d
+          budget_consumed_percent: 10.0
+          severity: ticket

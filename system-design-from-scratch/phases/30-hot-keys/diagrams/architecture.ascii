@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 30 - Hot Keys in Distributed Caches
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Single Redis key for celebrity account receiving 100,000 QPS.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Local in-process L1 cache or key splitting (`celebrity_id#1`, `celebrity_id#2`).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

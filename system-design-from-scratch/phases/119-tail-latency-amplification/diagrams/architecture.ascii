@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 119 - Tail Latency Amplification
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Assuming p99 tail latency only affects 1% of users in a distributed system.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Hedged requests (sending duplicate request to replica if first takes > p95) and timeouts.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

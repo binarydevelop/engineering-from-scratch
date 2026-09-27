@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 07 - Horizontal Scaling
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Multiple independent application servers.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Add load balancer in front of application instances.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

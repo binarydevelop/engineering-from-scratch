@@ -1,0 +1,25 @@
+name: dfs-net-demo
+
+services:
+  web:
+    image: python:3.11-slim
+    command: ["sleep", "60"]
+    networks:
+      - frontend
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:

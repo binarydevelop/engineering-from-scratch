@@ -1,0 +1,1 @@
+SELECT user_id, event_timestamp, CASE WHEN LAG(event_timestamp) OVER (PARTITION BY user_id ORDER BY event_timestamp ASC) IS NULL OR event_timestamp - LAG(event_timestamp) OVER (PARTITION BY user_id ORDER BY event_timestamp ASC) > INTERVAL '30 minutes' THEN 1 ELSE 0 END AS is_new_session FROM analytics.events WHERE user_id = 101 ORDER BY user_id ASC, event_timestamp ASC;

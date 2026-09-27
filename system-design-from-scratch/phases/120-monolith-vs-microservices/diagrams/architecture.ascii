@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 120 - Monolith vs Microservices
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Adopting microservices on Day 1 for a 3-person engineering team.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Modular Monolith with strict package boundaries; extracting services only under pressure.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

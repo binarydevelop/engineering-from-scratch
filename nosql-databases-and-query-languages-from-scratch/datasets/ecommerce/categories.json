@@ -1,0 +1,27 @@
+[
+  {
+    "id": "CAT-01",
+    "name": "Electronics",
+    "slug": "electronics"
+  },
+  {
+    "id": "CAT-02",
+    "name": "Audio & Video",
+    "slug": "audio-video"
+  },
+  {
+    "id": "CAT-03",
+    "name": "Computers & Office",
+    "slug": "computers-office"
+  },
+  {
+    "id": "CAT-04",
+    "name": "Home & Kitchen",
+    "slug": "home-kitchen"
+  },
+  {
+    "id": "CAT-05",
+    "name": "Wearable Tech",
+    "slug": "wearables"
+  }
+]

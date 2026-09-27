@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 147 - Service Discovery & Health Registries
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Hardcoded static IP addresses in application configuration files.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Service registry maintaining active instance addresses with automated health eviction.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

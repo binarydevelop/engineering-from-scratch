@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 46 - Partitioning Data
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Single monolithic database table holding 1 billion rows.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Sharding rows across $N$ database nodes using hash partitioning: $hash(key) \% N$.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

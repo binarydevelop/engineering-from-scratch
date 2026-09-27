@@ -1,0 +1,15 @@
+package io.github.javafromscratch.exercises;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+@DisplayName("Exercise 161 Test")
+class Exercise161Test {
+
+    @Test
+    void testSolve() {
+        int result = Exercise161.solve(10);
+        assertEquals(20 + 161, result);
+    }
+}

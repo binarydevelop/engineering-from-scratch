@@ -1,0 +1,1 @@
+SELECT u.id, u.username FROM social.users u WHERE NOT EXISTS (SELECT 1 FROM social.posts p WHERE p.user_id = u.id) AND NOT EXISTS (SELECT 1 FROM social.likes l WHERE l.user_id = u.id) ORDER BY u.id ASC;

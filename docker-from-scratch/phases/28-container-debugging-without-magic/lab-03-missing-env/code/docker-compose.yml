@@ -1,0 +1,10 @@
+name: dfs-lab03
+
+services:
+  api:
+    image: python:3.11-slim
+    volumes:
+      - ./app.py:/app/app.py
+    working_dir: /app
+    command: ["python3", "app.py"]
+    # BUG: Forgot to declare API_SECRET_KEY in environment!

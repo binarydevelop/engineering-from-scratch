@@ -1,0 +1,73 @@
+# 73.1: Selector Mismatch
+apiVersion: v1
+kind: Pod
+metadata:
+  name: net-pod-target
+  namespace: default
+  labels:
+    app: my-api-v1
+spec:
+  containers:
+  - name: web
+    image: nginx:1.27-alpine
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: broken-svc-1
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: my-api # Mismatch!
+  ports:
+  - port: 80
+    targetPort: 80
+---
+# 73.3: Wrong targetPort
+apiVersion: v1
+kind: Service
+metadata:
+  name: broken-svc-targetport
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: my-api-v1
+  ports:
+  - port: 80
+    targetPort: 9999 # Port 9999 not open on Nginx!
+---
+# 73.5: Readiness Failure
+apiVersion: v1
+kind: Pod
+metadata:
+  name: net-pod-unready
+  namespace: default
+  labels:
+    app: unready-service
+spec:
+  containers:
+  - name: web
+    image: nginx:1.27-alpine
+    readinessProbe:
+      httpGet:
+        path: /non-existent-healthz # Fails with HTTP 404!
+        port: 80
+      initialDelaySeconds: 1
+      periodSeconds: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unready-svc
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: unready-service
+  ports:
+  - port: 80
+    targetPort: 80

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 15 - Distributed ID Generation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Centralized database auto-increment sequence.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Decentralized Snowflake generator running locally in app memory.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

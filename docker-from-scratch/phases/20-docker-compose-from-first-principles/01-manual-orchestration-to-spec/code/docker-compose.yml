@@ -1,0 +1,35 @@
+# Declarative equivalent of manual_deploy.sh
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: secret123
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-net
+
+  cache:
+    image: redis:7-alpine
+    networks:
+      - app-net
+
+  web:
+    image: alpine:latest
+    command: ["sleep", "60"]
+    ports:
+      - "8081:8000"
+    environment:
+      - REDIS_HOST=cache
+      - DB_HOST=db
+    networks:
+      - app-net
+    depends_on:
+      - db
+      - cache
+
+volumes:
+  db-data:
+
+networks:
+  app-net:

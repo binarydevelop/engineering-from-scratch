@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 28 - Cache Eviction Policies
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Unbounded in-memory dictionary causing process OOM.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Least Recently Used (LRU) eviction with linked hash map.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

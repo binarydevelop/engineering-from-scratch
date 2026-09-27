@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backend-engineering-from-scratch"
+version = "1.0.0"
+description = "A first-principles curriculum teaching backend engineering through implementation, failure injection, and production operations."
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Backend Engineering From Scratch Contributors" }
+]
+keywords = [
+    "backend", "first-principles", "http", "networking", "databases",
+    "architecture", "concurrency", "distributed-systems", "security", "observability"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "starlette>=0.40.0",
+    "pydantic>=2.9.0",
+    "uvicorn[standard]>=0.30.0",
+    "httpx>=0.27.0",
+    "cryptography>=43.0.0",
+    "pyjwt>=2.9.0",
+    "bcrypt>=4.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["phases", "projects", "broken-systems", "apps", "benchmarks"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --import-mode=importlib"

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 178 - Design an Enterprise API Gateway
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Every microservice independently implements rate limiting, TLS certificates, and auth tokens.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Non-blocking asynchronous API Gateway (Envoy / Kong model) with dynamic service discovery.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

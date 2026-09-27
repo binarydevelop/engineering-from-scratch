@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 38 - Backoff and Jitter
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Fixed 1-second retry loop across all clients.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Exponential backoff with Full Jitter: $sleep = random(0, min(cap, base 	imes 2^i))$.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

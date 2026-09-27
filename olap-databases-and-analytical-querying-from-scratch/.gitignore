@@ -1,0 +1,36 @@
+# Environments & Virtual Envs
+.venv/
+env/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Data and Artifacts (avoid checking in large binary tables/segments)
+*.duckdb
+*.duckdb.wal
+outputs/
+*.parquet
+*.csv.gz
+data/raw/
+data/cache/
+clickhouse/data/
+druid/data/
+pinot/data/
+postgres/data/
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+.docker/
+
+# Benchmark logs
+benchmarks/runs/*.log
+benchmarks/results/*.jsonl

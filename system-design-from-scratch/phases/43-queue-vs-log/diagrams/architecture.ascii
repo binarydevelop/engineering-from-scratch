@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 43 - Queue vs Log Architectural Decision
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Using Kafka as a simple background task queue.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   RabbitMQ for complex routing and task queues; Kafka for event streaming and replay.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

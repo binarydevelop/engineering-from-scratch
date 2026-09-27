@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 84 - Bulkheads
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Single shared thread pool serving both checkout requests and analytics queries.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Separate isolated thread pools / connection pools for Checkout vs Analytics.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 60 - Lamport Logical Clocks
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Relying on timestamps to order distributed chat messages.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Lamport process clock incrementing on local events and updating on message receipt.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

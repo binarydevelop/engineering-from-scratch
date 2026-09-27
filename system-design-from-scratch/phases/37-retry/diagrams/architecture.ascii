@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 37 - Retries & Fault Classification
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Blindly retrying all failed requests.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Granular exception classification: retry on 503/504 and connection errors only.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

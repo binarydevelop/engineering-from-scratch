@@ -1,0 +1,12 @@
+name: dfs-lab03
+
+services:
+  api:
+    image: python:3.11-slim
+    volumes:
+      - ./app.py:/app/app.py
+    working_dir: /app
+    command: ["python3", "app.py"]
+    # FIXED: Environment variable provided
+    environment:
+      - API_SECRET_KEY=production-token-xyz-12345

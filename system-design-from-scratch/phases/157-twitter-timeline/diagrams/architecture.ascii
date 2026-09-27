@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 157 - Design Twitter/X Timeline with Celebrities
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Writing celebrity tweet to 100 million user timelines on every post.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Celebrity tweets stored in separate stream; client feed query merges local timeline with celebrity posts.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

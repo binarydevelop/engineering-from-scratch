@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 61 - Vector Clocks
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Single integer Lamport clock.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Vector clock assigning version vectors to detect concurrent conflicting writes.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

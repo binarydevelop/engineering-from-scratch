@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 96 - Disaster Recovery: RPO & RTO
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Backing up database once per week with no recovery plan (RPO = 7 days).
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Continuous WAL archiving and point-in-time recovery (RPO < 5 mins, RTO < 30 mins).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

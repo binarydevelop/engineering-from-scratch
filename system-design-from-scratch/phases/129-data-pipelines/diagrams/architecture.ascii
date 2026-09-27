@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 129 - Data Pipelines & ETL Architecture
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Running heavy marketing queries directly against the production primary database.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   CDC data pipeline streaming events from PostgreSQL into Snowflake / BigQuery.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

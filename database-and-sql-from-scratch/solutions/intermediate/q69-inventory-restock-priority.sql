@@ -1,0 +1,1 @@
+SELECT p.sku, p.name, i.stock_quantity, i.reorder_level, (i.reorder_level * 2 - i.stock_quantity) AS units_needed FROM ecommerce.products p JOIN ecommerce.inventory i ON p.id = i.product_id WHERE i.stock_quantity <= i.reorder_level ORDER BY units_needed DESC, p.sku ASC;

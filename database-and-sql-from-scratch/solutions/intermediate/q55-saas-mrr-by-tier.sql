@@ -1,0 +1,1 @@
+SELECT o.plan_tier, SUM(s.monthly_price) AS total_mrr, COUNT(o.id) AS active_orgs FROM saas.organizations o JOIN saas.subscriptions s ON o.id = s.organization_id WHERE s.status = 'active' GROUP BY o.plan_tier ORDER BY total_mrr DESC;

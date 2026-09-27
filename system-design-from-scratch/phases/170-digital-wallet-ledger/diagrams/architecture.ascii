@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 170 - Design a Digital Wallet Platform
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Mutable database rows updated in-place without audit trail.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Immutable append-only ledger entries with periodic snapshot balance checkpoints.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

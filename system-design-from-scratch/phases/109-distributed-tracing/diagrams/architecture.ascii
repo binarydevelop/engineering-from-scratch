@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 109 - Distributed Tracing & Context Propagation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Debugging a 5-second latency spike across 8 microservices using isolated log files.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Distributed tracing instrumented with OpenTelemetry and Jaeger.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

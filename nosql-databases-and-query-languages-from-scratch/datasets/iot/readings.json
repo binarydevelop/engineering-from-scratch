@@ -1,0 +1,3202 @@
+[
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T00:05:00Z",
+    "temperature_c": 31.59,
+    "humidity_pct": 51.4,
+    "pressure_kpa": 103.55,
+    "battery_pct": 100
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T00:10:00Z",
+    "temperature_c": 46.48,
+    "humidity_pct": 83.1,
+    "pressure_kpa": 103.68,
+    "battery_pct": 100
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T00:15:00Z",
+    "temperature_c": 20.11,
+    "humidity_pct": 33.1,
+    "pressure_kpa": 103.51,
+    "battery_pct": 100
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T00:20:00Z",
+    "temperature_c": 41.11,
+    "humidity_pct": 41.6,
+    "pressure_kpa": 102.58,
+    "battery_pct": 100
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T00:25:00Z",
+    "temperature_c": 44.13,
+    "humidity_pct": 67.3,
+    "pressure_kpa": 104.12,
+    "battery_pct": 99
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T00:30:00Z",
+    "temperature_c": 60.24,
+    "humidity_pct": 42.8,
+    "pressure_kpa": 98.5,
+    "battery_pct": 99
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T00:35:00Z",
+    "temperature_c": 45.87,
+    "humidity_pct": 31.0,
+    "pressure_kpa": 104.35,
+    "battery_pct": 99
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T00:40:00Z",
+    "temperature_c": 20.61,
+    "humidity_pct": 68.6,
+    "pressure_kpa": 98.91,
+    "battery_pct": 99
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T00:45:00Z",
+    "temperature_c": 54.06,
+    "humidity_pct": 79.8,
+    "pressure_kpa": 103.75,
+    "battery_pct": 99
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T00:50:00Z",
+    "temperature_c": 44.0,
+    "humidity_pct": 39.4,
+    "pressure_kpa": 102.14,
+    "battery_pct": 98
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T00:55:00Z",
+    "temperature_c": 24.51,
+    "humidity_pct": 62.7,
+    "pressure_kpa": 102.31,
+    "battery_pct": 98
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T01:00:00Z",
+    "temperature_c": 63.85,
+    "humidity_pct": 53.4,
+    "pressure_kpa": 103.68,
+    "battery_pct": 98
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T01:05:00Z",
+    "temperature_c": 36.48,
+    "humidity_pct": 83.7,
+    "pressure_kpa": 102.03,
+    "battery_pct": 98
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T01:10:00Z",
+    "temperature_c": 36.33,
+    "humidity_pct": 83.1,
+    "pressure_kpa": 99.49,
+    "battery_pct": 98
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T01:15:00Z",
+    "temperature_c": 51.81,
+    "humidity_pct": 48.5,
+    "pressure_kpa": 98.85,
+    "battery_pct": 97
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T01:20:00Z",
+    "temperature_c": 61.18,
+    "humidity_pct": 39.2,
+    "pressure_kpa": 100.59,
+    "battery_pct": 97
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T01:25:00Z",
+    "temperature_c": 43.0,
+    "humidity_pct": 80.9,
+    "pressure_kpa": 98.28,
+    "battery_pct": 97
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T01:30:00Z",
+    "temperature_c": 63.09,
+    "humidity_pct": 64.8,
+    "pressure_kpa": 100.63,
+    "battery_pct": 97
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T01:35:00Z",
+    "temperature_c": 18.89,
+    "humidity_pct": 56.8,
+    "pressure_kpa": 98.04,
+    "battery_pct": 97
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T01:40:00Z",
+    "temperature_c": 70.79,
+    "humidity_pct": 68.9,
+    "pressure_kpa": 102.16,
+    "battery_pct": 96
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T01:45:00Z",
+    "temperature_c": 41.72,
+    "humidity_pct": 74.4,
+    "pressure_kpa": 103.41,
+    "battery_pct": 96
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T01:50:00Z",
+    "temperature_c": 29.75,
+    "humidity_pct": 65.2,
+    "pressure_kpa": 101.66,
+    "battery_pct": 96
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T01:55:00Z",
+    "temperature_c": 31.64,
+    "humidity_pct": 39.6,
+    "pressure_kpa": 102.84,
+    "battery_pct": 96
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T02:00:00Z",
+    "temperature_c": 28.26,
+    "humidity_pct": 57.5,
+    "pressure_kpa": 104.65,
+    "battery_pct": 96
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T02:05:00Z",
+    "temperature_c": 37.83,
+    "humidity_pct": 30.3,
+    "pressure_kpa": 99.65,
+    "battery_pct": 95
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T02:10:00Z",
+    "temperature_c": 74.24,
+    "humidity_pct": 83.7,
+    "pressure_kpa": 102.33,
+    "battery_pct": 95
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T02:15:00Z",
+    "temperature_c": 46.93,
+    "humidity_pct": 55.5,
+    "pressure_kpa": 102.39,
+    "battery_pct": 95
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T02:20:00Z",
+    "temperature_c": 33.76,
+    "humidity_pct": 40.7,
+    "pressure_kpa": 103.58,
+    "battery_pct": 95
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T02:25:00Z",
+    "temperature_c": 46.36,
+    "humidity_pct": 38.8,
+    "pressure_kpa": 104.46,
+    "battery_pct": 95
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T02:30:00Z",
+    "temperature_c": 54.76,
+    "humidity_pct": 45.7,
+    "pressure_kpa": 101.04,
+    "battery_pct": 94
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T02:35:00Z",
+    "temperature_c": 53.16,
+    "humidity_pct": 79.0,
+    "pressure_kpa": 101.17,
+    "battery_pct": 94
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T02:40:00Z",
+    "temperature_c": 60.2,
+    "humidity_pct": 80.9,
+    "pressure_kpa": 99.23,
+    "battery_pct": 94
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T02:45:00Z",
+    "temperature_c": 45.65,
+    "humidity_pct": 36.4,
+    "pressure_kpa": 104.27,
+    "battery_pct": 94
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T02:50:00Z",
+    "temperature_c": 51.78,
+    "humidity_pct": 47.9,
+    "pressure_kpa": 99.39,
+    "battery_pct": 94
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T02:55:00Z",
+    "temperature_c": 31.11,
+    "humidity_pct": 36.1,
+    "pressure_kpa": 99.59,
+    "battery_pct": 93
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T03:00:00Z",
+    "temperature_c": 60.05,
+    "humidity_pct": 77.8,
+    "pressure_kpa": 100.63,
+    "battery_pct": 93
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T03:05:00Z",
+    "temperature_c": 22.19,
+    "humidity_pct": 62.2,
+    "pressure_kpa": 98.38,
+    "battery_pct": 93
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T03:10:00Z",
+    "temperature_c": 26.26,
+    "humidity_pct": 81.0,
+    "pressure_kpa": 101.18,
+    "battery_pct": 93
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T03:15:00Z",
+    "temperature_c": 39.29,
+    "humidity_pct": 55.2,
+    "pressure_kpa": 99.36,
+    "battery_pct": 93
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T03:20:00Z",
+    "temperature_c": 73.61,
+    "humidity_pct": 41.1,
+    "pressure_kpa": 98.89,
+    "battery_pct": 92
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T03:25:00Z",
+    "temperature_c": 21.4,
+    "humidity_pct": 37.5,
+    "pressure_kpa": 103.96,
+    "battery_pct": 92
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T03:30:00Z",
+    "temperature_c": 41.84,
+    "humidity_pct": 71.8,
+    "pressure_kpa": 99.54,
+    "battery_pct": 92
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T03:35:00Z",
+    "temperature_c": 52.41,
+    "humidity_pct": 73.4,
+    "pressure_kpa": 102.47,
+    "battery_pct": 92
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T03:40:00Z",
+    "temperature_c": 69.62,
+    "humidity_pct": 61.8,
+    "pressure_kpa": 101.87,
+    "battery_pct": 92
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T03:45:00Z",
+    "temperature_c": 22.93,
+    "humidity_pct": 77.1,
+    "pressure_kpa": 101.42,
+    "battery_pct": 91
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T03:50:00Z",
+    "temperature_c": 51.72,
+    "humidity_pct": 76.0,
+    "pressure_kpa": 99.95,
+    "battery_pct": 91
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T03:55:00Z",
+    "temperature_c": 59.96,
+    "humidity_pct": 43.6,
+    "pressure_kpa": 100.29,
+    "battery_pct": 91
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T04:00:00Z",
+    "temperature_c": 30.68,
+    "humidity_pct": 81.0,
+    "pressure_kpa": 104.62,
+    "battery_pct": 91
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T04:05:00Z",
+    "temperature_c": 69.2,
+    "humidity_pct": 53.0,
+    "pressure_kpa": 98.31,
+    "battery_pct": 91
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T04:10:00Z",
+    "temperature_c": 59.81,
+    "humidity_pct": 57.7,
+    "pressure_kpa": 100.98,
+    "battery_pct": 90
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T04:15:00Z",
+    "temperature_c": 45.32,
+    "humidity_pct": 73.9,
+    "pressure_kpa": 103.75,
+    "battery_pct": 90
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T04:20:00Z",
+    "temperature_c": 46.23,
+    "humidity_pct": 34.6,
+    "pressure_kpa": 103.27,
+    "battery_pct": 90
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T04:25:00Z",
+    "temperature_c": 72.15,
+    "humidity_pct": 37.3,
+    "pressure_kpa": 100.07,
+    "battery_pct": 90
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T04:30:00Z",
+    "temperature_c": 18.91,
+    "humidity_pct": 66.8,
+    "pressure_kpa": 99.13,
+    "battery_pct": 90
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T04:35:00Z",
+    "temperature_c": 66.9,
+    "humidity_pct": 71.1,
+    "pressure_kpa": 98.17,
+    "battery_pct": 89
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T04:40:00Z",
+    "temperature_c": 44.43,
+    "humidity_pct": 37.6,
+    "pressure_kpa": 102.92,
+    "battery_pct": 89
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T04:45:00Z",
+    "temperature_c": 63.02,
+    "humidity_pct": 50.4,
+    "pressure_kpa": 101.25,
+    "battery_pct": 89
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T04:50:00Z",
+    "temperature_c": 67.04,
+    "humidity_pct": 33.9,
+    "pressure_kpa": 104.25,
+    "battery_pct": 89
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T04:55:00Z",
+    "temperature_c": 48.26,
+    "humidity_pct": 46.3,
+    "pressure_kpa": 103.27,
+    "battery_pct": 89
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T05:00:00Z",
+    "temperature_c": 48.92,
+    "humidity_pct": 73.7,
+    "pressure_kpa": 103.51,
+    "battery_pct": 88
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T05:05:00Z",
+    "temperature_c": 53.37,
+    "humidity_pct": 48.5,
+    "pressure_kpa": 104.53,
+    "battery_pct": 88
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T05:10:00Z",
+    "temperature_c": 71.88,
+    "humidity_pct": 67.1,
+    "pressure_kpa": 104.22,
+    "battery_pct": 88
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T05:15:00Z",
+    "temperature_c": 39.83,
+    "humidity_pct": 55.6,
+    "pressure_kpa": 98.29,
+    "battery_pct": 88
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T05:20:00Z",
+    "temperature_c": 27.99,
+    "humidity_pct": 60.7,
+    "pressure_kpa": 98.47,
+    "battery_pct": 88
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T05:25:00Z",
+    "temperature_c": 25.89,
+    "humidity_pct": 48.4,
+    "pressure_kpa": 101.78,
+    "battery_pct": 87
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T05:30:00Z",
+    "temperature_c": 60.03,
+    "humidity_pct": 71.4,
+    "pressure_kpa": 104.1,
+    "battery_pct": 87
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T05:35:00Z",
+    "temperature_c": 60.93,
+    "humidity_pct": 71.8,
+    "pressure_kpa": 100.24,
+    "battery_pct": 87
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T05:40:00Z",
+    "temperature_c": 46.7,
+    "humidity_pct": 53.3,
+    "pressure_kpa": 98.38,
+    "battery_pct": 87
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T05:45:00Z",
+    "temperature_c": 37.68,
+    "humidity_pct": 56.7,
+    "pressure_kpa": 101.69,
+    "battery_pct": 87
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T05:50:00Z",
+    "temperature_c": 44.8,
+    "humidity_pct": 59.3,
+    "pressure_kpa": 103.78,
+    "battery_pct": 86
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T05:55:00Z",
+    "temperature_c": 43.76,
+    "humidity_pct": 50.2,
+    "pressure_kpa": 102.71,
+    "battery_pct": 86
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T06:00:00Z",
+    "temperature_c": 28.74,
+    "humidity_pct": 78.6,
+    "pressure_kpa": 98.61,
+    "battery_pct": 86
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T06:05:00Z",
+    "temperature_c": 69.18,
+    "humidity_pct": 45.9,
+    "pressure_kpa": 104.7,
+    "battery_pct": 86
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T06:10:00Z",
+    "temperature_c": 27.39,
+    "humidity_pct": 36.2,
+    "pressure_kpa": 99.04,
+    "battery_pct": 86
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T06:15:00Z",
+    "temperature_c": 67.87,
+    "humidity_pct": 58.6,
+    "pressure_kpa": 102.39,
+    "battery_pct": 85
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T06:20:00Z",
+    "temperature_c": 41.74,
+    "humidity_pct": 67.5,
+    "pressure_kpa": 104.52,
+    "battery_pct": 85
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T06:25:00Z",
+    "temperature_c": 37.76,
+    "humidity_pct": 54.4,
+    "pressure_kpa": 102.51,
+    "battery_pct": 85
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T06:30:00Z",
+    "temperature_c": 28.78,
+    "humidity_pct": 31.2,
+    "pressure_kpa": 103.61,
+    "battery_pct": 85
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T06:35:00Z",
+    "temperature_c": 54.75,
+    "humidity_pct": 52.6,
+    "pressure_kpa": 100.4,
+    "battery_pct": 85
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T06:40:00Z",
+    "temperature_c": 45.71,
+    "humidity_pct": 66.6,
+    "pressure_kpa": 101.71,
+    "battery_pct": 84
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T06:45:00Z",
+    "temperature_c": 43.38,
+    "humidity_pct": 46.7,
+    "pressure_kpa": 98.92,
+    "battery_pct": 84
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T06:50:00Z",
+    "temperature_c": 27.79,
+    "humidity_pct": 44.3,
+    "pressure_kpa": 101.39,
+    "battery_pct": 84
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T06:55:00Z",
+    "temperature_c": 61.88,
+    "humidity_pct": 32.6,
+    "pressure_kpa": 100.47,
+    "battery_pct": 84
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T07:00:00Z",
+    "temperature_c": 72.5,
+    "humidity_pct": 64.0,
+    "pressure_kpa": 99.13,
+    "battery_pct": 84
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T07:05:00Z",
+    "temperature_c": 34.26,
+    "humidity_pct": 83.5,
+    "pressure_kpa": 103.88,
+    "battery_pct": 83
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T07:10:00Z",
+    "temperature_c": 27.19,
+    "humidity_pct": 36.4,
+    "pressure_kpa": 104.96,
+    "battery_pct": 83
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T07:15:00Z",
+    "temperature_c": 25.21,
+    "humidity_pct": 44.3,
+    "pressure_kpa": 99.29,
+    "battery_pct": 83
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T07:20:00Z",
+    "temperature_c": 58.31,
+    "humidity_pct": 66.6,
+    "pressure_kpa": 104.85,
+    "battery_pct": 83
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T07:25:00Z",
+    "temperature_c": 39.26,
+    "humidity_pct": 59.7,
+    "pressure_kpa": 99.14,
+    "battery_pct": 83
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T07:30:00Z",
+    "temperature_c": 24.92,
+    "humidity_pct": 31.4,
+    "pressure_kpa": 104.52,
+    "battery_pct": 82
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T07:35:00Z",
+    "temperature_c": 72.02,
+    "humidity_pct": 81.0,
+    "pressure_kpa": 99.09,
+    "battery_pct": 82
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T07:40:00Z",
+    "temperature_c": 73.61,
+    "humidity_pct": 48.2,
+    "pressure_kpa": 102.94,
+    "battery_pct": 82
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T07:45:00Z",
+    "temperature_c": 69.07,
+    "humidity_pct": 83.3,
+    "pressure_kpa": 103.28,
+    "battery_pct": 82
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T07:50:00Z",
+    "temperature_c": 56.01,
+    "humidity_pct": 74.0,
+    "pressure_kpa": 103.1,
+    "battery_pct": 82
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T07:55:00Z",
+    "temperature_c": 37.31,
+    "humidity_pct": 36.2,
+    "pressure_kpa": 101.35,
+    "battery_pct": 81
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T08:00:00Z",
+    "temperature_c": 25.95,
+    "humidity_pct": 60.3,
+    "pressure_kpa": 100.16,
+    "battery_pct": 81
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T08:05:00Z",
+    "temperature_c": 53.2,
+    "humidity_pct": 42.1,
+    "pressure_kpa": 100.5,
+    "battery_pct": 81
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T08:10:00Z",
+    "temperature_c": 21.14,
+    "humidity_pct": 65.3,
+    "pressure_kpa": 102.08,
+    "battery_pct": 81
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T08:15:00Z",
+    "temperature_c": 62.53,
+    "humidity_pct": 72.2,
+    "pressure_kpa": 99.37,
+    "battery_pct": 81
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T08:20:00Z",
+    "temperature_c": 48.69,
+    "humidity_pct": 54.5,
+    "pressure_kpa": 102.7,
+    "battery_pct": 80
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T08:25:00Z",
+    "temperature_c": 73.62,
+    "humidity_pct": 51.7,
+    "pressure_kpa": 101.43,
+    "battery_pct": 80
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T08:30:00Z",
+    "temperature_c": 52.49,
+    "humidity_pct": 81.9,
+    "pressure_kpa": 104.36,
+    "battery_pct": 80
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T08:35:00Z",
+    "temperature_c": 40.66,
+    "humidity_pct": 69.4,
+    "pressure_kpa": 100.99,
+    "battery_pct": 80
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T08:40:00Z",
+    "temperature_c": 39.25,
+    "humidity_pct": 45.7,
+    "pressure_kpa": 100.46,
+    "battery_pct": 80
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T08:45:00Z",
+    "temperature_c": 67.84,
+    "humidity_pct": 34.8,
+    "pressure_kpa": 103.09,
+    "battery_pct": 79
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T08:50:00Z",
+    "temperature_c": 60.27,
+    "humidity_pct": 52.9,
+    "pressure_kpa": 101.1,
+    "battery_pct": 79
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T08:55:00Z",
+    "temperature_c": 63.92,
+    "humidity_pct": 83.4,
+    "pressure_kpa": 100.97,
+    "battery_pct": 79
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T09:00:00Z",
+    "temperature_c": 25.96,
+    "humidity_pct": 62.3,
+    "pressure_kpa": 98.6,
+    "battery_pct": 79
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T09:05:00Z",
+    "temperature_c": 35.28,
+    "humidity_pct": 84.4,
+    "pressure_kpa": 101.68,
+    "battery_pct": 79
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T09:10:00Z",
+    "temperature_c": 21.77,
+    "humidity_pct": 82.8,
+    "pressure_kpa": 103.29,
+    "battery_pct": 78
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T09:15:00Z",
+    "temperature_c": 18.38,
+    "humidity_pct": 65.1,
+    "pressure_kpa": 99.91,
+    "battery_pct": 78
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T09:20:00Z",
+    "temperature_c": 49.68,
+    "humidity_pct": 69.1,
+    "pressure_kpa": 103.29,
+    "battery_pct": 78
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T09:25:00Z",
+    "temperature_c": 29.36,
+    "humidity_pct": 75.8,
+    "pressure_kpa": 100.03,
+    "battery_pct": 78
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T09:30:00Z",
+    "temperature_c": 20.41,
+    "humidity_pct": 75.4,
+    "pressure_kpa": 103.84,
+    "battery_pct": 78
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T09:35:00Z",
+    "temperature_c": 46.16,
+    "humidity_pct": 70.7,
+    "pressure_kpa": 99.57,
+    "battery_pct": 77
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T09:40:00Z",
+    "temperature_c": 26.78,
+    "humidity_pct": 46.5,
+    "pressure_kpa": 102.48,
+    "battery_pct": 77
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T09:45:00Z",
+    "temperature_c": 25.08,
+    "humidity_pct": 66.6,
+    "pressure_kpa": 100.01,
+    "battery_pct": 77
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T09:50:00Z",
+    "temperature_c": 46.04,
+    "humidity_pct": 67.8,
+    "pressure_kpa": 99.71,
+    "battery_pct": 77
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T09:55:00Z",
+    "temperature_c": 61.59,
+    "humidity_pct": 57.1,
+    "pressure_kpa": 104.79,
+    "battery_pct": 77
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T10:00:00Z",
+    "temperature_c": 60.5,
+    "humidity_pct": 62.0,
+    "pressure_kpa": 101.96,
+    "battery_pct": 76
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T10:05:00Z",
+    "temperature_c": 53.8,
+    "humidity_pct": 56.2,
+    "pressure_kpa": 102.86,
+    "battery_pct": 76
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T10:10:00Z",
+    "temperature_c": 39.27,
+    "humidity_pct": 70.3,
+    "pressure_kpa": 98.12,
+    "battery_pct": 76
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T10:15:00Z",
+    "temperature_c": 27.28,
+    "humidity_pct": 33.2,
+    "pressure_kpa": 100.24,
+    "battery_pct": 76
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T10:20:00Z",
+    "temperature_c": 38.37,
+    "humidity_pct": 32.9,
+    "pressure_kpa": 100.53,
+    "battery_pct": 76
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T10:25:00Z",
+    "temperature_c": 20.78,
+    "humidity_pct": 46.0,
+    "pressure_kpa": 102.47,
+    "battery_pct": 75
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T10:30:00Z",
+    "temperature_c": 47.29,
+    "humidity_pct": 72.2,
+    "pressure_kpa": 99.28,
+    "battery_pct": 75
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T10:35:00Z",
+    "temperature_c": 52.13,
+    "humidity_pct": 39.2,
+    "pressure_kpa": 100.26,
+    "battery_pct": 75
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T10:40:00Z",
+    "temperature_c": 65.13,
+    "humidity_pct": 67.7,
+    "pressure_kpa": 100.11,
+    "battery_pct": 75
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T10:45:00Z",
+    "temperature_c": 23.46,
+    "humidity_pct": 61.9,
+    "pressure_kpa": 103.76,
+    "battery_pct": 75
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T10:50:00Z",
+    "temperature_c": 25.81,
+    "humidity_pct": 45.5,
+    "pressure_kpa": 103.45,
+    "battery_pct": 74
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T10:55:00Z",
+    "temperature_c": 37.4,
+    "humidity_pct": 80.1,
+    "pressure_kpa": 98.72,
+    "battery_pct": 74
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T11:00:00Z",
+    "temperature_c": 46.69,
+    "humidity_pct": 75.7,
+    "pressure_kpa": 103.57,
+    "battery_pct": 74
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T11:05:00Z",
+    "temperature_c": 52.97,
+    "humidity_pct": 75.7,
+    "pressure_kpa": 101.68,
+    "battery_pct": 74
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T11:10:00Z",
+    "temperature_c": 58.62,
+    "humidity_pct": 68.6,
+    "pressure_kpa": 103.62,
+    "battery_pct": 74
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T11:15:00Z",
+    "temperature_c": 44.25,
+    "humidity_pct": 34.2,
+    "pressure_kpa": 103.73,
+    "battery_pct": 73
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T11:20:00Z",
+    "temperature_c": 45.33,
+    "humidity_pct": 47.1,
+    "pressure_kpa": 100.54,
+    "battery_pct": 73
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T11:25:00Z",
+    "temperature_c": 68.71,
+    "humidity_pct": 62.9,
+    "pressure_kpa": 103.35,
+    "battery_pct": 73
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T11:30:00Z",
+    "temperature_c": 27.82,
+    "humidity_pct": 46.8,
+    "pressure_kpa": 103.21,
+    "battery_pct": 73
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T11:35:00Z",
+    "temperature_c": 30.67,
+    "humidity_pct": 77.1,
+    "pressure_kpa": 99.0,
+    "battery_pct": 73
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T11:40:00Z",
+    "temperature_c": 35.52,
+    "humidity_pct": 41.5,
+    "pressure_kpa": 104.87,
+    "battery_pct": 72
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T11:45:00Z",
+    "temperature_c": 57.38,
+    "humidity_pct": 73.1,
+    "pressure_kpa": 98.54,
+    "battery_pct": 72
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T11:50:00Z",
+    "temperature_c": 61.17,
+    "humidity_pct": 32.3,
+    "pressure_kpa": 98.75,
+    "battery_pct": 72
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T11:55:00Z",
+    "temperature_c": 51.81,
+    "humidity_pct": 55.8,
+    "pressure_kpa": 104.36,
+    "battery_pct": 72
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T12:00:00Z",
+    "temperature_c": 21.78,
+    "humidity_pct": 66.7,
+    "pressure_kpa": 103.28,
+    "battery_pct": 72
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T12:05:00Z",
+    "temperature_c": 70.45,
+    "humidity_pct": 41.3,
+    "pressure_kpa": 104.31,
+    "battery_pct": 71
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T12:10:00Z",
+    "temperature_c": 56.22,
+    "humidity_pct": 31.6,
+    "pressure_kpa": 99.02,
+    "battery_pct": 71
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T12:15:00Z",
+    "temperature_c": 72.08,
+    "humidity_pct": 49.1,
+    "pressure_kpa": 99.12,
+    "battery_pct": 71
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T12:20:00Z",
+    "temperature_c": 62.51,
+    "humidity_pct": 63.7,
+    "pressure_kpa": 101.53,
+    "battery_pct": 71
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T12:25:00Z",
+    "temperature_c": 23.65,
+    "humidity_pct": 61.8,
+    "pressure_kpa": 98.1,
+    "battery_pct": 71
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T12:30:00Z",
+    "temperature_c": 58.8,
+    "humidity_pct": 83.0,
+    "pressure_kpa": 99.2,
+    "battery_pct": 70
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T12:35:00Z",
+    "temperature_c": 18.25,
+    "humidity_pct": 69.9,
+    "pressure_kpa": 104.47,
+    "battery_pct": 70
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T12:40:00Z",
+    "temperature_c": 66.52,
+    "humidity_pct": 56.1,
+    "pressure_kpa": 102.89,
+    "battery_pct": 70
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T12:45:00Z",
+    "temperature_c": 43.06,
+    "humidity_pct": 82.7,
+    "pressure_kpa": 99.27,
+    "battery_pct": 70
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T12:50:00Z",
+    "temperature_c": 73.93,
+    "humidity_pct": 53.3,
+    "pressure_kpa": 101.6,
+    "battery_pct": 70
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T12:55:00Z",
+    "temperature_c": 24.43,
+    "humidity_pct": 84.2,
+    "pressure_kpa": 98.87,
+    "battery_pct": 69
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T13:00:00Z",
+    "temperature_c": 47.62,
+    "humidity_pct": 57.3,
+    "pressure_kpa": 100.53,
+    "battery_pct": 69
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T13:05:00Z",
+    "temperature_c": 49.76,
+    "humidity_pct": 32.2,
+    "pressure_kpa": 100.3,
+    "battery_pct": 69
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T13:10:00Z",
+    "temperature_c": 39.93,
+    "humidity_pct": 55.1,
+    "pressure_kpa": 103.15,
+    "battery_pct": 69
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T13:15:00Z",
+    "temperature_c": 30.87,
+    "humidity_pct": 52.4,
+    "pressure_kpa": 104.89,
+    "battery_pct": 69
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T13:20:00Z",
+    "temperature_c": 28.76,
+    "humidity_pct": 33.8,
+    "pressure_kpa": 103.89,
+    "battery_pct": 68
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T13:25:00Z",
+    "temperature_c": 71.53,
+    "humidity_pct": 50.2,
+    "pressure_kpa": 98.09,
+    "battery_pct": 68
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T13:30:00Z",
+    "temperature_c": 56.31,
+    "humidity_pct": 51.8,
+    "pressure_kpa": 101.66,
+    "battery_pct": 68
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T13:35:00Z",
+    "temperature_c": 24.8,
+    "humidity_pct": 51.7,
+    "pressure_kpa": 102.87,
+    "battery_pct": 68
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T13:40:00Z",
+    "temperature_c": 60.26,
+    "humidity_pct": 79.1,
+    "pressure_kpa": 99.18,
+    "battery_pct": 68
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T13:45:00Z",
+    "temperature_c": 73.59,
+    "humidity_pct": 48.6,
+    "pressure_kpa": 102.16,
+    "battery_pct": 67
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T13:50:00Z",
+    "temperature_c": 25.0,
+    "humidity_pct": 76.1,
+    "pressure_kpa": 103.08,
+    "battery_pct": 67
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T13:55:00Z",
+    "temperature_c": 61.59,
+    "humidity_pct": 72.1,
+    "pressure_kpa": 102.16,
+    "battery_pct": 67
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T14:00:00Z",
+    "temperature_c": 38.3,
+    "humidity_pct": 66.7,
+    "pressure_kpa": 104.65,
+    "battery_pct": 67
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T14:05:00Z",
+    "temperature_c": 47.15,
+    "humidity_pct": 38.1,
+    "pressure_kpa": 101.18,
+    "battery_pct": 67
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T14:10:00Z",
+    "temperature_c": 32.29,
+    "humidity_pct": 57.4,
+    "pressure_kpa": 102.4,
+    "battery_pct": 66
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T14:15:00Z",
+    "temperature_c": 19.69,
+    "humidity_pct": 70.6,
+    "pressure_kpa": 103.81,
+    "battery_pct": 66
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T14:20:00Z",
+    "temperature_c": 56.65,
+    "humidity_pct": 83.5,
+    "pressure_kpa": 100.68,
+    "battery_pct": 66
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T14:25:00Z",
+    "temperature_c": 26.71,
+    "humidity_pct": 64.2,
+    "pressure_kpa": 98.67,
+    "battery_pct": 66
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T14:30:00Z",
+    "temperature_c": 55.68,
+    "humidity_pct": 58.6,
+    "pressure_kpa": 101.45,
+    "battery_pct": 66
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T14:35:00Z",
+    "temperature_c": 29.51,
+    "humidity_pct": 66.4,
+    "pressure_kpa": 101.43,
+    "battery_pct": 65
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T14:40:00Z",
+    "temperature_c": 48.92,
+    "humidity_pct": 74.5,
+    "pressure_kpa": 101.78,
+    "battery_pct": 65
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T14:45:00Z",
+    "temperature_c": 72.3,
+    "humidity_pct": 31.7,
+    "pressure_kpa": 101.01,
+    "battery_pct": 65
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T14:50:00Z",
+    "temperature_c": 39.87,
+    "humidity_pct": 47.3,
+    "pressure_kpa": 100.63,
+    "battery_pct": 65
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T14:55:00Z",
+    "temperature_c": 20.05,
+    "humidity_pct": 39.7,
+    "pressure_kpa": 102.62,
+    "battery_pct": 65
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T15:00:00Z",
+    "temperature_c": 68.43,
+    "humidity_pct": 39.0,
+    "pressure_kpa": 101.01,
+    "battery_pct": 64
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T15:05:00Z",
+    "temperature_c": 58.8,
+    "humidity_pct": 56.8,
+    "pressure_kpa": 98.77,
+    "battery_pct": 64
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T15:10:00Z",
+    "temperature_c": 55.62,
+    "humidity_pct": 67.7,
+    "pressure_kpa": 102.01,
+    "battery_pct": 64
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T15:15:00Z",
+    "temperature_c": 50.05,
+    "humidity_pct": 38.6,
+    "pressure_kpa": 98.39,
+    "battery_pct": 64
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T15:20:00Z",
+    "temperature_c": 46.2,
+    "humidity_pct": 83.4,
+    "pressure_kpa": 102.32,
+    "battery_pct": 64
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T15:25:00Z",
+    "temperature_c": 61.69,
+    "humidity_pct": 45.6,
+    "pressure_kpa": 98.43,
+    "battery_pct": 63
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T15:30:00Z",
+    "temperature_c": 20.57,
+    "humidity_pct": 76.0,
+    "pressure_kpa": 100.44,
+    "battery_pct": 63
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T15:35:00Z",
+    "temperature_c": 19.53,
+    "humidity_pct": 79.0,
+    "pressure_kpa": 100.39,
+    "battery_pct": 63
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T15:40:00Z",
+    "temperature_c": 42.4,
+    "humidity_pct": 84.6,
+    "pressure_kpa": 100.88,
+    "battery_pct": 63
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T15:45:00Z",
+    "temperature_c": 55.69,
+    "humidity_pct": 43.6,
+    "pressure_kpa": 102.54,
+    "battery_pct": 63
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T15:50:00Z",
+    "temperature_c": 22.84,
+    "humidity_pct": 67.8,
+    "pressure_kpa": 104.08,
+    "battery_pct": 62
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T15:55:00Z",
+    "temperature_c": 37.24,
+    "humidity_pct": 31.1,
+    "pressure_kpa": 100.28,
+    "battery_pct": 62
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T16:00:00Z",
+    "temperature_c": 55.49,
+    "humidity_pct": 53.2,
+    "pressure_kpa": 101.6,
+    "battery_pct": 62
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T16:05:00Z",
+    "temperature_c": 33.2,
+    "humidity_pct": 68.3,
+    "pressure_kpa": 102.12,
+    "battery_pct": 62
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T16:10:00Z",
+    "temperature_c": 39.53,
+    "humidity_pct": 51.5,
+    "pressure_kpa": 102.01,
+    "battery_pct": 62
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T16:15:00Z",
+    "temperature_c": 23.7,
+    "humidity_pct": 67.1,
+    "pressure_kpa": 100.35,
+    "battery_pct": 61
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T16:20:00Z",
+    "temperature_c": 64.25,
+    "humidity_pct": 66.7,
+    "pressure_kpa": 99.17,
+    "battery_pct": 61
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T16:25:00Z",
+    "temperature_c": 38.71,
+    "humidity_pct": 54.0,
+    "pressure_kpa": 101.48,
+    "battery_pct": 61
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T16:30:00Z",
+    "temperature_c": 65.9,
+    "humidity_pct": 59.5,
+    "pressure_kpa": 100.01,
+    "battery_pct": 61
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T16:35:00Z",
+    "temperature_c": 34.95,
+    "humidity_pct": 61.5,
+    "pressure_kpa": 103.63,
+    "battery_pct": 61
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T16:40:00Z",
+    "temperature_c": 60.34,
+    "humidity_pct": 35.1,
+    "pressure_kpa": 103.91,
+    "battery_pct": 60
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T16:45:00Z",
+    "temperature_c": 51.74,
+    "humidity_pct": 45.0,
+    "pressure_kpa": 101.96,
+    "battery_pct": 60
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T16:50:00Z",
+    "temperature_c": 45.09,
+    "humidity_pct": 41.5,
+    "pressure_kpa": 103.57,
+    "battery_pct": 60
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T16:55:00Z",
+    "temperature_c": 46.76,
+    "humidity_pct": 46.5,
+    "pressure_kpa": 102.64,
+    "battery_pct": 60
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T17:00:00Z",
+    "temperature_c": 29.4,
+    "humidity_pct": 52.1,
+    "pressure_kpa": 102.37,
+    "battery_pct": 60
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T17:05:00Z",
+    "temperature_c": 56.28,
+    "humidity_pct": 60.1,
+    "pressure_kpa": 104.17,
+    "battery_pct": 59
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T17:10:00Z",
+    "temperature_c": 67.17,
+    "humidity_pct": 61.7,
+    "pressure_kpa": 99.49,
+    "battery_pct": 59
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T17:15:00Z",
+    "temperature_c": 33.27,
+    "humidity_pct": 65.1,
+    "pressure_kpa": 103.66,
+    "battery_pct": 59
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T17:20:00Z",
+    "temperature_c": 71.27,
+    "humidity_pct": 70.0,
+    "pressure_kpa": 98.42,
+    "battery_pct": 59
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T17:25:00Z",
+    "temperature_c": 38.76,
+    "humidity_pct": 38.1,
+    "pressure_kpa": 99.05,
+    "battery_pct": 59
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T17:30:00Z",
+    "temperature_c": 66.11,
+    "humidity_pct": 52.6,
+    "pressure_kpa": 104.02,
+    "battery_pct": 58
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T17:35:00Z",
+    "temperature_c": 54.13,
+    "humidity_pct": 76.5,
+    "pressure_kpa": 99.87,
+    "battery_pct": 58
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T17:40:00Z",
+    "temperature_c": 54.82,
+    "humidity_pct": 44.1,
+    "pressure_kpa": 102.21,
+    "battery_pct": 58
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T17:45:00Z",
+    "temperature_c": 31.59,
+    "humidity_pct": 38.2,
+    "pressure_kpa": 98.19,
+    "battery_pct": 58
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T17:50:00Z",
+    "temperature_c": 44.46,
+    "humidity_pct": 60.8,
+    "pressure_kpa": 101.05,
+    "battery_pct": 58
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T17:55:00Z",
+    "temperature_c": 29.51,
+    "humidity_pct": 45.0,
+    "pressure_kpa": 98.2,
+    "battery_pct": 57
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T18:00:00Z",
+    "temperature_c": 55.54,
+    "humidity_pct": 39.7,
+    "pressure_kpa": 103.97,
+    "battery_pct": 57
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T18:05:00Z",
+    "temperature_c": 62.59,
+    "humidity_pct": 33.0,
+    "pressure_kpa": 104.28,
+    "battery_pct": 57
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T18:10:00Z",
+    "temperature_c": 52.29,
+    "humidity_pct": 77.7,
+    "pressure_kpa": 104.3,
+    "battery_pct": 57
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T18:15:00Z",
+    "temperature_c": 69.12,
+    "humidity_pct": 66.9,
+    "pressure_kpa": 104.2,
+    "battery_pct": 57
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T18:20:00Z",
+    "temperature_c": 71.76,
+    "humidity_pct": 69.8,
+    "pressure_kpa": 98.98,
+    "battery_pct": 56
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T18:25:00Z",
+    "temperature_c": 50.55,
+    "humidity_pct": 57.5,
+    "pressure_kpa": 98.84,
+    "battery_pct": 56
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T18:30:00Z",
+    "temperature_c": 72.13,
+    "humidity_pct": 81.2,
+    "pressure_kpa": 99.76,
+    "battery_pct": 56
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T18:35:00Z",
+    "temperature_c": 31.57,
+    "humidity_pct": 36.7,
+    "pressure_kpa": 103.65,
+    "battery_pct": 56
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T18:40:00Z",
+    "temperature_c": 65.44,
+    "humidity_pct": 70.5,
+    "pressure_kpa": 103.64,
+    "battery_pct": 56
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T18:45:00Z",
+    "temperature_c": 71.32,
+    "humidity_pct": 42.0,
+    "pressure_kpa": 98.75,
+    "battery_pct": 55
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T18:50:00Z",
+    "temperature_c": 73.29,
+    "humidity_pct": 54.2,
+    "pressure_kpa": 99.78,
+    "battery_pct": 55
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T18:55:00Z",
+    "temperature_c": 21.19,
+    "humidity_pct": 59.3,
+    "pressure_kpa": 102.9,
+    "battery_pct": 55
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T19:00:00Z",
+    "temperature_c": 36.04,
+    "humidity_pct": 53.3,
+    "pressure_kpa": 102.78,
+    "battery_pct": 55
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T19:05:00Z",
+    "temperature_c": 68.13,
+    "humidity_pct": 81.5,
+    "pressure_kpa": 100.54,
+    "battery_pct": 55
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T19:10:00Z",
+    "temperature_c": 64.82,
+    "humidity_pct": 31.2,
+    "pressure_kpa": 104.77,
+    "battery_pct": 54
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T19:15:00Z",
+    "temperature_c": 19.98,
+    "humidity_pct": 70.7,
+    "pressure_kpa": 103.59,
+    "battery_pct": 54
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T19:20:00Z",
+    "temperature_c": 57.37,
+    "humidity_pct": 73.4,
+    "pressure_kpa": 99.68,
+    "battery_pct": 54
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T19:25:00Z",
+    "temperature_c": 39.93,
+    "humidity_pct": 65.1,
+    "pressure_kpa": 102.9,
+    "battery_pct": 54
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T19:30:00Z",
+    "temperature_c": 48.49,
+    "humidity_pct": 43.0,
+    "pressure_kpa": 101.1,
+    "battery_pct": 54
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T19:35:00Z",
+    "temperature_c": 69.86,
+    "humidity_pct": 51.6,
+    "pressure_kpa": 104.85,
+    "battery_pct": 53
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T19:40:00Z",
+    "temperature_c": 35.15,
+    "humidity_pct": 81.5,
+    "pressure_kpa": 103.3,
+    "battery_pct": 53
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T19:45:00Z",
+    "temperature_c": 29.99,
+    "humidity_pct": 79.0,
+    "pressure_kpa": 104.41,
+    "battery_pct": 53
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T19:50:00Z",
+    "temperature_c": 68.13,
+    "humidity_pct": 72.2,
+    "pressure_kpa": 100.84,
+    "battery_pct": 53
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T19:55:00Z",
+    "temperature_c": 33.62,
+    "humidity_pct": 34.4,
+    "pressure_kpa": 103.46,
+    "battery_pct": 53
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-20T20:00:00Z",
+    "temperature_c": 44.85,
+    "humidity_pct": 52.7,
+    "pressure_kpa": 103.89,
+    "battery_pct": 52
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T20:05:00Z",
+    "temperature_c": 67.98,
+    "humidity_pct": 75.1,
+    "pressure_kpa": 103.77,
+    "battery_pct": 52
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-20T20:10:00Z",
+    "temperature_c": 46.86,
+    "humidity_pct": 49.4,
+    "pressure_kpa": 102.21,
+    "battery_pct": 52
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-20T20:15:00Z",
+    "temperature_c": 60.05,
+    "humidity_pct": 54.9,
+    "pressure_kpa": 98.19,
+    "battery_pct": 52
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T20:20:00Z",
+    "temperature_c": 54.56,
+    "humidity_pct": 40.1,
+    "pressure_kpa": 101.1,
+    "battery_pct": 52
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T20:25:00Z",
+    "temperature_c": 18.18,
+    "humidity_pct": 41.0,
+    "pressure_kpa": 100.14,
+    "battery_pct": 51
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T20:30:00Z",
+    "temperature_c": 22.69,
+    "humidity_pct": 38.7,
+    "pressure_kpa": 101.61,
+    "battery_pct": 51
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T20:35:00Z",
+    "temperature_c": 66.28,
+    "humidity_pct": 67.7,
+    "pressure_kpa": 103.55,
+    "battery_pct": 51
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T20:40:00Z",
+    "temperature_c": 43.73,
+    "humidity_pct": 78.0,
+    "pressure_kpa": 98.93,
+    "battery_pct": 51
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T20:45:00Z",
+    "temperature_c": 57.19,
+    "humidity_pct": 75.5,
+    "pressure_kpa": 103.6,
+    "battery_pct": 51
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T20:50:00Z",
+    "temperature_c": 22.81,
+    "humidity_pct": 50.2,
+    "pressure_kpa": 100.75,
+    "battery_pct": 50
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T20:55:00Z",
+    "temperature_c": 71.85,
+    "humidity_pct": 78.6,
+    "pressure_kpa": 99.57,
+    "battery_pct": 50
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T21:00:00Z",
+    "temperature_c": 70.62,
+    "humidity_pct": 65.6,
+    "pressure_kpa": 102.39,
+    "battery_pct": 50
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T21:05:00Z",
+    "temperature_c": 73.53,
+    "humidity_pct": 40.9,
+    "pressure_kpa": 102.91,
+    "battery_pct": 50
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-20T21:10:00Z",
+    "temperature_c": 20.84,
+    "humidity_pct": 64.0,
+    "pressure_kpa": 102.2,
+    "battery_pct": 50
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T21:15:00Z",
+    "temperature_c": 23.08,
+    "humidity_pct": 50.2,
+    "pressure_kpa": 104.63,
+    "battery_pct": 49
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T21:20:00Z",
+    "temperature_c": 18.8,
+    "humidity_pct": 58.9,
+    "pressure_kpa": 103.41,
+    "battery_pct": 49
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T21:25:00Z",
+    "temperature_c": 65.15,
+    "humidity_pct": 57.2,
+    "pressure_kpa": 99.57,
+    "battery_pct": 49
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T21:30:00Z",
+    "temperature_c": 28.86,
+    "humidity_pct": 77.4,
+    "pressure_kpa": 103.47,
+    "battery_pct": 49
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T21:35:00Z",
+    "temperature_c": 60.55,
+    "humidity_pct": 51.0,
+    "pressure_kpa": 101.02,
+    "battery_pct": 49
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T21:40:00Z",
+    "temperature_c": 52.2,
+    "humidity_pct": 84.7,
+    "pressure_kpa": 99.98,
+    "battery_pct": 48
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T21:45:00Z",
+    "temperature_c": 41.84,
+    "humidity_pct": 52.5,
+    "pressure_kpa": 99.02,
+    "battery_pct": 48
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-20T21:50:00Z",
+    "temperature_c": 73.64,
+    "humidity_pct": 43.0,
+    "pressure_kpa": 101.16,
+    "battery_pct": 48
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-20T21:55:00Z",
+    "temperature_c": 39.07,
+    "humidity_pct": 67.6,
+    "pressure_kpa": 101.21,
+    "battery_pct": 48
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-20T22:00:00Z",
+    "temperature_c": 44.73,
+    "humidity_pct": 77.9,
+    "pressure_kpa": 104.82,
+    "battery_pct": 48
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T22:05:00Z",
+    "temperature_c": 57.15,
+    "humidity_pct": 69.2,
+    "pressure_kpa": 102.96,
+    "battery_pct": 47
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T22:10:00Z",
+    "temperature_c": 32.6,
+    "humidity_pct": 35.2,
+    "pressure_kpa": 98.41,
+    "battery_pct": 47
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T22:15:00Z",
+    "temperature_c": 71.07,
+    "humidity_pct": 55.9,
+    "pressure_kpa": 100.48,
+    "battery_pct": 47
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T22:20:00Z",
+    "temperature_c": 71.54,
+    "humidity_pct": 83.2,
+    "pressure_kpa": 102.19,
+    "battery_pct": 47
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T22:25:00Z",
+    "temperature_c": 18.31,
+    "humidity_pct": 57.7,
+    "pressure_kpa": 100.67,
+    "battery_pct": 47
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-20T22:30:00Z",
+    "temperature_c": 56.26,
+    "humidity_pct": 37.3,
+    "pressure_kpa": 104.25,
+    "battery_pct": 46
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T22:35:00Z",
+    "temperature_c": 51.09,
+    "humidity_pct": 44.3,
+    "pressure_kpa": 101.53,
+    "battery_pct": 46
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-20T22:40:00Z",
+    "temperature_c": 68.04,
+    "humidity_pct": 37.3,
+    "pressure_kpa": 100.22,
+    "battery_pct": 46
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T22:45:00Z",
+    "temperature_c": 42.68,
+    "humidity_pct": 44.3,
+    "pressure_kpa": 100.19,
+    "battery_pct": 46
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T22:50:00Z",
+    "temperature_c": 46.46,
+    "humidity_pct": 83.5,
+    "pressure_kpa": 99.97,
+    "battery_pct": 46
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T22:55:00Z",
+    "temperature_c": 70.8,
+    "humidity_pct": 45.6,
+    "pressure_kpa": 104.14,
+    "battery_pct": 45
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-20T23:00:00Z",
+    "temperature_c": 65.29,
+    "humidity_pct": 81.0,
+    "pressure_kpa": 101.62,
+    "battery_pct": 45
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-20T23:05:00Z",
+    "temperature_c": 68.88,
+    "humidity_pct": 47.4,
+    "pressure_kpa": 104.96,
+    "battery_pct": 45
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-20T23:10:00Z",
+    "temperature_c": 49.67,
+    "humidity_pct": 80.8,
+    "pressure_kpa": 102.46,
+    "battery_pct": 45
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-20T23:15:00Z",
+    "temperature_c": 21.03,
+    "humidity_pct": 38.2,
+    "pressure_kpa": 99.61,
+    "battery_pct": 45
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-20T23:20:00Z",
+    "temperature_c": 44.8,
+    "humidity_pct": 39.0,
+    "pressure_kpa": 101.27,
+    "battery_pct": 44
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T23:25:00Z",
+    "temperature_c": 74.73,
+    "humidity_pct": 81.0,
+    "pressure_kpa": 98.29,
+    "battery_pct": 44
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-20T23:30:00Z",
+    "temperature_c": 74.36,
+    "humidity_pct": 60.8,
+    "pressure_kpa": 101.2,
+    "battery_pct": 44
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-20T23:35:00Z",
+    "temperature_c": 66.21,
+    "humidity_pct": 77.7,
+    "pressure_kpa": 98.87,
+    "battery_pct": 44
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-20T23:40:00Z",
+    "temperature_c": 29.61,
+    "humidity_pct": 45.6,
+    "pressure_kpa": 103.84,
+    "battery_pct": 44
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-20T23:45:00Z",
+    "temperature_c": 64.89,
+    "humidity_pct": 61.0,
+    "pressure_kpa": 102.64,
+    "battery_pct": 43
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-20T23:50:00Z",
+    "temperature_c": 51.26,
+    "humidity_pct": 83.4,
+    "pressure_kpa": 101.68,
+    "battery_pct": 43
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-20T23:55:00Z",
+    "temperature_c": 28.29,
+    "humidity_pct": 80.6,
+    "pressure_kpa": 99.72,
+    "battery_pct": 43
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T00:00:00Z",
+    "temperature_c": 56.58,
+    "humidity_pct": 78.8,
+    "pressure_kpa": 98.18,
+    "battery_pct": 43
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T00:05:00Z",
+    "temperature_c": 40.47,
+    "humidity_pct": 62.5,
+    "pressure_kpa": 104.66,
+    "battery_pct": 43
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-21T00:10:00Z",
+    "temperature_c": 26.77,
+    "humidity_pct": 34.5,
+    "pressure_kpa": 103.81,
+    "battery_pct": 42
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T00:15:00Z",
+    "temperature_c": 43.88,
+    "humidity_pct": 82.5,
+    "pressure_kpa": 102.16,
+    "battery_pct": 42
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-21T00:20:00Z",
+    "temperature_c": 36.78,
+    "humidity_pct": 32.4,
+    "pressure_kpa": 102.36,
+    "battery_pct": 42
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T00:25:00Z",
+    "temperature_c": 36.52,
+    "humidity_pct": 70.2,
+    "pressure_kpa": 103.14,
+    "battery_pct": 42
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T00:30:00Z",
+    "temperature_c": 25.37,
+    "humidity_pct": 77.5,
+    "pressure_kpa": 103.61,
+    "battery_pct": 42
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-21T00:35:00Z",
+    "temperature_c": 36.42,
+    "humidity_pct": 33.1,
+    "pressure_kpa": 98.5,
+    "battery_pct": 41
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T00:40:00Z",
+    "temperature_c": 39.74,
+    "humidity_pct": 51.9,
+    "pressure_kpa": 99.25,
+    "battery_pct": 41
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T00:45:00Z",
+    "temperature_c": 23.08,
+    "humidity_pct": 76.9,
+    "pressure_kpa": 99.14,
+    "battery_pct": 41
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T00:50:00Z",
+    "temperature_c": 34.24,
+    "humidity_pct": 71.4,
+    "pressure_kpa": 102.58,
+    "battery_pct": 41
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T00:55:00Z",
+    "temperature_c": 35.02,
+    "humidity_pct": 74.1,
+    "pressure_kpa": 103.15,
+    "battery_pct": 41
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-21T01:00:00Z",
+    "temperature_c": 69.51,
+    "humidity_pct": 63.2,
+    "pressure_kpa": 100.51,
+    "battery_pct": 40
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T01:05:00Z",
+    "temperature_c": 65.43,
+    "humidity_pct": 58.2,
+    "pressure_kpa": 101.43,
+    "battery_pct": 40
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T01:10:00Z",
+    "temperature_c": 45.16,
+    "humidity_pct": 61.0,
+    "pressure_kpa": 100.96,
+    "battery_pct": 40
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T01:15:00Z",
+    "temperature_c": 64.23,
+    "humidity_pct": 63.8,
+    "pressure_kpa": 101.04,
+    "battery_pct": 40
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T01:20:00Z",
+    "temperature_c": 23.3,
+    "humidity_pct": 58.2,
+    "pressure_kpa": 104.81,
+    "battery_pct": 40
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-21T01:25:00Z",
+    "temperature_c": 54.91,
+    "humidity_pct": 69.2,
+    "pressure_kpa": 104.51,
+    "battery_pct": 39
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T01:30:00Z",
+    "temperature_c": 53.88,
+    "humidity_pct": 58.9,
+    "pressure_kpa": 100.03,
+    "battery_pct": 39
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T01:35:00Z",
+    "temperature_c": 22.51,
+    "humidity_pct": 74.1,
+    "pressure_kpa": 100.1,
+    "battery_pct": 39
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-21T01:40:00Z",
+    "temperature_c": 57.01,
+    "humidity_pct": 46.5,
+    "pressure_kpa": 99.74,
+    "battery_pct": 39
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T01:45:00Z",
+    "temperature_c": 34.84,
+    "humidity_pct": 32.6,
+    "pressure_kpa": 98.54,
+    "battery_pct": 39
+  },
+  {
+    "device_id": "DEV-002",
+    "timestamp": "2026-09-21T01:50:00Z",
+    "temperature_c": 47.26,
+    "humidity_pct": 58.1,
+    "pressure_kpa": 100.89,
+    "battery_pct": 38
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T01:55:00Z",
+    "temperature_c": 55.67,
+    "humidity_pct": 61.3,
+    "pressure_kpa": 99.77,
+    "battery_pct": 38
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-21T02:00:00Z",
+    "temperature_c": 51.38,
+    "humidity_pct": 72.3,
+    "pressure_kpa": 98.11,
+    "battery_pct": 38
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T02:05:00Z",
+    "temperature_c": 28.23,
+    "humidity_pct": 40.0,
+    "pressure_kpa": 100.75,
+    "battery_pct": 38
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-21T02:10:00Z",
+    "temperature_c": 41.73,
+    "humidity_pct": 68.7,
+    "pressure_kpa": 100.2,
+    "battery_pct": 38
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T02:15:00Z",
+    "temperature_c": 61.17,
+    "humidity_pct": 54.7,
+    "pressure_kpa": 103.65,
+    "battery_pct": 37
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-21T02:20:00Z",
+    "temperature_c": 73.1,
+    "humidity_pct": 77.9,
+    "pressure_kpa": 99.31,
+    "battery_pct": 37
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-21T02:25:00Z",
+    "temperature_c": 22.46,
+    "humidity_pct": 84.0,
+    "pressure_kpa": 99.82,
+    "battery_pct": 37
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T02:30:00Z",
+    "temperature_c": 42.73,
+    "humidity_pct": 31.0,
+    "pressure_kpa": 100.76,
+    "battery_pct": 37
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-21T02:35:00Z",
+    "temperature_c": 27.79,
+    "humidity_pct": 56.2,
+    "pressure_kpa": 102.84,
+    "battery_pct": 37
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T02:40:00Z",
+    "temperature_c": 59.38,
+    "humidity_pct": 46.7,
+    "pressure_kpa": 103.69,
+    "battery_pct": 36
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T02:45:00Z",
+    "temperature_c": 38.56,
+    "humidity_pct": 67.1,
+    "pressure_kpa": 102.83,
+    "battery_pct": 36
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T02:50:00Z",
+    "temperature_c": 63.86,
+    "humidity_pct": 34.8,
+    "pressure_kpa": 98.95,
+    "battery_pct": 36
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-21T02:55:00Z",
+    "temperature_c": 24.38,
+    "humidity_pct": 30.9,
+    "pressure_kpa": 104.79,
+    "battery_pct": 36
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-21T03:00:00Z",
+    "temperature_c": 29.93,
+    "humidity_pct": 65.7,
+    "pressure_kpa": 102.55,
+    "battery_pct": 36
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T03:05:00Z",
+    "temperature_c": 66.0,
+    "humidity_pct": 77.2,
+    "pressure_kpa": 101.77,
+    "battery_pct": 35
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-21T03:10:00Z",
+    "temperature_c": 35.15,
+    "humidity_pct": 55.5,
+    "pressure_kpa": 101.32,
+    "battery_pct": 35
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-21T03:15:00Z",
+    "temperature_c": 24.64,
+    "humidity_pct": 79.6,
+    "pressure_kpa": 103.17,
+    "battery_pct": 35
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T03:20:00Z",
+    "temperature_c": 72.94,
+    "humidity_pct": 55.9,
+    "pressure_kpa": 104.02,
+    "battery_pct": 35
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T03:25:00Z",
+    "temperature_c": 31.83,
+    "humidity_pct": 46.2,
+    "pressure_kpa": 103.81,
+    "battery_pct": 35
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T03:30:00Z",
+    "temperature_c": 20.9,
+    "humidity_pct": 30.4,
+    "pressure_kpa": 102.41,
+    "battery_pct": 34
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T03:35:00Z",
+    "temperature_c": 73.83,
+    "humidity_pct": 76.7,
+    "pressure_kpa": 103.16,
+    "battery_pct": 34
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T03:40:00Z",
+    "temperature_c": 59.67,
+    "humidity_pct": 84.9,
+    "pressure_kpa": 98.26,
+    "battery_pct": 34
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T03:45:00Z",
+    "temperature_c": 45.71,
+    "humidity_pct": 62.5,
+    "pressure_kpa": 102.28,
+    "battery_pct": 34
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T03:50:00Z",
+    "temperature_c": 31.22,
+    "humidity_pct": 33.3,
+    "pressure_kpa": 98.13,
+    "battery_pct": 34
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T03:55:00Z",
+    "temperature_c": 36.0,
+    "humidity_pct": 33.5,
+    "pressure_kpa": 104.25,
+    "battery_pct": 33
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T04:00:00Z",
+    "temperature_c": 68.68,
+    "humidity_pct": 36.4,
+    "pressure_kpa": 102.36,
+    "battery_pct": 33
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T04:05:00Z",
+    "temperature_c": 43.55,
+    "humidity_pct": 54.0,
+    "pressure_kpa": 99.13,
+    "battery_pct": 33
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-21T04:10:00Z",
+    "temperature_c": 44.75,
+    "humidity_pct": 54.1,
+    "pressure_kpa": 101.55,
+    "battery_pct": 33
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T04:15:00Z",
+    "temperature_c": 69.82,
+    "humidity_pct": 48.7,
+    "pressure_kpa": 102.21,
+    "battery_pct": 33
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T04:20:00Z",
+    "temperature_c": 25.48,
+    "humidity_pct": 46.1,
+    "pressure_kpa": 102.98,
+    "battery_pct": 32
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T04:25:00Z",
+    "temperature_c": 65.49,
+    "humidity_pct": 67.0,
+    "pressure_kpa": 103.14,
+    "battery_pct": 32
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T04:30:00Z",
+    "temperature_c": 63.59,
+    "humidity_pct": 76.4,
+    "pressure_kpa": 102.35,
+    "battery_pct": 32
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-21T04:35:00Z",
+    "temperature_c": 57.37,
+    "humidity_pct": 34.7,
+    "pressure_kpa": 101.38,
+    "battery_pct": 32
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-21T04:40:00Z",
+    "temperature_c": 29.37,
+    "humidity_pct": 63.3,
+    "pressure_kpa": 98.71,
+    "battery_pct": 32
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T04:45:00Z",
+    "temperature_c": 71.75,
+    "humidity_pct": 57.2,
+    "pressure_kpa": 99.64,
+    "battery_pct": 31
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T04:50:00Z",
+    "temperature_c": 20.68,
+    "humidity_pct": 31.0,
+    "pressure_kpa": 104.17,
+    "battery_pct": 31
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T04:55:00Z",
+    "temperature_c": 56.58,
+    "humidity_pct": 39.6,
+    "pressure_kpa": 104.02,
+    "battery_pct": 31
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T05:00:00Z",
+    "temperature_c": 19.82,
+    "humidity_pct": 33.5,
+    "pressure_kpa": 101.01,
+    "battery_pct": 31
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T05:05:00Z",
+    "temperature_c": 30.92,
+    "humidity_pct": 60.9,
+    "pressure_kpa": 101.4,
+    "battery_pct": 31
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-21T05:10:00Z",
+    "temperature_c": 62.74,
+    "humidity_pct": 72.3,
+    "pressure_kpa": 103.39,
+    "battery_pct": 30
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T05:15:00Z",
+    "temperature_c": 33.25,
+    "humidity_pct": 38.3,
+    "pressure_kpa": 102.83,
+    "battery_pct": 30
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T05:20:00Z",
+    "temperature_c": 52.44,
+    "humidity_pct": 35.7,
+    "pressure_kpa": 98.35,
+    "battery_pct": 30
+  },
+  {
+    "device_id": "DEV-015",
+    "timestamp": "2026-09-21T05:25:00Z",
+    "temperature_c": 63.54,
+    "humidity_pct": 82.9,
+    "pressure_kpa": 103.29,
+    "battery_pct": 30
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T05:30:00Z",
+    "temperature_c": 62.55,
+    "humidity_pct": 63.5,
+    "pressure_kpa": 104.01,
+    "battery_pct": 30
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T05:35:00Z",
+    "temperature_c": 64.95,
+    "humidity_pct": 32.3,
+    "pressure_kpa": 98.74,
+    "battery_pct": 29
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T05:40:00Z",
+    "temperature_c": 67.64,
+    "humidity_pct": 80.1,
+    "pressure_kpa": 99.1,
+    "battery_pct": 29
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-21T05:45:00Z",
+    "temperature_c": 58.37,
+    "humidity_pct": 71.9,
+    "pressure_kpa": 101.49,
+    "battery_pct": 29
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T05:50:00Z",
+    "temperature_c": 26.79,
+    "humidity_pct": 50.0,
+    "pressure_kpa": 103.73,
+    "battery_pct": 29
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T05:55:00Z",
+    "temperature_c": 66.37,
+    "humidity_pct": 54.2,
+    "pressure_kpa": 100.91,
+    "battery_pct": 29
+  },
+  {
+    "device_id": "DEV-001",
+    "timestamp": "2026-09-21T06:00:00Z",
+    "temperature_c": 31.98,
+    "humidity_pct": 74.5,
+    "pressure_kpa": 100.39,
+    "battery_pct": 28
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T06:05:00Z",
+    "temperature_c": 27.76,
+    "humidity_pct": 44.6,
+    "pressure_kpa": 103.01,
+    "battery_pct": 28
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T06:10:00Z",
+    "temperature_c": 38.56,
+    "humidity_pct": 66.6,
+    "pressure_kpa": 99.06,
+    "battery_pct": 28
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T06:15:00Z",
+    "temperature_c": 42.04,
+    "humidity_pct": 42.6,
+    "pressure_kpa": 103.61,
+    "battery_pct": 28
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T06:20:00Z",
+    "temperature_c": 70.33,
+    "humidity_pct": 79.4,
+    "pressure_kpa": 104.66,
+    "battery_pct": 28
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T06:25:00Z",
+    "temperature_c": 63.29,
+    "humidity_pct": 49.9,
+    "pressure_kpa": 98.21,
+    "battery_pct": 27
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-21T06:30:00Z",
+    "temperature_c": 61.9,
+    "humidity_pct": 69.5,
+    "pressure_kpa": 101.62,
+    "battery_pct": 27
+  },
+  {
+    "device_id": "DEV-003",
+    "timestamp": "2026-09-21T06:35:00Z",
+    "temperature_c": 22.83,
+    "humidity_pct": 47.3,
+    "pressure_kpa": 104.87,
+    "battery_pct": 27
+  },
+  {
+    "device_id": "DEV-006",
+    "timestamp": "2026-09-21T06:40:00Z",
+    "temperature_c": 42.74,
+    "humidity_pct": 51.6,
+    "pressure_kpa": 98.26,
+    "battery_pct": 27
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-21T06:45:00Z",
+    "temperature_c": 69.44,
+    "humidity_pct": 33.2,
+    "pressure_kpa": 102.42,
+    "battery_pct": 27
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T06:50:00Z",
+    "temperature_c": 73.44,
+    "humidity_pct": 53.1,
+    "pressure_kpa": 104.2,
+    "battery_pct": 26
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T06:55:00Z",
+    "temperature_c": 67.79,
+    "humidity_pct": 69.7,
+    "pressure_kpa": 100.2,
+    "battery_pct": 26
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T07:00:00Z",
+    "temperature_c": 18.45,
+    "humidity_pct": 45.4,
+    "pressure_kpa": 101.69,
+    "battery_pct": 26
+  },
+  {
+    "device_id": "DEV-005",
+    "timestamp": "2026-09-21T07:05:00Z",
+    "temperature_c": 57.92,
+    "humidity_pct": 54.5,
+    "pressure_kpa": 99.44,
+    "battery_pct": 26
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T07:10:00Z",
+    "temperature_c": 53.59,
+    "humidity_pct": 64.0,
+    "pressure_kpa": 101.1,
+    "battery_pct": 26
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T07:15:00Z",
+    "temperature_c": 68.6,
+    "humidity_pct": 73.0,
+    "pressure_kpa": 100.83,
+    "battery_pct": 25
+  },
+  {
+    "device_id": "DEV-007",
+    "timestamp": "2026-09-21T07:20:00Z",
+    "temperature_c": 68.22,
+    "humidity_pct": 34.6,
+    "pressure_kpa": 101.76,
+    "battery_pct": 25
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T07:25:00Z",
+    "temperature_c": 59.33,
+    "humidity_pct": 70.7,
+    "pressure_kpa": 98.88,
+    "battery_pct": 25
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T07:30:00Z",
+    "temperature_c": 34.18,
+    "humidity_pct": 35.1,
+    "pressure_kpa": 101.86,
+    "battery_pct": 25
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T07:35:00Z",
+    "temperature_c": 37.42,
+    "humidity_pct": 65.0,
+    "pressure_kpa": 98.16,
+    "battery_pct": 25
+  },
+  {
+    "device_id": "DEV-018",
+    "timestamp": "2026-09-21T07:40:00Z",
+    "temperature_c": 51.77,
+    "humidity_pct": 43.3,
+    "pressure_kpa": 103.42,
+    "battery_pct": 24
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T07:45:00Z",
+    "temperature_c": 74.26,
+    "humidity_pct": 36.1,
+    "pressure_kpa": 98.42,
+    "battery_pct": 24
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T07:50:00Z",
+    "temperature_c": 32.81,
+    "humidity_pct": 57.9,
+    "pressure_kpa": 98.87,
+    "battery_pct": 24
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T07:55:00Z",
+    "temperature_c": 43.58,
+    "humidity_pct": 61.5,
+    "pressure_kpa": 98.04,
+    "battery_pct": 24
+  },
+  {
+    "device_id": "DEV-011",
+    "timestamp": "2026-09-21T08:00:00Z",
+    "temperature_c": 74.03,
+    "humidity_pct": 74.3,
+    "pressure_kpa": 104.92,
+    "battery_pct": 24
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T08:05:00Z",
+    "temperature_c": 58.73,
+    "humidity_pct": 81.6,
+    "pressure_kpa": 102.66,
+    "battery_pct": 23
+  },
+  {
+    "device_id": "DEV-020",
+    "timestamp": "2026-09-21T08:10:00Z",
+    "temperature_c": 31.33,
+    "humidity_pct": 46.5,
+    "pressure_kpa": 102.67,
+    "battery_pct": 23
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T08:15:00Z",
+    "temperature_c": 56.33,
+    "humidity_pct": 69.3,
+    "pressure_kpa": 101.64,
+    "battery_pct": 23
+  },
+  {
+    "device_id": "DEV-008",
+    "timestamp": "2026-09-21T08:20:00Z",
+    "temperature_c": 24.0,
+    "humidity_pct": 58.4,
+    "pressure_kpa": 99.35,
+    "battery_pct": 23
+  },
+  {
+    "device_id": "DEV-012",
+    "timestamp": "2026-09-21T08:25:00Z",
+    "temperature_c": 43.9,
+    "humidity_pct": 38.1,
+    "pressure_kpa": 100.98,
+    "battery_pct": 23
+  },
+  {
+    "device_id": "DEV-014",
+    "timestamp": "2026-09-21T08:30:00Z",
+    "temperature_c": 22.67,
+    "humidity_pct": 33.4,
+    "pressure_kpa": 104.22,
+    "battery_pct": 22
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T08:35:00Z",
+    "temperature_c": 30.24,
+    "humidity_pct": 34.3,
+    "pressure_kpa": 102.74,
+    "battery_pct": 22
+  },
+  {
+    "device_id": "DEV-013",
+    "timestamp": "2026-09-21T08:40:00Z",
+    "temperature_c": 51.53,
+    "humidity_pct": 58.5,
+    "pressure_kpa": 100.76,
+    "battery_pct": 22
+  },
+  {
+    "device_id": "DEV-009",
+    "timestamp": "2026-09-21T08:45:00Z",
+    "temperature_c": 51.31,
+    "humidity_pct": 65.0,
+    "pressure_kpa": 104.98,
+    "battery_pct": 22
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T08:50:00Z",
+    "temperature_c": 59.71,
+    "humidity_pct": 52.9,
+    "pressure_kpa": 99.14,
+    "battery_pct": 22
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T08:55:00Z",
+    "temperature_c": 25.25,
+    "humidity_pct": 69.1,
+    "pressure_kpa": 98.91,
+    "battery_pct": 21
+  },
+  {
+    "device_id": "DEV-017",
+    "timestamp": "2026-09-21T09:00:00Z",
+    "temperature_c": 67.21,
+    "humidity_pct": 36.5,
+    "pressure_kpa": 99.49,
+    "battery_pct": 21
+  },
+  {
+    "device_id": "DEV-016",
+    "timestamp": "2026-09-21T09:05:00Z",
+    "temperature_c": 19.86,
+    "humidity_pct": 38.6,
+    "pressure_kpa": 101.91,
+    "battery_pct": 21
+  },
+  {
+    "device_id": "DEV-004",
+    "timestamp": "2026-09-21T09:10:00Z",
+    "temperature_c": 52.29,
+    "humidity_pct": 52.5,
+    "pressure_kpa": 98.85,
+    "battery_pct": 21
+  },
+  {
+    "device_id": "DEV-019",
+    "timestamp": "2026-09-21T09:15:00Z",
+    "temperature_c": 34.51,
+    "humidity_pct": 58.8,
+    "pressure_kpa": 98.82,
+    "battery_pct": 21
+  },
+  {
+    "device_id": "DEV-010",
+    "timestamp": "2026-09-21T09:20:00Z",
+    "temperature_c": 74.49,
+    "humidity_pct": 46.7,
+    "pressure_kpa": 101.4,
+    "battery_pct": 20
+  }
+]

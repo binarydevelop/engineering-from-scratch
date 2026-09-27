@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 138 - Time-Series Systems
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Writing server CPU metrics into standard normalized relational database tables.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Time-partitioned tables (TimescaleDB / InfluxDB) with automated chunk dropping and rollups.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

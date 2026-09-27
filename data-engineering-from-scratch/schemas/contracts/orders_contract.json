@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OrdersDataContract",
+  "type": "object",
+  "required": ["order_id", "user_id", "order_status", "total_amount", "created_at"],
+  "properties": {
+    "order_id": {
+      "type": "string",
+      "pattern": "^ord_[0-9]{5}$",
+      "description": "Unique order identifier"
+    },
+    "user_id": {
+      "type": "string",
+      "pattern": "^usr_[0-9]{4}$",
+      "description": "Identifier of the purchasing user"
+    },
+    "order_status": {
+      "type": "string",
+      "enum": ["PENDING", "PROCESSING", "COMPLETED", "CANCELLED", "REFUNDED"]
+    },
+    "subtotal": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "tax": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "total_amount": {
+      "type": "number",
+      "minimum": 0.0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": true
+}

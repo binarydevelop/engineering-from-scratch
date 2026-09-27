@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 148 - Feature Flag Management Platform
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Making network RPC call to feature flag server on every user request.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Local rule evaluation engine with rules synced asynchronously via CDN/WebSocket.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

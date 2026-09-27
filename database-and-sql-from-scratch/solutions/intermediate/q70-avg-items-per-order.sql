@@ -1,0 +1,1 @@
+SELECT ROUND(AVG(item_count), 2) AS avg_unique_items, ROUND(AVG(total_qty), 2) AS avg_quantity FROM (SELECT order_id, COUNT(product_id) AS item_count, SUM(quantity) AS total_qty FROM ecommerce.order_items oi JOIN ecommerce.orders o ON oi.order_id = o.id WHERE o.status = 'completed' GROUP BY order_id) sub;

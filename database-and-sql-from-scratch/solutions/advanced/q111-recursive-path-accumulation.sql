@@ -1,0 +1,1 @@
+WITH RECURSIVE cat_slugs AS (SELECT id, slug, parent_id, ('/' || slug)::TEXT AS path FROM ecommerce.categories WHERE parent_id IS NULL UNION ALL SELECT c.id, c.slug, c.parent_id, (cs.path || '/' || c.slug)::TEXT AS path FROM ecommerce.categories c JOIN cat_slugs cs ON c.parent_id = cs.id) SELECT id, path FROM cat_slugs ORDER BY path ASC;

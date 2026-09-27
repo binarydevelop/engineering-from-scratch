@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 104 - Authentication Architecture
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Stateful session stored in central database queried on every API call.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Stateless JWT access tokens with short TTL (15 mins) and sliding refresh tokens.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

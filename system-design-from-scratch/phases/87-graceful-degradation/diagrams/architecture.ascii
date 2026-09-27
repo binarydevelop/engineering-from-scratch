@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 87 - Graceful Degradation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   E-commerce product page crashes entirely because recommendation service is down.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Fallback handler returning static popular items if recommendation service fails.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

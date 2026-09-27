@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 142 - Distributed Blob Storage Architecture
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Storing entire 5 GB video files as single monolithic blobs on single disks.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Chunking files into 64 MB blocks with chunk manifest metadata and erasure coding.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

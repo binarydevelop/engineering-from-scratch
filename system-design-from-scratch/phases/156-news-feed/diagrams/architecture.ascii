@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 156 - Design a Social Media News Feed
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Executing SQL query joining all followed users on every feed page load.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Pre-computed Redis feed timelines populated by async workers upon post creation.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

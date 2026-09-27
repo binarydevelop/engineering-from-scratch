@@ -1,0 +1,35 @@
+# Compiled binaries & objects
+*.o
+*.out
+*.so
+*.dylib
+*.a
+bin/
+build/
+
+# Core dumps & debugger state
+core
+core.*
+.gdb_history
+
+# Temporary test images & disk files
+*.img
+*.iso
+*.fs
+scratch_disk.img
+test.txt
+out.txt
+input.txt
+pipe_*
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+env/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

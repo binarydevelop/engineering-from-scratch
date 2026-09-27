@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 77 - Object Storage From First Principles
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Storing 10 MB user images as BLOBs inside PostgreSQL tables.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   S3-compatible Object Storage storing raw bytes, returning immutable HTTP URLs.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

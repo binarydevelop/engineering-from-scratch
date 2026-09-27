@@ -1,0 +1,1 @@
+SELECT o.id, o.name, s.status FROM saas.organizations o JOIN saas.subscriptions s ON o.id = s.organization_id WHERE s.status IN ('active', 'past_due') AND NOT EXISTS (SELECT 1 FROM saas.events e WHERE e.organization_id = o.id AND e.created_at >= '2026-02-15 00:00:00+00') ORDER BY o.id ASC;

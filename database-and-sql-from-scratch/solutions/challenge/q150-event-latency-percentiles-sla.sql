@@ -1,0 +1,1 @@
+SELECT PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY (payload->>'duration_sec')::NUMERIC) AS p50_sec, PERCENTILE_CONT(0.95) WITHIN GROUP (ORDER BY (payload->>'duration_sec')::NUMERIC) AS p95_sec, PERCENTILE_CONT(0.99) WITHIN GROUP (ORDER BY (payload->>'duration_sec')::NUMERIC) AS p99_sec FROM saas.events WHERE event_type = 'deploy.succeeded';

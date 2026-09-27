@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 78 - Metadata vs Blob Storage Separation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Storing file metadata and bytes inside the same storage engine.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Relational DB: `(file_id, user_id, size, s3_key, created_at)` + S3: `s3://bucket/s3_key`.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "C-01",
+    "name": "DataScale Corp",
+    "industry": "Cloud Infrastructure"
+  },
+  {
+    "id": "C-02",
+    "name": "HyperQuery AI",
+    "industry": "Database Technologies"
+  },
+  {
+    "id": "C-03",
+    "name": "GlobalFin",
+    "industry": "FinTech"
+  }
+]

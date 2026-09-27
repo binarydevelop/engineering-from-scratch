@@ -1,0 +1,17 @@
+# Core Data Engineering & Transformation Primitives
+duckdb>=1.1.0
+pyarrow>=17.0.0
+pydantic>=2.8.0
+sqlparse>=0.5.0
+tabulate>=0.9.0
+python-dotenv>=1.0.1
+
+# Testing & Verification
+pytest>=8.3.0
+pytest-asyncio>=0.23.0
+
+# Database Connectivity (Optional / Educational local tests)
+psycopg[binary]>=3.2.0
+
+# Data Visualization / Console Output
+rich>=13.8.0

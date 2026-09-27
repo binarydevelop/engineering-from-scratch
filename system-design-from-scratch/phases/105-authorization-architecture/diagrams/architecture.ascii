@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 105 - Authorization Architecture
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Hardcoded `if user.is_admin:` checks scattered across application code.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Policy-as-code authorization engine (Open Policy Agent / centralized RBAC).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 127 - Event Sourcing
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Overwriting account balance with `UPDATE accounts SET balance = ?`.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Event Sourcing: appending `MoneyDeposited`, `MoneyWithdrawn` events to immutable log.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

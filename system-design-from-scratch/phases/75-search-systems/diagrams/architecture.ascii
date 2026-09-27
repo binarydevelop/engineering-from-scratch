@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 75 - Search Systems & Inverted Indexes
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   SQL `LIKE '%term%'` full table scans across millions of text records.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Inverted index engine (Elasticsearch / OpenSearch).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,1 @@
+SELECT f1.follower_id AS user_a, f2.follower_id AS user_b, f3.follower_id AS user_c FROM social.follows f1 JOIN social.follows f2 ON f1.following_id = f2.follower_id JOIN social.follows f3 ON f2.following_id = f3.follower_id AND f3.following_id = f1.follower_id WHERE f1.follower_id < f2.follower_id AND f2.follower_id < f3.follower_id ORDER BY user_a ASC, user_b ASC, user_c ASC;

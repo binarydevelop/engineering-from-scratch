@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 76 - Search Index as Derived State
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Using Elasticsearch as the primary authoritative store for e-commerce orders.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   PostgreSQL primary with asynchronous CDC updating Elasticsearch.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

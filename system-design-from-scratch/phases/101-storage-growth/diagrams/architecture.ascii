@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 101 - Storage Growth & Retention
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Assuming storage needs remain constant.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Automated tiering: active SSD storage, warm HDD storage, cold S3 glacier archive.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

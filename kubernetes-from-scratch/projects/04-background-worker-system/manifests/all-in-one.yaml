@@ -1,0 +1,94 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: queue-svc
+  namespace: default
+  labels:
+    app: queue
+spec:
+  type: ClusterIP
+  selector:
+    app: queue
+  ports:
+  - port: 6379
+    targetPort: 6379
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-broker
+  namespace: default
+  labels:
+    app: queue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue
+  template:
+    metadata:
+      labels:
+        app: queue
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.4-alpine
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "64Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-worker
+  namespace: default
+  labels:
+    app: task-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: task-worker
+  template:
+    metadata:
+      labels:
+        app: task-worker
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: worker
+        image: python:3.11-alpine
+        command: ["python", "-u", "-c"]
+        args:
+        - |
+          import time, os, signal, sys
+          run = True
+          def sig(s, f):
+              global run
+              print(f"Worker {os.getpid()} received SIGTERM. Finishing work...")
+              run = False
+          signal.signal(signal.SIGTERM, sig)
+          print(f"Worker {os.environ.get('HOSTNAME')} started.")
+          i = 0
+          while run:
+              i += 1
+              print(f"Processing background task #{i}")
+              time.sleep(2)
+          print("Graceful exit.")
+          sys.exit(0)
+        env:
+        - name: QUEUE_HOST
+          value: "queue-svc"
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "32Mi"
+          limits:
+            cpu: "100m"
+            memory: "64Mi"

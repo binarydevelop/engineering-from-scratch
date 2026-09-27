@@ -1,0 +1,36 @@
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Build Artifacts
+target/
+build/
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+*.hprof
+*.dump
+
+# IDEs and Editors
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+*.swo
+
+# Profiler & Flight Recorder
+*.jfr
+*.jfr.tmp
+*.prof
+
+# Temporary / Scratch
+outputs/runs/
+scratch/
+tmp/
+*.log

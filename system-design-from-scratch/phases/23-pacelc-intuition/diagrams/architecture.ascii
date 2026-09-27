@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 23 - PACELC Intuition
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Assuming systems only trade off during network failures.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Configuring replication ACK policies: ACK on 1 node (low latency) vs ACK on all (strong consistency).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

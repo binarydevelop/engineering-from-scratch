@@ -1,0 +1,1 @@
+{"timestamp": "2026-09-25T01:08:40.692369+00:00", "level": "INFO", "service": "checkout-service", "environment": "production", "logger": "checkout", "message": "Checkout completed for user_8492 amount=$49.99", "correlation_id": "corr_prod_99182", "trace_id": "8360aa377dcf4408b80f1a9e6fc8fb94", "span_id": "7947200c893a4c41"}

@@ -1,0 +1,1 @@
+WITH ranked_payments AS (SELECT id, order_id, created_at, ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY created_at DESC, id DESC) AS rn FROM ecommerce.payments WHERE status = 'completed') SELECT id, order_id, created_at FROM ranked_payments WHERE rn > 1 ORDER BY order_id ASC, id ASC;

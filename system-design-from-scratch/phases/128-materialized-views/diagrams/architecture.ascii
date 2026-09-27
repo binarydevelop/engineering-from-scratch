@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 128 - Materialized Views & Read Projections
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Executing expensive multi-table aggregations on every user page load.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Materialized view updated asynchronously via database triggers or stream processors.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

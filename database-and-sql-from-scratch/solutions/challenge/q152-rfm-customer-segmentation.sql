@@ -1,0 +1,1 @@
+SELECT customer_id, ('2026-03-20'::DATE - MAX(order_date)::DATE) AS recency_days, COUNT(*) AS frequency, SUM(total_amount) AS monetary FROM ecommerce.orders WHERE status = 'completed' GROUP BY customer_id ORDER BY monetary DESC, customer_id ASC;

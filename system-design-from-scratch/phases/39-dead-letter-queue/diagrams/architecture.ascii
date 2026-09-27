@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 39 - Dead-Letter Queue (DLQ)
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Queue retries failing message infinitely.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Route to Dead-Letter Queue after 3 failed delivery attempts with alert emission.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

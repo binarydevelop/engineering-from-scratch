@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 20 - Read-After-Write Consistency
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   All user reads routed round-robin to replicas.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Session-sticky routing to primary for 5 seconds following any write.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

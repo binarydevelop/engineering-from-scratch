@@ -1,0 +1,1 @@
+WITH daily AS (SELECT order_date::DATE AS order_day, SUM(total_amount) AS daily_rev FROM ecommerce.orders WHERE status = 'completed' GROUP BY 1) SELECT order_day, daily_rev, SUM(daily_rev) OVER (ORDER BY order_day ASC ROWS BETWEEN 29 PRECEDING AND CURRENT ROW) AS rolling_30d_rev FROM daily ORDER BY order_day ASC;

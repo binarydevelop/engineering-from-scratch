@@ -1,0 +1,1 @@
+SELECT user_id, 'post' AS activity_type, SUBSTRING(content FROM 1 FOR 30) AS content_snippet, created_at FROM social.posts UNION ALL SELECT user_id, 'comment' AS activity_type, SUBSTRING(comment_text FROM 1 FOR 30) AS content_snippet, created_at FROM social.comments ORDER BY created_at DESC;

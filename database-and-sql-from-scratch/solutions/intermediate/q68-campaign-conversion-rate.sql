@@ -1,0 +1,1 @@
+SELECT c.name AS campaign_name, COUNT(DISTINCT s.id) AS total_sessions, COUNT(DISTINCT e.id) FILTER (WHERE e.event_name = 'purchase') AS purchase_count FROM analytics.campaigns c LEFT JOIN analytics.sessions s ON c.id = s.campaign_id LEFT JOIN analytics.events e ON s.id = e.session_id GROUP BY c.id, c.name ORDER BY total_sessions DESC;

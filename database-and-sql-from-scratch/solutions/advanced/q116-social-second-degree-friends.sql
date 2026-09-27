@@ -1,0 +1,1 @@
+SELECT DISTINCT f2.following_id AS recommended_user_id FROM social.follows f1 JOIN social.follows f2 ON f1.following_id = f2.follower_id WHERE f1.follower_id = 1 AND f2.following_id != 1 AND f2.following_id NOT IN (SELECT following_id FROM social.follows WHERE follower_id = 1) ORDER BY recommended_user_id ASC;

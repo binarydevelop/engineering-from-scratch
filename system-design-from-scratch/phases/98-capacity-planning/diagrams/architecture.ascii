@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 98 - Capacity Planning
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Guessing server sizes without quantitative mathematical derivation.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Mathematical capacity model linking DAU, QPS, latency, and resource saturation.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

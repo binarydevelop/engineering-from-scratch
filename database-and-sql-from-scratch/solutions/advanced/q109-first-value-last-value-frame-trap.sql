@@ -1,0 +1,1 @@
+SELECT id, total_amount, LAST_VALUE(total_amount) OVER (ORDER BY total_amount ASC ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS highest_order_amount FROM ecommerce.orders WHERE status = 'completed' ORDER BY id ASC;

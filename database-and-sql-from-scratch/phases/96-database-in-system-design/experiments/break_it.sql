@@ -1,0 +1,2 @@
+-- Break-it experiment for Phase 96
+-- Intentionally test failure modes.

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 176 - Design a Distributed Web Crawler
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Multi-threaded crawler hammering single domain with 500 parallel requests, causing ban.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Domain-partitioned URL frontier queues + politeness delayers + SimHash deduplication.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

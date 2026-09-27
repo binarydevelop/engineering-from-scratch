@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 94 - Multi-Region Motivations
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Prematurely designing multi-region architecture for a small startup service.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Single-region multi-AZ primary with warm standby in secondary region for disaster recovery.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

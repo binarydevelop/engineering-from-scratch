@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 52 - Cross-Shard Queries & Fan-Out
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Querying by secondary attribute across 50 sharded database nodes.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Global secondary index (GSI) or denormalized read-side lookup table.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

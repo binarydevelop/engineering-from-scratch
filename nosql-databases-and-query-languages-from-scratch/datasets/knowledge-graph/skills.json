@@ -1,0 +1,22 @@
+[
+  {
+    "id": "S-01",
+    "name": "Distributed Systems"
+  },
+  {
+    "id": "S-02",
+    "name": "Cassandra Architecture"
+  },
+  {
+    "id": "S-03",
+    "name": "MongoDB Aggregation"
+  },
+  {
+    "id": "S-04",
+    "name": "Graph Algorithms"
+  },
+  {
+    "id": "S-05",
+    "name": "Search & Inverted Indexes"
+  }
+]

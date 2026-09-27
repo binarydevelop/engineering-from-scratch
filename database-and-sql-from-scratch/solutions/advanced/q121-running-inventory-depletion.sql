@@ -1,0 +1,1 @@
+SELECT oi.order_id, o.order_date, oi.quantity, (45 - SUM(oi.quantity) OVER (ORDER BY o.order_date ASC, oi.order_id ASC)) AS remaining_stock FROM ecommerce.order_items oi JOIN ecommerce.orders o ON oi.order_id = o.id WHERE oi.product_id = 1 AND o.status = 'completed' ORDER BY o.order_date ASC;

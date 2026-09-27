@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 115 - Chaos Engineering & Failure Injection
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Waiting for natural outages to test failover procedures.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Automated chaos tests injecting latency, dropping packets, and terminating random nodes.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

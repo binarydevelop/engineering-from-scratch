@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 146 - Distributed Configuration Service
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Hardcoded configuration files requiring service restarts to change settings.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Centralized key-value configuration store with watch API and local client caching.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

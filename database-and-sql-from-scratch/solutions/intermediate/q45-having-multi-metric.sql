@@ -1,0 +1,1 @@
+SELECT customer_id, SUM(total_amount) AS total_spent, COUNT(*) AS order_count FROM ecommerce.orders WHERE status = 'completed' GROUP BY customer_id HAVING SUM(total_amount) > 1000 AND COUNT(*) >= 2 ORDER BY total_spent DESC;

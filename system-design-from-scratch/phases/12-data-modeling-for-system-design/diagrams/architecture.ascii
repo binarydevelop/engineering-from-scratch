@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 12 - Data Modeling for System Design
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Normalized 3NF relational schema.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Denormalized read models for high-frequency lookup queries.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

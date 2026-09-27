@@ -1,0 +1,2 @@
+-- Connect with wrong user or port
+-- psql -h localhost -p 9999 -U unknown_user

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 100 - Connection Capacity & Limits
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Opening fresh database connection per incoming HTTP request.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Bounded connection pools and connection proxies (e.g. PgBouncer).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

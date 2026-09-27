@@ -1,0 +1,40 @@
+# Git Ignore for NoSQL Databases & Query Languages From Scratch
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Docker volumes and local DB data
+data/
+*.db
+*.log
+*.wal
+*.sstable
+*.rdb
+*.aof
+docker-volumes/
+
+# Environment files with sensitive credentials
+.env
+!.env.example
+
+# Temporary benchmark and output artifacts
+outputs/*.json
+outputs/*.csv
+!outputs/evidence-template.md
+tmp/
+scratch/

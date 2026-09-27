@@ -1,0 +1,35 @@
+# Environments
+.venv/
+env/
+venv/
+ENV/
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# PyTorch / CUDA / Triton
+.triton/
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+checkpoints/
+wandb/
+
+# Temporary / OS
+.DS_Store
+*.log
+tmp/
+scratch/
+outputs/*.tmp

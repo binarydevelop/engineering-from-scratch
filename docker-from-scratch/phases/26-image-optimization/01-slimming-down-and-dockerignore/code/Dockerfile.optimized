@@ -1,0 +1,7 @@
+FROM alpine:latest
+WORKDIR /app
+
+# Only copy what is strictly necessary
+COPY app.py .
+
+CMD ["/bin/sh", "-c", "echo 'Lean image running!'"]

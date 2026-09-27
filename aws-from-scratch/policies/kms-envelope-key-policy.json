@@ -1,0 +1,35 @@
+{
+  "Version": "2012-10-17",
+  "Id": "lab-kms-key-policy",
+  "Statement": [
+    {
+      "Sid": "EnableRootAccountAdministration",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ACCOUNT_ID:root"
+      },
+      "Action": "kms:*",
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowLabAppRoleEnvelopeEncryption",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ACCOUNT_ID:role/LabApplicationRole"
+      },
+      "Action": [
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncrypt*",
+        "kms:GenerateDataKey*",
+        "kms:DescribeKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:CallerAccount": "ACCOUNT_ID"
+        }
+      }
+    }
+  ]
+}

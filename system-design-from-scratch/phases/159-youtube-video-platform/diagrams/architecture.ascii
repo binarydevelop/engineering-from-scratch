@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 159 - Design YouTube Video Platform
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Streaming single MP4 files directly from application web servers.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Direct-to-S3 upload + distributed worker transcode pool + HLS manifest streaming + CDN.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

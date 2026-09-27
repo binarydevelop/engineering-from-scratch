@@ -1,0 +1,1 @@
+SELECT oi.order_id, STRING_AGG(p.name, ', ' ORDER BY p.name ASC) AS product_list FROM ecommerce.order_items oi JOIN ecommerce.products p ON oi.product_id = p.id JOIN ecommerce.orders o ON oi.order_id = o.id WHERE o.status = 'completed' GROUP BY oi.order_id ORDER BY oi.order_id ASC;

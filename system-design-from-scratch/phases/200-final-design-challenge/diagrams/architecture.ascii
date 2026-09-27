@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 200 - Final Design Challenge: Synthesis
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Immediately drawing microservices and cloud vendor logos.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Rigorous first-principles design: Clarify -> Numbers -> Data/API -> Simple -> Scale -> Tradeoffs.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

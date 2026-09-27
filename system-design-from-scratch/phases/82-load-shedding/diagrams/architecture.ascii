@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 82 - Load Shedding & Graceful Overload
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Server attempts to process all incoming requests, enters swap, and crashes.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Load shedding middleware returning HTTP 503 / 429 when queue depth > threshold.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

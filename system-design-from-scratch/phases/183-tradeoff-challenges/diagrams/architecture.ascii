@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 183 - Real-World Architectural Tradeoff Scenarios
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Believing cloud vendor promises that a technology offers infinite scale with zero tradeoffs.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Explicit tradeoff mapping: documenting chosen properties and explicitly accepted limitations.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

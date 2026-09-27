@@ -1,0 +1,96 @@
+# OpenTelemetry Collector Configuration
+# Production-grade pipeline with receivers, memory protection, batching, and multi-backend export
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+
+  # Scrape application metrics directly if services do not push via OTLP
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'api-gateway'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['api-gateway:8000']
+        - job_name: 'checkout-service'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['checkout-service:8001']
+        - job_name: 'inventory-service'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['inventory-service:8002']
+        - job_name: 'payment-service'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['payment-service:8003']
+        - job_name: 'notification-worker'
+          scrape_interval: 10s
+          static_configs:
+            - targets: ['notification-worker:8004']
+
+processors:
+  # Protect the collector process from memory exhaustion
+  memory_limiter:
+    check_interval: 1s
+    limit_percentage: 75
+    spike_limit_percentage: 20
+
+  # Batch telemetry to minimize network serialization overhead
+  batch:
+    send_batch_size: 1024
+    timeout: 1s
+    send_batch_max_size: 2048
+
+  # Redact potential sensitive tokens from span attributes
+  transform:
+    error_mode: ignore
+    trace_statements:
+      - context: span
+        statements:
+          - replace_pattern(attributes["http.request.header.authorization"], ".*", "[REDACTED]")
+          - replace_pattern(attributes["payment.token"], ".*", "[REDACTED]")
+
+exporters:
+  # Expose processed metrics in Prometheus format for Prometheus scraping
+  prometheus:
+    endpoint: 0.0.0.0:8889
+    namespace: otel
+
+  # Export distributed traces to Grafana Tempo
+  otlp/tempo:
+    endpoint: tempo:4317
+    tls:
+      insecure: true
+
+  # Debug exporter for terminal inspection
+  debug:
+    verbosity: basic
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, transform, batch]
+      exporters: [otlp/tempo, debug]
+
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [memory_limiter, batch]
+      exporters: [prometheus, debug]
+
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, batch]
+      exporters: [debug]
+
+  telemetry:
+    logs:
+      level: info
+    metrics:
+      address: 0.0.0.0:8888

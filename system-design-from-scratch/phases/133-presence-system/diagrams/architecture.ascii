@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 133 - Real-Time User Presence System
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Writing online status to relational database on every WebSocket ping.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Redis key with 60-second TTL renewed by periodic client heartbeat pings.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

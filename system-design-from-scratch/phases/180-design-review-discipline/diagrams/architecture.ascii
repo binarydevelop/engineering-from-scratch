@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 180 - Design Review Discipline & Audit
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Deploying architecture without auditing single points of failure or recovery models.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Comprehensive 12-point architectural review checklist evaluating every non-functional SLA.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

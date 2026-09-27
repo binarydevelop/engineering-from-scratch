@@ -1,0 +1,4 @@
+FROM python:3.11-slim
+COPY worker.py /worker.py
+# Shell form causes /bin/sh -c to become PID 1
+CMD python /worker.py

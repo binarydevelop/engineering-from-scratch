@@ -1,0 +1,57 @@
+[
+  {
+    "id": "prod_1",
+    "title": "Logitech MX Master 3S Wireless Performance Mouse",
+    "description": "Ergonomic quiet click wireless mouse with 8K DPI any-surface tracking and magspeed scrolling.",
+    "brand": "Logitech",
+    "category": "Peripherals",
+    "price": 99.99,
+    "rating": 4.8,
+    "in_stock": true,
+    "created_at": "2026-01-10T10:00:00Z"
+  },
+  {
+    "id": "prod_2",
+    "title": "Keychron Q1 Pro Wireless Custom Mechanical Keyboard",
+    "description": "QMK/VIA wireless mechanical keyboard with double-gasket design and CNC aluminum body.",
+    "brand": "Keychron",
+    "category": "Peripherals",
+    "price": 199.99,
+    "rating": 4.9,
+    "in_stock": true,
+    "created_at": "2026-01-12T14:30:00Z"
+  },
+  {
+    "id": "prod_3",
+    "title": "Dell UltraSharp 34-Inch Curved USB-C Hub Monitor",
+    "description": "WQHD curved wide monitor with 98% DCI-P3 color coverage and 90W power delivery.",
+    "brand": "Dell",
+    "category": "Monitors",
+    "price": 649.50,
+    "rating": 4.6,
+    "in_stock": true,
+    "created_at": "2026-01-15T09:15:00Z"
+  },
+  {
+    "id": "prod_4",
+    "title": "Herman Miller Aeron Ergonomic Office Chair",
+    "description": "Breathable mesh posturefit SL ergonomic executive chair designed for 8+ hour posture health.",
+    "brand": "Herman Miller",
+    "category": "Furniture",
+    "price": 1295.00,
+    "rating": 4.9,
+    "in_stock": false,
+    "created_at": "2026-01-20T11:45:00Z"
+  },
+  {
+    "id": "prod_5",
+    "title": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+    "description": "Industry leading noise canceling over-ear headphones with 30-hour battery life and crystal clear calls.",
+    "brand": "Sony",
+    "category": "Audio",
+    "price": 349.99,
+    "rating": 4.7,
+    "in_stock": true,
+    "created_at": "2026-01-25T16:00:00Z"
+  }
+]

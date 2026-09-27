@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 139 - Distributed Log Aggregation Pipeline
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Microservices writing logs directly over synchronous network sockets to central server.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Local logging daemon (Fluentd) -> Kafka buffer -> OpenSearch indexing cluster.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

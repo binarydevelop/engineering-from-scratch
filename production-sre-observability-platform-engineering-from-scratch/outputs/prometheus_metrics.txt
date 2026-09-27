@@ -1,0 +1,15 @@
+# HELP http_requests_total Total requests
+# TYPE http_requests_total counter
+http_requests_total{route="/checkout",service="checkout",status="200"} 1420.0
+http_requests_total{route="/checkout",service="checkout",status="500"} 12.0
+
+# HELP http_request_duration_seconds Request duration
+# TYPE http_request_duration_seconds histogram
+http_request_duration_seconds_bucket{le="0.01",route="/checkout",service="checkout"} 0
+http_request_duration_seconds_bucket{le="0.05",route="/checkout",service="checkout"} 2
+http_request_duration_seconds_bucket{le="0.1",route="/checkout",service="checkout"} 2
+http_request_duration_seconds_bucket{le="0.5",route="/checkout",service="checkout"} 3
+http_request_duration_seconds_bucket{le="1.0",route="/checkout",service="checkout"} 3
+http_request_duration_seconds_bucket{le="+Inf",route="/checkout",service="checkout"} 3
+http_request_duration_seconds_sum{route="/checkout",service="checkout"} 0.5449999999999999
+http_request_duration_seconds_count{route="/checkout",service="checkout"} 3

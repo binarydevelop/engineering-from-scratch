@@ -1,0 +1,47 @@
+services:
+  # ==============================================================================
+  # Single-Broker Standalone KRaft Lab (Phases 00 - 18, 25 - 47)
+  # Image: Official Apache Kafka 3.8.0 (Pure KRaft mode, No ZooKeeper)
+  # ==============================================================================
+  kafka:
+    image: apache/kafka:3.8.0
+    container_name: kafka-lab-single
+    hostname: kafka
+    user: "0:0"
+    ports:
+      - "9092:9092"
+    environment:
+      # KRaft Node Roles & Identity
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      
+      # Listeners: PLAINTEXT for clients, CONTROLLER for KRaft metadata replication
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      
+      # KRaft Quorum Definition
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      CLUSTER_ID: "4L622nShTUiBenA3heAaGw"
+      
+      # Single-Broker Topic Default Settings
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_NUM_PARTITIONS: 3
+      
+      # Storage Path
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+    volumes:
+      - kafka_single_data:/tmp/kraft-combined-logs
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-cluster.sh cluster-id --bootstrap-server localhost:9092 || exit 1"]
+      interval: 3s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+volumes:
+  kafka_single_data:

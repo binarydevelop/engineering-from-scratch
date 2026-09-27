@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 89 - Reliability vs Availability
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Monitoring only HTTP status codes (200 OK) without validating payload correctness.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Semantic monitoring: asserting response validity and invariant correctness.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

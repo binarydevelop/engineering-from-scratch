@@ -1,0 +1,1 @@
+SELECT a.city, PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY o.total_amount) AS median_spent FROM ecommerce.orders o JOIN ecommerce.addresses a ON o.shipping_address_id = a.id WHERE o.status = 'completed' GROUP BY a.city ORDER BY median_spent DESC;

@@ -1,0 +1,2 @@
+-- Break-it experiment for Phase 92
+-- Intentionally test failure modes.

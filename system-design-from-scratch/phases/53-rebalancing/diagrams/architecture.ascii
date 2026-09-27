@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 53 - Partition Rebalancing
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Taking database offline to re-partition and copy data.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Online partition rebalancing with change capture and routing table propagation.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

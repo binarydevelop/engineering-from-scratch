@@ -1,0 +1,1 @@
+SELECT id AS order_id, order_date, LEAD(order_date, 1) OVER (ORDER BY order_date ASC) AS next_order_date, ROUND(EXTRACT(EPOCH FROM (LEAD(order_date, 1) OVER (ORDER BY order_date ASC) - order_date)) / 86400.0, 1) AS days_to_next FROM ecommerce.orders WHERE customer_id = 1 ORDER BY order_date ASC;

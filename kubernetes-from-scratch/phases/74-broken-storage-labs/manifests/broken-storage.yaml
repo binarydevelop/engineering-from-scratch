@@ -1,0 +1,35 @@
+# 74.1: Missing StorageClass
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storage-pvc-pending
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: non-existent-fast-ssd # Missing StorageClass!
+  resources:
+    requests:
+      storage: 10Gi
+---
+# 74.2: Permission Denied Non-Root
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storage-permission-denied
+  namespace: default
+spec:
+  securityContext:
+    runAsUser: 10001
+    runAsGroup: 10001
+    # Missing fsGroup: 10001!
+  containers:
+  - name: app
+    image: busybox:1.36
+    command: ["sh", "-c", "echo 'writing state...' >> /var/data/state.txt && sleep 300"]
+    volumeMounts:
+    - name: scratch
+      mountPath: /var/data
+  volumes:
+  - name: scratch
+    emptyDir: {}

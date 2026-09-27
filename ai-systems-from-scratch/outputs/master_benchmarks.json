@@ -1,0 +1,104 @@
+{
+  "Bench 01: Eager vs Compiled Matmul": {
+    "eager_ms": 1.1537020996911451,
+    "throughput_gflops": 1861.3848831296207
+  },
+  "Bench 02: Operator Fusion Memory Traffic": {
+    "bytes_eager_mb": 20.0,
+    "bytes_fused_mb": 12.0,
+    "traffic_saved_mb": 8.0,
+    "reduction_pct": 40.0
+  },
+  "Bench 03: CPU Cache Tiling Hit Rate": {
+    "naive_cache_misses_est_pct": 32.5,
+    "tiled_cache_misses_est_pct": 4.1,
+    "speedup": 2.8
+  },
+  "Bench 04: Prefill vs Decode Arithmetic Intensity": {
+    "prefill_arithmetic_intensity": 128.0,
+    "decode_arithmetic_intensity": 1.0,
+    "prefill_tok_per_sec": 1200.0,
+    "decode_tok_per_sec": 42.0
+  },
+  "Bench 05: KV Cache Compute Reduction": {
+    "flops_without_cache": 2771763200,
+    "flops_with_cache": 41369600,
+    "compute_reduction_factor": 67.0
+  },
+  "Bench 06: Static vs Continuous Batching": {
+    "static_batch_time_ms": 100.0,
+    "continuous_batch_time_ms": 55.0,
+    "throughput_gain_pct": 81.8
+  },
+  "Bench 07: Paged vs Contiguous KV Fragmentation": {
+    "contiguous_fragmentation_pct": 65.0,
+    "paged_fragmentation_pct": 3.8,
+    "memory_savings_pct": 61.2
+  },
+  "Bench 08: Prefix Caching Speedup": {
+    "system_prompt_tokens": 500,
+    "requests": 10,
+    "tokens_prefill_skipped": 4500,
+    "ttft_speedup_factor": 4.2
+  },
+  "Bench 09: Quantization Memory Compression": {
+    "fp16_gb": 14.0,
+    "int8_gb": 7.0,
+    "int4_gb": 3.5,
+    "int4_compression_ratio": 4.0
+  },
+  "Bench 10: INT8 Quantization Numerical Error": {
+    "int8_mse": 8.969240298029035e-05,
+    "cosine_sim": 0.9994
+  },
+  "Bench 11: Speculative Decoding Throughput Gain": {
+    "lookahead_k": 4,
+    "acceptance_rate": 0.75,
+    "tokens_per_pass": 3.25,
+    "speedup": 2.4
+  },
+  "Bench 12: Training Loop Step Latency": {
+    "step_time_ms": 12.4,
+    "forward_pct": 30.0,
+    "backward_pct": 60.0,
+    "optimizer_pct": 10.0
+  },
+  "Bench 13: Gradient Accumulation Peak Memory": {
+    "batch8_activation_mb": 512.0,
+    "microbatch2_activation_mb": 128.0,
+    "activation_memory_saved_pct": 75.0
+  },
+  "Bench 14: Full Fine-Tuning vs LoRA State Memory": {
+    "full_finetune_state_gb": 112.0,
+    "lora_state_gb": 0.6,
+    "memory_reduction_factor": 186.6
+  },
+  "Bench 15: Sample Packing Saturation": {
+    "unpacked_padding_waste_pct": 74.0,
+    "packed_padding_waste_pct": 2.1,
+    "speedup_factor": 3.8
+  },
+  "Bench 16: Exact Match vs Judge Eval Latency": {
+    "exact_match_ms": 0.002,
+    "token_f1_ms": 0.041,
+    "llm_judge_ms": 1500.0
+  },
+  "Bench 17: LLM-as-Judge Position Bias Rate": {
+    "uncalibrated_position_a_win_pct": 68.4,
+    "debiased_tie_fallback_pct": 18.2
+  },
+  "Bench 18: BM25 vs Dense Search Latency": {
+    "bm25_search_ms": 1.2,
+    "dense_faiss_search_ms": 4.8,
+    "cross_encoder_rerank_ms": 45.0
+  },
+  "Bench 19: Agent Turn Cost & Latency Growth": {
+    "turn1_cost_usd": 0.01,
+    "turn10_cost_usd": 0.051597803519999985,
+    "cumulative_cost_usd": 0.2595868211199999
+  },
+  "Bench 20: Jittered Retry Collision Mitigation": {
+    "fixed_retry_collision_pct": 100.0,
+    "jittered_retry_collision_pct": 3.2
+  }
+}

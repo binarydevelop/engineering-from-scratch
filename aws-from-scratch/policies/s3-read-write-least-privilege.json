@@ -1,0 +1,50 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowListBucketContents",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::aws-from-scratch-lab-data"
+      ],
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "uploads/*",
+            "reports/*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "AllowObjectReadWriteUnderPrefix",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:AbortMultipartUpload"
+      ],
+      "Resource": [
+        "arn:aws:s3:::aws-from-scratch-lab-data/uploads/*",
+        "arn:aws:s3:::aws-from-scratch-lab-data/reports/*"
+      ]
+    },
+    {
+      "Sid": "ExplicitDenyUnencryptedInTransit",
+      "Effect": "Deny",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::aws-from-scratch-lab-data",
+        "arn:aws:s3:::aws-from-scratch-lab-data/*"
+      ],
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
+        }
+      }
+    }
+  ]
+}

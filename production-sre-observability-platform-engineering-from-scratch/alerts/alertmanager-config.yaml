@@ -1,0 +1,55 @@
+global:
+  resolve_timeout: 5m
+
+# The root route routes all incoming alerts based on labels
+route:
+  group_by: ['alertname', 'service', 'severity']
+  group_wait: 10s
+  group_interval: 30s
+  repeat_interval: 4h
+  receiver: 'default-webhook-mock'
+
+  routes:
+    # Critical paging alerts route to high-priority receiver
+    - match:
+        severity: critical
+      receiver: 'pagerduty-urgent-mock'
+      continue: true
+
+    # Non-urgent warnings route to standard engineering notification
+    - match:
+        severity: warning
+      receiver: 'slack-warnings-mock'
+
+# Inhibition rules: prevent noisy downstream symptom alerts when root cause is already known
+inhibit_rules:
+  # If PostgreSQL is down, suppress high error rate alerts on dependent services
+  - source_match:
+      alertname: 'DatabaseDown'
+      component: 'postgresql'
+    target_match:
+      alertname: 'CheckoutHighErrorRate'
+    equal: ['environment']
+
+  # If an entire host/node is down, suppress individual pod/container crash alerts
+  - source_match:
+      alertname: 'NodeDown'
+    target_match:
+      severity: 'warning'
+    equal: ['node']
+
+receivers:
+  - name: 'default-webhook-mock'
+    webhook_configs:
+      - url: 'http://api-gateway:8000/ready'
+        send_resolved: true
+
+  - name: 'pagerduty-urgent-mock'
+    webhook_configs:
+      - url: 'http://api-gateway:8000/ready'
+        send_resolved: true
+
+  - name: 'slack-warnings-mock'
+    webhook_configs:
+      - url: 'http://api-gateway:8000/ready'
+        send_resolved: true

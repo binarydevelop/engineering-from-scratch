@@ -1,0 +1,1 @@
+WITH cust_rev AS (SELECT customer_id, SUM(total_amount) AS total_revenue FROM ecommerce.orders WHERE status = 'completed' GROUP BY customer_id), avg_rev AS (SELECT AVG(total_revenue) AS threshold FROM cust_rev) SELECT cr.customer_id, cr.total_revenue FROM cust_rev cr CROSS JOIN avg_rev ar WHERE cr.total_revenue > ar.threshold ORDER BY cr.total_revenue DESC;

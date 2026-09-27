@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 11 - Reverse Proxy and Gateway Concepts
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Client directly talks to individual internal microservices.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   API Gateway centralizing authentication, routing, and throttling.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

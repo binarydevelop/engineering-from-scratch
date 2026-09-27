@@ -1,0 +1,15 @@
+name: dfs-volume-lifecycle
+
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: appdb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432"
+
+volumes:
+  db-data:

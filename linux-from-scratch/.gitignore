@@ -1,0 +1,23 @@
+# Lab runtime files
+/tmp/lfs-*
+*.img
+*.loop
+*.pid
+*.sock
+
+# Test logs
+*.log
+/outputs/*.log
+!/outputs/evidence-template.md
+
+# OS and editor files
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+
+# Virtual environments
+.venv/
+__pycache__/
+*.pyc

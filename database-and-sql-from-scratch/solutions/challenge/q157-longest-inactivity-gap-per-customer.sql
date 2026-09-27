@@ -1,0 +1,1 @@
+WITH gaps AS (SELECT customer_id, EXTRACT(EPOCH FROM (order_date - LAG(order_date) OVER (PARTITION BY customer_id ORDER BY order_date ASC))) / 86400.0 AS gap_days FROM ecommerce.orders) SELECT customer_id, ROUND(MAX(gap_days)::NUMERIC, 1) AS max_gap_days FROM gaps WHERE gap_days IS NOT NULL GROUP BY customer_id ORDER BY max_gap_days DESC, customer_id ASC;

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 27 - Cache Invalidation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Relying solely on long TTLs for cache freshness.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Write-through or explicit invalidation upon database update commit.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

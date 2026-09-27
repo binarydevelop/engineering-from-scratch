@@ -1,0 +1,1 @@
+SELECT id, total_amount, CASE WHEN total_amount >= 1000 THEN 'Enterprise' WHEN total_amount >= 250 THEN 'Mid-Market' ELSE 'Standard' END AS tier FROM ecommerce.orders ORDER BY total_amount DESC, id ASC;

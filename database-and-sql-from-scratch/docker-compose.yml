@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: database-sql-scratch-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${PGDATABASE:-sqllab}
+      POSTGRES_USER: ${PGUSER:-postgres}
+      POSTGRES_PASSWORD: ${PGPASSWORD:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "${PGPORT:-5432}:5432"
+    command: >
+      postgres
+        -c shared_buffers=128MB
+        -c work_mem=4MB
+        -c maintenance_work_mem=64MB
+        -c effective_cache_size=512MB
+        -c seq_page_cost=1.0
+        -c random_page_cost=4.0
+        -c cpu_tuple_cost=0.01
+        -c cpu_index_tuple_cost=0.005
+        -c cpu_operator_cost=0.0025
+        -c max_parallel_workers_per_gather=2
+        -c track_io_timing=on
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./schemas:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sqllab"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:
+    driver: local

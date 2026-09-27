@@ -1,0 +1,1 @@
+SELECT a.id AS account_id, COUNT(le.id) AS ledger_rows, COALESCE(SUM(CASE WHEN le.entry_type = 'CREDIT' THEN le.amount ELSE -le.amount END), 0) AS net_ledger_amount, a.balance, (a.balance >= 0) AS is_reconciled FROM banking.accounts a LEFT JOIN banking.ledger_entries le ON a.id = le.account_id GROUP BY a.id, a.balance ORDER BY a.id ASC;

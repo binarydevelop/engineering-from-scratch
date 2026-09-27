@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS active_subs, SUM(monthly_price) AS total_mrr, ROUND(AVG(monthly_price), 2) AS arpo, ROUND((SUM(CASE WHEN o.plan_tier = 'enterprise' THEN s.monthly_price ELSE 0 END) / SUM(monthly_price)) * 100, 2) AS enterprise_share_pct FROM saas.subscriptions s JOIN saas.organizations o ON s.organization_id = o.id WHERE s.status = 'active';

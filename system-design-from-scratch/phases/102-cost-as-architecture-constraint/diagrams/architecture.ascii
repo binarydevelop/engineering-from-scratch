@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 102 - Cost as an Architecture Constraint
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Designing multi-datacenter active-active clusters for a $1,000/month project.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Cost-optimized architecture balancing managed services with self-hosted instances.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

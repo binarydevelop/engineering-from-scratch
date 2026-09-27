@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Kafka runtime and log data
+*.log
+data/
+kafka_data/
+kafka_data_1/
+kafka_data_2/
+kafka_data_3/
+cluster_data/
+
+# Lab output artifacts
+outputs/*.log
+outputs/*.bin
+scratch/
+.pytest_cache/
+.coverage
+htmlcov/

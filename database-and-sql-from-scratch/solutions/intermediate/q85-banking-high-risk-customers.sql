@@ -1,0 +1,1 @@
+SELECT c.full_name, c.tax_id, c.risk_score, a.balance FROM banking.customers c JOIN banking.accounts a ON c.id = a.customer_id WHERE c.risk_score >= 70 AND a.account_type = 'checking' AND a.balance > 100 ORDER BY c.risk_score DESC;

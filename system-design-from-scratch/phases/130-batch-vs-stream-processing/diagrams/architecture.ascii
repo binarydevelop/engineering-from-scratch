@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 130 - Batch vs Stream Processing
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Running hourly batch jobs for fraud detection where immediate action is required.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Real-time event streaming pipeline processing and scoring transactions in < 100ms.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

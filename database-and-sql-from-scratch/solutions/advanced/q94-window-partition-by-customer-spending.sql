@@ -1,0 +1,1 @@
+SELECT customer_id, id, order_date, total_amount, SUM(total_amount) OVER (PARTITION BY customer_id ORDER BY order_date ASC, id ASC) AS running_customer_total, ROUND(AVG(total_amount) OVER (PARTITION BY customer_id), 2) AS avg_customer_order FROM ecommerce.orders WHERE status = 'completed' ORDER BY customer_id ASC, order_date ASC, id ASC;

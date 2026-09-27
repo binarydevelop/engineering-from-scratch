@@ -1,0 +1,1 @@
+SELECT c.name AS category_name, COUNT(DISTINCT o.id) AS order_count FROM ecommerce.categories c LEFT JOIN ecommerce.products p ON c.id = p.category_id LEFT JOIN ecommerce.order_items oi ON p.id = oi.product_id LEFT JOIN ecommerce.orders o ON oi.order_id = o.id AND EXTRACT(YEAR FROM o.order_date) = 2026 GROUP BY c.id, c.name ORDER BY c.name ASC;

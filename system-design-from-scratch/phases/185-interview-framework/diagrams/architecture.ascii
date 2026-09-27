@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 185 - Mastering the System Design Interview
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Drawing 20 boxes on the whiteboard within the first 5 minutes without clarifying scope.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Disciplined 6-stage interview progression: Clarify -> Estimate -> API/Data -> Simple -> Scale -> Tradeoffs.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

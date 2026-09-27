@@ -1,0 +1,27 @@
+# MULTI-STAGE DOCKERFILE
+
+# -------------------------------------------------------------
+# STAGE 1: Builder Environment
+# -------------------------------------------------------------
+FROM python:3.11-slim AS builder
+WORKDIR /build
+
+COPY main.c .
+
+# Heavy build tools & dependencies (50 MB)
+RUN python3 -c "import os; os.makedirs('/build/tools', exist_ok=True); open('/build/tools/compiler_suite.bin', 'wb').write(b'0' * (50 * 1024 * 1024))"
+
+# Produce final production artifact
+RUN python3 -c "open('/build/app_binary', 'w').write('#!/bin/sh\necho \"=== Production Binary Executed ===\"\n'); import os; os.chmod('/build/app_binary', 0o755)"
+
+# -------------------------------------------------------------
+# STAGE 2: Minimal Runtime Environment
+# -------------------------------------------------------------
+FROM alpine:latest AS runtime
+WORKDIR /app
+
+# Extract ONLY the compiled artifact from the builder stage!
+# Compilers, SDKs, and build debris are completely discarded!
+COPY --from=builder /build/app_binary /app/app_binary
+
+CMD ["/app/app_binary"]

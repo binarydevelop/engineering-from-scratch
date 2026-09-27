@@ -1,0 +1,95 @@
+# 72.1: Image not found
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-broken-image
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: nginx:non-existent-tag-9999
+---
+# 72.2: CrashLoopBackOff Exit 1
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-crashloop-exit1
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: busybox:1.36
+    command: ["sh", "-c", "echo 'Booting application...'; sleep 1; echo 'Fatal error: database connection refused!'; exit 1"]
+---
+# 72.3: CrashLoopBackOff Exit 0
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-completed-exit0
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: busybox:1.36
+    command: ["sh", "-c", "echo 'I ran a single command and stopped!'; exit 0"]
+---
+# 72.4: Missing ConfigMap
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-missing-configmap
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: nginx:1.27-alpine
+    envFrom:
+    - configMapRef:
+        name: non-existent-config
+---
+# 72.5: Missing Secret
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-missing-secret
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: nginx:1.27-alpine
+    envFrom:
+    - secretRef:
+        name: non-existent-secret
+---
+# 72.6: Failed Mount
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-failed-mount
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: nginx:1.27-alpine
+    volumeMounts:
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: non-existent-pvc
+---
+# 72.7: OOMKilled
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-oom-killed
+  namespace: default
+spec:
+  containers:
+  - name: app
+    image: python:3.11-alpine
+    command: ["python", "-c", "import time; print('Allocating memory beyond limit...'); data = bytearray(60 * 1024 * 1024); time.sleep(10)"]
+    resources:
+      limits:
+        memory: "32Mi"

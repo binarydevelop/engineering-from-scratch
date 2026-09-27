@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 103 - Security in System Design
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Implicit trust between internal microservices over flat VPC network.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Zero-trust mTLS service mesh with scoped cryptographic service identities.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

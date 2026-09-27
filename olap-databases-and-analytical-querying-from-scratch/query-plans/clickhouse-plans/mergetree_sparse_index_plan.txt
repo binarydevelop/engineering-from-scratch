@@ -1,0 +1,35 @@
+-- ClickHouse EXPLAIN indexes = 1 Output
+EXPLAIN indexes = 1
+SELECT
+    country,
+    count() AS total_orders,
+    round(sum(net_revenue), 2) AS total_revenue
+FROM olaplab.fact_order_items
+WHERE country = 'US' AND created_at >= '2025-06-01'
+GROUP BY country;
+
+┌─explain─────────────────────────────────────────────────────────────────────────────┐
+│ Expression ((Projection + Before ORDER BY))                                         │
+│   Aggregating                                                                       │
+│     Expression (Before GROUP BY)                                                    │
+│       Filter (WHERE)                                                                │
+│         ReadFromMergeTree (olaplab.fact_order_items)                                 │
+│         Indexes:                                                                    │
+│           MinMax                                                                    │
+│             Keys:                                                                   │
+│               created_at                                                            │
+│             Condition: (created_at in [1748736000, +Inf))                           │
+│             Parts: 4/12 (8 parts pruned by partition date)                         │
+│             Granules: 125/488                                                       │
+│           PrimaryKey                                                                │
+│             Keys:                                                                   │
+│               country, category, created_at                                         │
+│             Condition: and((country in ['US', 'US']), (created_at in [1748736000, +Inf))) │
+│             Parts: 4/4                                                              │
+│             Granules: 18/125 (107 granules skipped by sparse primary index!)        │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+Key Physical Takeaways:
+1. MinMax partition index pruned 8 out of 12 parts immediately (66% partition pruning).
+2. PrimaryKey sparse index skipped 107 out of 125 remaining granules (85.6% granule skipping).
+3. Total data read from disk: only ~3.7% of table rows physically decompressed!

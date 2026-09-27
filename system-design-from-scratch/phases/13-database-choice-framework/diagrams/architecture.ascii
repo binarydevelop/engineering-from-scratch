@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 13 - Database Choice Framework
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Defaulting to PostgreSQL for all access patterns.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Polyglot persistence: PostgreSQL for ACID transactions, Redis for hot keys, ES for search.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

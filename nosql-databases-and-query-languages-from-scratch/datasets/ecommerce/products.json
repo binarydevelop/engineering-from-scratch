@@ -1,0 +1,203 @@
+[
+  {
+    "product_id": "PROD-0001",
+    "name": "Pro Sound ANC Headphones",
+    "category_id": "CAT-02",
+    "price": 199.99,
+    "rating": 4.9,
+    "review_count": 1696,
+    "inventory_count": 63,
+    "tags": [
+      "audio",
+      "wireless",
+      "noise-cancelling",
+      "bluetooth"
+    ],
+    "attributes": {
+      "weight_g": 1242,
+      "in_stock": true,
+      "warranty_months": 12
+    }
+  },
+  {
+    "product_id": "PROD-0002",
+    "name": "UltraSlim Mechanical Keyboard",
+    "category_id": "CAT-03",
+    "price": 129.5,
+    "rating": 4.7,
+    "review_count": 452,
+    "inventory_count": 97,
+    "tags": [
+      "keyboard",
+      "gaming",
+      "mechanical",
+      "rgb"
+    ],
+    "attributes": {
+      "weight_g": 308,
+      "in_stock": true,
+      "warranty_months": 24
+    }
+  },
+  {
+    "product_id": "PROD-0003",
+    "name": "4K HDR Studio Monitor 32-inch",
+    "category_id": "CAT-03",
+    "price": 549.0,
+    "rating": 3.8,
+    "review_count": 1895,
+    "inventory_count": 89,
+    "tags": [
+      "monitor",
+      "4k",
+      "hdr",
+      "ips",
+      "studio"
+    ],
+    "attributes": {
+      "weight_g": 1400,
+      "in_stock": true,
+      "warranty_months": 12
+    }
+  },
+  {
+    "product_id": "PROD-0004",
+    "name": "Smart Fitness Tracker Band",
+    "category_id": "CAT-05",
+    "price": 79.99,
+    "rating": 3.8,
+    "review_count": 801,
+    "inventory_count": 102,
+    "tags": [
+      "fitness",
+      "heart-rate",
+      "waterproof",
+      "gps"
+    ],
+    "attributes": {
+      "weight_g": 1494,
+      "in_stock": true,
+      "warranty_months": 24
+    }
+  },
+  {
+    "product_id": "PROD-0005",
+    "name": "Mesh Wi-Fi 6 Router System",
+    "category_id": "CAT-01",
+    "price": 249.99,
+    "rating": 4.8,
+    "review_count": 1153,
+    "inventory_count": 89,
+    "tags": [
+      "wifi",
+      "networking",
+      "gigabit",
+      "mesh"
+    ],
+    "attributes": {
+      "weight_g": 2236,
+      "in_stock": true,
+      "warranty_months": 24
+    }
+  },
+  {
+    "product_id": "PROD-0006",
+    "name": "True Wireless Earbuds Pro",
+    "category_id": "CAT-02",
+    "price": 149.0,
+    "rating": 4.5,
+    "review_count": 2206,
+    "inventory_count": 84,
+    "tags": [
+      "audio",
+      "earbuds",
+      "wireless",
+      "water-resistant"
+    ],
+    "attributes": {
+      "weight_g": 263,
+      "in_stock": true,
+      "warranty_months": 12
+    }
+  },
+  {
+    "product_id": "PROD-0007",
+    "name": "Ergonomic Vertical Mouse",
+    "category_id": "CAT-03",
+    "price": 49.95,
+    "rating": 4.8,
+    "review_count": 1079,
+    "inventory_count": 45,
+    "tags": [
+      "mouse",
+      "ergonomic",
+      "wireless",
+      "office"
+    ],
+    "attributes": {
+      "weight_g": 1237,
+      "in_stock": true,
+      "warranty_months": 12
+    }
+  },
+  {
+    "product_id": "PROD-0008",
+    "name": "Smart Induction Coffee Maker",
+    "category_id": "CAT-04",
+    "price": 189.0,
+    "rating": 3.7,
+    "review_count": 1789,
+    "inventory_count": 88,
+    "tags": [
+      "coffee",
+      "smart-home",
+      "app-enabled",
+      "kitchen"
+    ],
+    "attributes": {
+      "weight_g": 1434,
+      "in_stock": true,
+      "warranty_months": 24
+    }
+  },
+  {
+    "product_id": "PROD-0009",
+    "name": "Precision Touch Stylus Pen",
+    "category_id": "CAT-03",
+    "price": 69.0,
+    "rating": 4.4,
+    "review_count": 2104,
+    "inventory_count": 29,
+    "tags": [
+      "stylus",
+      "tablet",
+      "drawing",
+      "pressure-sensitive"
+    ],
+    "attributes": {
+      "weight_g": 1727,
+      "in_stock": true,
+      "warranty_months": 36
+    }
+  },
+  {
+    "product_id": "PROD-0010",
+    "name": "USB-C Quad 100W GaN Charger",
+    "category_id": "CAT-01",
+    "price": 89.99,
+    "rating": 3.8,
+    "review_count": 191,
+    "inventory_count": 111,
+    "tags": [
+      "charger",
+      "gan",
+      "usb-c",
+      "fast-charging"
+    ],
+    "attributes": {
+      "weight_g": 156,
+      "in_stock": true,
+      "warranty_months": 36
+    }
+  }
+]

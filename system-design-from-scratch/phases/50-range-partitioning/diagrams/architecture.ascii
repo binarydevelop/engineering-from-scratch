@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 50 - Range Partitioning
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Hash partitioning making range scans fan out to every single shard.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Range partitioning with dynamic split thresholds (Bigtable / HBase model).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

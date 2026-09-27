@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 177 - Design an Enterprise Email Dispatch Platform
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Sending marketing blasts directly from application server IP, resulting in immediate spam blacklisting.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Prioritized dispatch queues + warm IP pools + DKIM/DMARC signing + bounce processing webhooks.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

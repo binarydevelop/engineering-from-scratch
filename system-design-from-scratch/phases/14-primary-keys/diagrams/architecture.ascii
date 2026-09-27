@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 14 - Primary Keys in System Design
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Sequential integer auto-increment keys.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Time-sortable random IDs (UUIDv7, ULID) preventing enumeration and fragmentation.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

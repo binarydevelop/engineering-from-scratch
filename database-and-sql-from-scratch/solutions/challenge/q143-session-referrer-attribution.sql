@@ -1,0 +1,1 @@
+WITH first_sessions AS (SELECT s.user_id, c.name AS acquisition_campaign, ROW_NUMBER() OVER (PARTITION BY s.user_id ORDER BY s.started_at ASC) AS rn FROM analytics.sessions s JOIN analytics.campaigns c ON s.campaign_id = c.id) SELECT user_id, acquisition_campaign FROM first_sessions WHERE rn = 1 ORDER BY user_id ASC;

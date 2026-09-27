@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 131 - Distributed Task Schedulers
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Running standalone crontab on single application server.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Distributed scheduler using database leases and heartbeat timers to assign jobs.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

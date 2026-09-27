@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 99 - Queue Capacity & Sizing
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Configuring small default queue buffer that overflows during worker restart.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Queue sized for 4 hours of maximum peak write traffic with auto-scaling workers.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

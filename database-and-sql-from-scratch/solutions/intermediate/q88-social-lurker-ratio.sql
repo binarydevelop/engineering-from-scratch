@@ -1,0 +1,1 @@
+SELECT COUNT(*) AS total_users, COUNT(CASE WHEN p.id IS NULL THEN 1 END) AS lurker_count, ROUND((COUNT(CASE WHEN p.id IS NULL THEN 1 END)::NUMERIC / COUNT(*)) * 100, 2) AS lurker_pct FROM social.users u LEFT JOIN social.posts p ON u.id = p.user_id;

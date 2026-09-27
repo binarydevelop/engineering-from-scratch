@@ -1,0 +1,14 @@
+# SINGLE-STAGE DOCKERFILE
+# The build tools and source code remain trapped in the production image!
+FROM python:3.11-slim
+WORKDIR /build
+
+COPY main.c .
+
+# Simulate installing heavy build toolchain & compiler suite (50 MB)
+RUN python3 -c "import os; os.makedirs('/build/tools', exist_ok=True); open('/build/tools/compiler_suite.bin', 'wb').write(b'0' * (50 * 1024 * 1024))"
+
+# Build production artifact
+RUN python3 -c "open('/app_binary', 'w').write('#!/bin/sh\necho \"=== Production Binary Executed ===\"\n'); import os; os.chmod('/app_binary', 0o755)"
+
+CMD ["/app_binary"]

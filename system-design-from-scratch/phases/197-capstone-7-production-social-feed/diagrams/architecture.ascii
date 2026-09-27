@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 197 - Capstone 7: Production-Like Social Feed
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Uniform fanout-on-write crashing workers on celebrity posts.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Hybrid feed engine: standard posts pushed to follower inboxes; celebrity posts merged on read.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

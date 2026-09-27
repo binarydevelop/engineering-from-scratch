@@ -1,0 +1,10 @@
+apiVersion: learning.example/v1
+kind: WebApp
+metadata:
+  name: bookstore
+  namespace: default
+spec:
+  image: hashicorp/http-echo:latest
+  replicas: 3
+  text: "Welcome to the Custom Bookstore Operator!"
+  port: 5678

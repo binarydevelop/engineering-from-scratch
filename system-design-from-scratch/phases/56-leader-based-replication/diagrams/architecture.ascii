@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 56 - Leader-Based Replication
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Multi-leader writes causing immediate data conflicts.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Raft/Paxos leader coordination with automated heartbeat failover.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

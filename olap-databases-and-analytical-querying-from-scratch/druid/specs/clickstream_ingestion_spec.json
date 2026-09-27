@@ -1,0 +1,43 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "dataSchema": {
+      "dataSource": "web_events_rollup",
+      "timestampSpec": {
+        "column": "event_time",
+        "format": "iso"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "page_url",
+          "event_type",
+          "browser",
+          "device_os"
+        ]
+      },
+      "metricsSpec": [
+        { "type": "count", "name": "event_count" },
+        { "type": "longSum", "name": "total_duration_ms", "fieldName": "duration_ms" },
+        { "type": "HLLSketchBuild", "name": "unique_users_hll", "fieldName": "user_id" }
+      ],
+      "granularitySpec": {
+        "type": "uniform",
+        "segmentGranularity": "DAY",
+        "queryGranularity": "MINUTE",
+        "rollup": true
+      }
+    },
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "local",
+        "baseDir": "datasets/clickstream",
+        "filter": "*.csv"
+      },
+      "inputFormat": {
+        "type": "csv",
+        "findColumnsFromHeader": true
+      }
+    }
+  }
+}

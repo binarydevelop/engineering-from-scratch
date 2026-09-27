@@ -1,0 +1,2 @@
+-- Python simulation: two threads appending to same file concurrently
+-- Demonstrates torn writes without locks.

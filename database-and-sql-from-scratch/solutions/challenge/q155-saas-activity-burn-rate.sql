@@ -1,0 +1,1 @@
+WITH daily_events AS (SELECT organization_id, created_at::DATE AS event_day, COUNT(*) AS event_count FROM saas.events GROUP BY 1, 2) SELECT organization_id, ROUND(AVG(event_count), 2) AS avg_daily_events FROM daily_events GROUP BY organization_id ORDER BY avg_daily_events DESC;

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 21 - Consistency Models
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Assuming all database nodes are instantly synchronized.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Explicitly defining consistency boundaries per domain use case.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

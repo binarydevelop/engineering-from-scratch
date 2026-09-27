@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: default
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"
+  MAX_CONNECTIONS: "100"
+  config.json: |
+    {
+      "cache_ttl_seconds": 3600,
+      "feature_flags": {
+        "beta_ui": false,
+        "rate_limiting": true
+      }
+    }

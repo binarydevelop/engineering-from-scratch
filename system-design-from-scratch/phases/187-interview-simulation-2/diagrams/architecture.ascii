@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 187 - Interview Simulation II: Changing Requirements
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Panicking or rigidly defending initial single-region design when interviewer changes constraints.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Adaptive refactoring: introducing Geo-DNS, edge caches, and cross-region replication.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

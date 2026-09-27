@@ -1,0 +1,1 @@
+WITH order_seq AS (SELECT customer_id, id, total_amount, LAG(total_amount) OVER (PARTITION BY customer_id ORDER BY order_date ASC) AS prev_amount FROM ecommerce.orders WHERE status = 'completed') SELECT customer_id, prev_amount, total_amount AS curr_amount FROM order_seq WHERE prev_amount IS NOT NULL AND total_amount > prev_amount ORDER BY customer_id ASC;

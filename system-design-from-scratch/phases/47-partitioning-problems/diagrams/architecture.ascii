@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 47 - Partitioning Pitfalls & Node Additions
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Simple modulo sharding ($hash(key) \% 3$).
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Adding 4th node causes 75% of all keys to move, triggering cache wipeout.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

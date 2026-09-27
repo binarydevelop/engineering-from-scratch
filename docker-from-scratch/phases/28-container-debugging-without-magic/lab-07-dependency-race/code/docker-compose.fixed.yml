@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: lab07-fixed-db
+    environment:
+      POSTGRES_PASSWORD: secret
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 2s
+      retries: 15
+      start_period: 1s
+
+  app:
+    image: python:3.11-slim
+    container_name: lab07-fixed-app
+    volumes:
+      - ./app.py:/app.py
+    command: python /app.py
+    depends_on:
+      db:
+        condition: service_healthy

@@ -1,0 +1,49 @@
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8-alpine
+    container_name: olap-scratch-clickhouse
+    restart: unless-stopped
+    environment:
+      CLICKHOUSE_DB: olaplab
+      CLICKHOUSE_USER: default
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+      CLICKHOUSE_PASSWORD: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - chdata:/var/lib/clickhouse
+      - ./clickhouse/config/custom_config.xml:/etc/clickhouse-server/config.d/custom_config.xml:ro
+      - ./clickhouse/config/users.xml:/etc/clickhouse-server/users.d/users.xml:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: olap-scratch-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sqllab
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5433:5432"  # mapped to 5433 to avoid port clash if 5432 is already running
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d sqllab"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  chdata:
+  pgdata:

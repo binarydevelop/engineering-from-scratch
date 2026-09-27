@@ -1,0 +1,23 @@
+{
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 0,
+    "refresh_interval": "5s"
+  },
+  "mappings": {
+    "properties": {
+      "@timestamp": { "type": "date" },
+      "service": { "type": "keyword" },
+      "level": { "type": "keyword" },
+      "trace_id": { "type": "keyword" },
+      "status_code": { "type": "integer" },
+      "duration_ms": { "type": "integer" },
+      "message": {
+        "type": "text",
+        "fields": {
+          "keyword": { "type": "keyword", "ignore_above": 256 }
+        }
+      }
+    }
+  }
+}

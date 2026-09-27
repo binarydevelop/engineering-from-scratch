@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 125 - API Composition & BFF
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Mobile client making 15 separate HTTP requests to assemble home screen.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   API Gateway / BFF aggregating downstream services in parallel and returning unified JSON.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

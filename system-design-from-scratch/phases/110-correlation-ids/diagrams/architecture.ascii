@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 110 - Correlation IDs
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Independent log files with unlinked log entries across 4 services.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Correlation ID generated at gateway, propagated via HTTP headers and message payloads.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

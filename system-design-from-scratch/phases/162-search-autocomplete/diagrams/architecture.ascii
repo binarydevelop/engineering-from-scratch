@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 162 - Design Search Autocomplete / Typeahead
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Executing SQL `SELECT query FROM searches WHERE query LIKE 'term%' ORDER BY count DESC`.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Distributed in-memory Trie cluster partitioned by prefix characters + browser-side caching.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

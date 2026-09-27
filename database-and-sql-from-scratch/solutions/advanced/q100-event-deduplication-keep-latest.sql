@@ -1,0 +1,1 @@
+WITH ranked AS (SELECT session_id, event_name, event_timestamp, ROW_NUMBER() OVER (PARTITION BY session_id, event_name ORDER BY event_timestamp DESC, id DESC) AS rn FROM analytics.events) SELECT session_id, event_name, event_timestamp FROM ranked WHERE rn = 1 ORDER BY session_id ASC, event_timestamp ASC;

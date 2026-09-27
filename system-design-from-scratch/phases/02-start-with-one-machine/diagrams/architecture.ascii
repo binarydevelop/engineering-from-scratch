@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 02 - Start With One Machine
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Client -> Monolithic App Server -> Single Database.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Vertical resource increase (CPU, NVMe disk, RAM).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

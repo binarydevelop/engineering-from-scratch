@@ -1,0 +1,142 @@
+[
+  {
+    "device_id": "DEV-001",
+    "model": "Sensor-XPro",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-1",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-002",
+    "model": "Sensor-XPro",
+    "firmware_version": "v1.3.4",
+    "facility_id": "FACILITY-1",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-003",
+    "model": "Sensor-X100",
+    "firmware_version": "v1.2.0",
+    "facility_id": "FACILITY-5",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-004",
+    "model": "Sensor-X200",
+    "firmware_version": "v1.2.0",
+    "facility_id": "FACILITY-4",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-005",
+    "model": "Sensor-XPro",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-1",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-006",
+    "model": "Sensor-XPro",
+    "firmware_version": "v1.3.4",
+    "facility_id": "FACILITY-3",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-007",
+    "model": "Sensor-XPro",
+    "firmware_version": "v1.3.4",
+    "facility_id": "FACILITY-4",
+    "status": "OFFLINE"
+  },
+  {
+    "device_id": "DEV-008",
+    "model": "Sensor-X100",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-4",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-009",
+    "model": "Sensor-X200",
+    "firmware_version": "v1.3.4",
+    "facility_id": "FACILITY-1",
+    "status": "OFFLINE"
+  },
+  {
+    "device_id": "DEV-010",
+    "model": "Sensor-X100",
+    "firmware_version": "v1.2.0",
+    "facility_id": "FACILITY-4",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-011",
+    "model": "Sensor-X100",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-5",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-012",
+    "model": "Sensor-X200",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-3",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-013",
+    "model": "Sensor-X100",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-1",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-014",
+    "model": "Sensor-XPro",
+    "firmware_version": "v1.3.4",
+    "facility_id": "FACILITY-1",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-015",
+    "model": "Sensor-X200",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-2",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-016",
+    "model": "Sensor-XPro",
+    "firmware_version": "v1.2.0",
+    "facility_id": "FACILITY-4",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-017",
+    "model": "Sensor-X200",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-4",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-018",
+    "model": "Sensor-XPro",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-3",
+    "status": "MAINTENANCE"
+  },
+  {
+    "device_id": "DEV-019",
+    "model": "Sensor-X100",
+    "firmware_version": "v2.0.1",
+    "facility_id": "FACILITY-4",
+    "status": "ONLINE"
+  },
+  {
+    "device_id": "DEV-020",
+    "model": "Sensor-X100",
+    "firmware_version": "v1.2.0",
+    "facility_id": "FACILITY-2",
+    "status": "ONLINE"
+  }
+]

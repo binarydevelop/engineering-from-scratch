@@ -1,0 +1,1 @@
+WITH cust_spend AS (SELECT customer_id, SUM(total_amount) AS total_spent FROM ecommerce.orders WHERE status = 'completed' GROUP BY customer_id) SELECT customer_id, total_spent, ROUND((SUM(total_spent) OVER (ORDER BY total_spent DESC, customer_id ASC) / SUM(total_spent) OVER ()) * 100, 2) AS cumulative_pct FROM cust_spend ORDER BY total_spent DESC, customer_id ASC;

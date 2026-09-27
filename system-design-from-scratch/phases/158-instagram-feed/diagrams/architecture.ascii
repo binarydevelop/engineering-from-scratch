@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 158 - Design Instagram-Like Photo & Video Feed
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Serving full-resolution 10 MB images directly from web server disk.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Client uploads to S3 -> Async transcode worker -> Multi-resolution CDN distribution.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

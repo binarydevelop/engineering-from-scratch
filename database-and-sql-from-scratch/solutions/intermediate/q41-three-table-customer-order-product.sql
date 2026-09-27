@@ -1,0 +1,1 @@
+SELECT c.email, o.id AS order_id, p.name AS product_name, oi.quantity FROM ecommerce.customers c JOIN ecommerce.orders o ON c.id = o.customer_id JOIN ecommerce.order_items oi ON o.id = oi.order_id JOIN ecommerce.products p ON oi.product_id = p.id WHERE o.status = 'completed' ORDER BY c.email ASC, o.id ASC, p.name ASC;

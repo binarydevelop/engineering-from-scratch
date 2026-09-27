@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 112 - Failure Detection in Asynchronous Networks
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Immediately declaring a node dead when a single ping times out.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Phi Accrual failure detector evaluating sliding window of heartbeat arrival times.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "production-sre-observability-platform-engineering-from-scratch"
+version = "1.0.0"
+description = "A first-principles curriculum in Production Engineering, SRE, OpenTelemetry, Observability, and Platform Engineering."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Production Engineering Curriculum Team"}
+]
+keywords = [
+    "sre", "observability", "opentelemetry", "platform-engineering",
+    "prometheus", "distributed-tracing", "slos", "chaos-engineering", "production"
+]
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "httpx>=0.27.0",
+    "pydantic>=2.7.0",
+    "psycopg2-binary>=2.9.9",
+    "redis>=5.0.4",
+    "opentelemetry-api>=1.26.0",
+    "opentelemetry-sdk>=1.26.0",
+    "opentelemetry-exporter-otlp>=1.26.0",
+    "opentelemetry-instrumentation-fastapi>=0.47b0",
+    "opentelemetry-instrumentation-httpx>=0.47b0",
+    "prometheus-client>=0.20.0",
+    "click>=8.1.7",
+    "rich>=13.7.1",
+    "pyyaml>=6.0.1",
+    "tabulate>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.7",
+    "pytest-timeout>=2.3.1",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.4.7",
+]
+
+[project.scripts]
+platform-cli = "platform.cli.main:cli"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --strict-markers"
+pythonpath = ["."]
+testpaths = [
+    "phases",
+    "tests",
+    "services",
+    "slo-labs",
+    "load-tests",
+    "platform",
+    "broken-systems",
+    "projects"
+]
+asyncio_mode = "auto"

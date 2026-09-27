@@ -1,0 +1,1 @@
+SELECT oi.order_id, p.name AS product_name, oi.unit_price AS recorded_price, p.price AS current_price, (oi.unit_price - p.price) AS difference FROM ecommerce.order_items oi JOIN ecommerce.products p ON oi.product_id = p.id WHERE oi.unit_price != p.price ORDER BY oi.order_id ASC;

@@ -1,0 +1,1 @@
+SELECT t.id AS transaction_id, t.amount, SUM(CASE WHEN le.entry_type = 'DEBIT' THEN le.amount ELSE 0 END) AS ledger_debit_sum, (t.amount = SUM(CASE WHEN le.entry_type = 'DEBIT' THEN le.amount ELSE 0 END)) AS is_balanced FROM banking.transactions t JOIN banking.ledger_entries le ON t.id = le.transaction_id WHERE t.status = 'posted' GROUP BY t.id, t.amount ORDER BY t.id ASC;

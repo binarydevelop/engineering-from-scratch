@@ -1,0 +1,1 @@
+SELECT o.customer_id, COUNT(DISTINCT o.id) AS total_orders, COUNT(p.id) FILTER (WHERE p.payment_method = 'credit_card') AS cc_payments, COUNT(p.id) FILTER (WHERE p.payment_method = 'paypal') AS paypal_payments FROM ecommerce.orders o LEFT JOIN ecommerce.payments p ON o.id = p.order_id GROUP BY o.customer_id ORDER BY o.customer_id ASC;

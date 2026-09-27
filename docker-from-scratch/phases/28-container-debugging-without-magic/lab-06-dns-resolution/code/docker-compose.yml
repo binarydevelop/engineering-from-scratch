@@ -1,0 +1,16 @@
+services:
+  cache:
+    image: alpine:latest
+    container_name: lab06-broken-cache
+    command: sleep 3600
+    network_mode: "bridge"
+
+  client:
+    image: python:3.11-slim
+    container_name: lab06-broken-client
+    volumes:
+      - ./app.py:/app.py
+    command: python /app.py lab06-broken-cache
+    network_mode: "bridge"
+    depends_on:
+      - cache

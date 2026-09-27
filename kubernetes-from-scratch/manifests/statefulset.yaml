@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: datastore
+  namespace: default
+spec:
+  serviceName: datastore-headless
+  replicas: 3
+  selector:
+    matchLabels:
+      app: datastore
+  template:
+    metadata:
+      labels:
+        app: datastore
+    spec:
+      containers:
+      - name: redis
+        image: redis:7.4-alpine
+        ports:
+        - containerPort: 6379
+          name: redis
+        volumeMounts:
+        - name: datastore-storage
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: datastore-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: datastore-headless
+  namespace: default
+  labels:
+    app: datastore
+spec:
+  clusterIP: None
+  selector:
+    app: datastore
+  ports:
+  - port: 6379
+    name: redis

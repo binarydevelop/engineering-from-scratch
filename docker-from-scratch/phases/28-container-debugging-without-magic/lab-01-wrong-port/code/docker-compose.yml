@@ -1,0 +1,12 @@
+name: dfs-lab01
+
+services:
+  web:
+    image: python:3.11-slim
+    volumes:
+      - ./app.py:/app/app.py
+    working_dir: /app
+    command: ["python3", "app.py"]
+    ports:
+      # BUG: Forwarding host 8080 to container 3000, but app listens on 8000!
+      - "8080:3000"

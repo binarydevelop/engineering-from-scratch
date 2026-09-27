@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 111 - SLIs, SLOs, & Error Budgets
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Subjective debates over whether the system is 'fast enough'.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   SLO: 99.9% of requests succeed in < 200ms; automated alerts trigger on error budget burn rate.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

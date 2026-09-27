@@ -1,0 +1,1 @@
+SELECT c.name AS category_name, SUM(oi.subtotal) AS total_revenue FROM ecommerce.order_items oi JOIN ecommerce.orders o ON oi.order_id = o.id JOIN ecommerce.products p ON oi.product_id = p.id JOIN ecommerce.categories c ON p.category_id = c.id WHERE o.status = 'completed' GROUP BY c.id, c.name ORDER BY total_revenue DESC;

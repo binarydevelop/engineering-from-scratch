@@ -1,0 +1,26 @@
+# Alertmanager Silence Templates
+# Use during scheduled maintenance windows to suppress expected alerts
+
+silences:
+  - id: "maintenance-checkout-db-migration"
+    matchers:
+      - name: "service"
+        value: "checkout-service"
+        isRegex: false
+      - name: "severity"
+        value: "warning"
+        isRegex: false
+    startsAt: "2026-09-25T02:00:00Z"
+    endsAt: "2026-09-25T03:00:00Z"
+    createdBy: "oncall-lead"
+    comment: "Silencing non-critical warnings during scheduled PostgreSQL schema evolution."
+
+  - id: "load-testing-drill"
+    matchers:
+      - name: "type"
+        value: "slo_burn_rate"
+        isRegex: false
+    startsAt: "2026-09-25T10:00:00Z"
+    endsAt: "2026-09-25T11:00:00Z"
+    createdBy: "sre-team"
+    comment: "Silencing burn-rate alarms during controlled production chaos drill."

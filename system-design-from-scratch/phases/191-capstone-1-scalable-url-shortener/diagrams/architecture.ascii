@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 191 - Capstone 1: Scalable URL Shortener
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   In-memory dictionary that loses data upon process restart.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   FastAPI gateway + Base62 Snowflake ID + SQLite/Postgres + Redis cache + async worker queue.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

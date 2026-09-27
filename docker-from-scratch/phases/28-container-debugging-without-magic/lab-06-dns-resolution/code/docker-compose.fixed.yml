@@ -1,0 +1,22 @@
+services:
+  cache:
+    image: alpine:latest
+    container_name: lab06-fixed-cache
+    command: sleep 3600
+    networks:
+      - lab06-net
+
+  client:
+    image: python:3.11-slim
+    container_name: lab06-fixed-client
+    volumes:
+      - ./app.py:/app.py
+    command: python /app.py cache
+    networks:
+      - lab06-net
+    depends_on:
+      - cache
+
+networks:
+  lab06-net:
+    driver: bridge

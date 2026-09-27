@@ -1,0 +1,1 @@
+SELECT PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY total_amount) AS median_order_val, PERCENTILE_CONT(0.90) WITHIN GROUP (ORDER BY total_amount) AS p90_order_val FROM ecommerce.orders WHERE status = 'completed';

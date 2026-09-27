@@ -1,0 +1,1 @@
+SELECT c.email, COUNT(o.id) AS completed_order_count FROM ecommerce.customers c JOIN ecommerce.orders o ON c.id = o.customer_id WHERE o.status = 'completed' GROUP BY c.id, c.email HAVING COUNT(o.id) >= 2 ORDER BY completed_order_count DESC, c.email ASC;

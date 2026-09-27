@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 174 - Design an Enterprise Real-Time Analytics Pipeline
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Executing analytical aggregation queries (`SUM`, `AVG`, `GROUP BY`) on transactional DB.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Event collector -> Kafka stream -> Columnar datastore (ClickHouse / Parquet / S3).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

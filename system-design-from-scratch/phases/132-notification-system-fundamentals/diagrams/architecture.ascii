@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 132 - Notification System Fundamentals
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Every microservice directly invoking Twilio / SendGrid APIs synchronously.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Centralized notification service with template rendering, priority tiers, and provider failover.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

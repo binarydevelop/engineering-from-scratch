@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 173 - Design an Ad Click Aggregation Pipeline
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Writing every raw ad impression directly to relational database table.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Kafka event stream + Apache Flink tumbling window aggregator + Cassandra summary store.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

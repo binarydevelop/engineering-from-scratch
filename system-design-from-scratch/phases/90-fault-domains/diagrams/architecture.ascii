@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 90 - Fault Domains & Failure Isolation
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Deploying all 3 primary-replica database nodes onto the same physical rack/host.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Anti-affinity placement spreading instances across independent Availability Zones.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

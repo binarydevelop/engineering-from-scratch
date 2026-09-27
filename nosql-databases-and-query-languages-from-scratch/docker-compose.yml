@@ -1,0 +1,121 @@
+services:
+  mongodb:
+    image: mongo:7.0-jammy
+    container_name: nosql-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: nosql_admin
+      MONGO_INITDB_ROOT_PASSWORD: nosql_secret
+      MONGO_INITDB_DATABASE: nosql_scratch
+    volumes:
+      - mongo_data:/data/db
+    profiles: ["all", "mongo", "document"]
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  cassandra:
+    image: cassandra:5.0.0
+    container_name: nosql-cassandra
+    restart: unless-stopped
+    ports:
+      - "9042:9042"
+    environment:
+      CASSANDRA_CLUSTER_NAME: "NoSQLScratchCluster"
+      CASSANDRA_DC: "datacenter1"
+      CASSANDRA_ENDPOINT_SNITCH: "GossipingPropertyFileSnitch"
+      MAX_HEAP_SIZE: "1024M"
+      HEAP_NEWSIZE: "256M"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    profiles: ["all", "cassandra", "widecolumn"]
+    healthcheck:
+      test: ["CMD-SHELL", "nodetool status || exit 1"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+
+  dynamodb:
+    image: amazon/dynamodb-local:2.5.3
+    container_name: nosql-dynamodb
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /data"
+    volumes:
+      - dynamodb_data:/data
+    profiles: ["all", "dynamodb", "keyvalue"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/ || exit 0"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: nosql-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    profiles: ["all", "redis", "inmemory"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  neo4j:
+    image: neo4j:5.24.0-community
+    container_name: nosql-neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: "neo4j/nosql_secret"
+      NEO4J_PLUGINS: '["apoc"]'
+      NEO4J_dbms_memory_heap_initial__size: "512m"
+      NEO4J_dbms_memory_heap_max__size: "1024m"
+    volumes:
+      - neo4j_data:/data
+    profiles: ["all", "neo4j", "graph"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider http://localhost:7474 || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.0
+    container_name: nosql-elasticsearch
+    restart: unless-stopped
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx1024m"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    profiles: ["all", "elasticsearch", "search"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mongo_data:
+  cassandra_data:
+  dynamodb_data:
+  redis_data:
+  neo4j_data:
+  es_data:

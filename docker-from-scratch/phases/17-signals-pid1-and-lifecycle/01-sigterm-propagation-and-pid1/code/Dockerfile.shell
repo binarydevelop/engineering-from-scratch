@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+COPY server_graceful.py /server_graceful.py
+
+# SHELL FORM: Runs /bin/sh -c "python3 /server_graceful.py"
+# /bin/sh becomes PID 1 and swallows SIGTERM without forwarding it to Python!
+CMD python3 /server_graceful.py

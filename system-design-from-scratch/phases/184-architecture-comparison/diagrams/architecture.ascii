@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 184 - 100 QPS vs 100,000 QPS Architecture Comparison
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Building a 100,000 QPS architecture for a 100 QPS MVP application.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Comparative architecture design: Simple single-server model vs Distributed partitioned cluster.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

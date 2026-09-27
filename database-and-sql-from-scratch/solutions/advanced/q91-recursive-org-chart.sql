@@ -1,0 +1,1 @@
+WITH RECURSIVE cat_hierarchy AS (SELECT id, name, parent_id, 0 AS depth FROM ecommerce.categories WHERE parent_id IS NULL UNION ALL SELECT c.id, c.name, c.parent_id, ch.depth + 1 FROM ecommerce.categories c JOIN cat_hierarchy ch ON c.parent_id = ch.id) SELECT id, name, depth FROM cat_hierarchy ORDER BY depth ASC, id ASC;

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "gateway.process_checkout",
+    "trace_id": "8360aa377dcf4408b80f1a9e6fc8fb94",
+    "span_id": "7947200c893a4c41",
+    "parent_span_id": null,
+    "duration_ms": 49.83,
+    "status": "OK",
+    "attributes": {
+      "service.name": "checkout-pipeline",
+      "http.request.method": "POST",
+      "url.path": "/api/v1/checkout"
+    },
+    "events": [],
+    "start_time_ns": 1790298520642012000,
+    "end_time_ns": 1790298520691842000
+  },
+  {
+    "name": "inventory.reserve_stock",
+    "trace_id": "8360aa377dcf4408b80f1a9e6fc8fb94",
+    "span_id": "85ab1342b0184cfb",
+    "parent_span_id": "7947200c893a4c41",
+    "duration_ms": 10.135,
+    "status": "OK",
+    "attributes": {
+      "service.name": "checkout-pipeline",
+      "db.system": "postgresql"
+    },
+    "events": [],
+    "start_time_ns": 1790298520658090000,
+    "end_time_ns": 1790298520668225000
+  },
+  {
+    "name": "payment.charge",
+    "trace_id": "98ca29f8f8354a9e8973f86649654efe",
+    "span_id": "9849843d76b147b4",
+    "parent_span_id": null,
+    "duration_ms": 23.492,
+    "status": "OK",
+    "attributes": {
+      "service.name": "checkout-pipeline",
+      "peer.service": "stripe"
+    },
+    "events": [],
+    "start_time_ns": 1790298520668344000,
+    "end_time_ns": 1790298520691836000
+  }
+]

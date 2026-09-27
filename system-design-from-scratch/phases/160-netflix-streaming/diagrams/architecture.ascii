@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 160 - Design Netflix-Like Global Streaming
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Serving video streams across public internet backbones from central cloud datacenters.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Custom ISP edge caching appliances (Open Connect) + client adaptive bitrate steering.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

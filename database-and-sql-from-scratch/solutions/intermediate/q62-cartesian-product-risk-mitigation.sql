@@ -1,0 +1,1 @@
+SELECT p1.name AS prod_a_name, p2.name AS prod_b_name, (p2.price - p1.price) AS price_diff FROM ecommerce.products p1 JOIN ecommerce.products p2 ON p1.category_id = p2.category_id AND p1.price < p2.price WHERE p1.category_id = 2 ORDER BY price_diff DESC;

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 74 - Change Data Capture (CDC)
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Periodic SQL polling (`SELECT * FROM outbox WHERE status = 'PENDING'`).
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   CDC engine (Debezium) streaming PostgreSQL WAL directly to Kafka.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

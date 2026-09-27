@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 189 - Interview Simulation IV: 10x Traffic Surge
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Suggesting a complete rewrite of all microservices under traffic surge.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Targeted scaling: adding read replicas, hybrid feed generation, and aggressive edge caching.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

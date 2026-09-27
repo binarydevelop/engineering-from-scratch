@@ -1,0 +1,1 @@
+SELECT a.city, SUM(o.total_amount) AS total_revenue FROM ecommerce.customers c JOIN ecommerce.addresses a ON c.id = a.customer_id AND a.is_default = TRUE JOIN ecommerce.orders o ON c.id = o.customer_id WHERE o.status = 'completed' GROUP BY a.city ORDER BY total_revenue DESC;

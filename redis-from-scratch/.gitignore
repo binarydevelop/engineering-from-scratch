@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Redis runtime artifacts (Snapshots & Logs)
+dump.rdb
+appendonly.aof
+appendonlydir/
+*.rdb
+*.aof
+nodes.conf
+nodes-*.conf
+sentinel.conf.bak
+
+# Docker / Volume mounts
+.data/
+postgres_data/
+
+# OS specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test & coverage outputs
+.pytest_cache/
+.coverage
+htmlcov/
+*.log

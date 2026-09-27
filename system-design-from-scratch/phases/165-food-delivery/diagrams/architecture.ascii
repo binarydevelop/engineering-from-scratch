@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 165 - Design DoorDash / UberEats Food Delivery
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Direct uncoordinated HTTP calls between customer, restaurant, and driver apps.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Saga Orchestrator + Geospatial courier assignment + real-time delivery tracking.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

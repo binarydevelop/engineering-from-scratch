@@ -1,0 +1,1 @@
+WITH RECURSIVE cat_tree AS (SELECT id, parent_id, 0 AS depth FROM ecommerce.categories WHERE id = 1 UNION ALL SELECT c.id, c.parent_id, ct.depth + 1 FROM ecommerce.categories c JOIN cat_tree ct ON c.parent_id = ct.id) SELECT COUNT(*) - 1 AS total_subcategories, MAX(depth) AS max_depth FROM cat_tree;

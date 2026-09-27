@@ -1,0 +1,25 @@
+# Substantial Projects, Capstones & The Final Challenge
+
+Major multi-team engineering programs and deep capstones that train comprehensive staff-level leadership, technical strategy, cross-functional execution, and organizational leverage.
+
+| Project ID | Title | Scope | Deliverables |
+| :--- | :--- | :--- | :--- |
+| **project-01-api-standardization** | [Cross-Team API Standardization Program](project-01-api-standardization/README.md) | Standardize REST/gRPC interfaces across 5 autonomous teams by building paved roads, not mandates. | Complete Artifact Portfolio |
+| **project-02-reliability-program** | [Systemic Reliability Improvement Program](project-02-reliability-program/README.md) | Transform a brittle, crisis-prone monolith into an SLO-governed resilient platform. | Complete Artifact Portfolio |
+| **project-03-devex-initiative** | [Developer Productivity Initiative](project-03-devex-initiative/README.md) | Slash developer cycle time from 45 minutes to 6 minutes through paved road tooling. | Complete Artifact Portfolio |
+| **project-04-platform-migration** | [Enterprise Platform Migration](project-04-platform-migration/README.md) | Lead a 150-service cloud container migration with zero customer downtime. | Complete Artifact Portfolio |
+| **project-05-product-perf-initiative** | [Product Performance & Conversion Turnaround](project-05-product-perf-initiative/README.md) | Coordinate backend, frontend, and DB optimizations to recover lost checkout revenue. | Complete Artifact Portfolio |
+| **project-06-cost-reduction-program** | [Cloud Infrastructure FinOps & Cost Reduction](project-06-cost-reduction-program/README.md) | Audit, re-architect, and rightsize cloud spend to achieve a durable 35% cost reduction. | Complete Artifact Portfolio |
+| **project-07-technical-strategy** | [Multi-Year Technical Strategy Formulation](project-07-technical-strategy/README.md) | Author a comprehensive 18-month technical strategy linking business goals to architecture. | Complete Artifact Portfolio |
+| **project-08-new-product-discovery** | [Greenfield Product Discovery to MVP Launch](project-08-new-product-discovery/README.md) | Guide an ambiguous enterprise collaboration feature ask from customer discovery to production MVP. | Complete Artifact Portfolio |
+| **project-09-incident-command** | [Major Multi-Service Outage Incident Leadership](project-09-incident-command/README.md) | Command a cascading SEV-1 outage from real-time mitigation to blameless postmortem. | Complete Artifact Portfolio |
+| **project-10-architecture-simplification** | [Architecture Simplification & Consolidation](project-10-architecture-simplification/README.md) | Consolidate an over-engineered 40-microservice cluster into a maintainable core. | Complete Artifact Portfolio |
+| **project-11-org-bottleneck** | [Resolving the Central Platform Bottleneck](project-11-org-bottleneck/README.md) | Transform an overworked infrastructure gatekeeper team into an enabling platform group. | Complete Artifact Portfolio |
+| **project-12-mentoring-multiplier** | [Mentoring & Leadership Multiplier Program](project-12-mentoring-multiplier/README.md) | Design a 6-month structured growth program elevating senior engineers to tech leads. | Complete Artifact Portfolio |
+| **project-13-budget-constraint-strategy** | [Strategy Under Severe Budget Constraints](project-13-budget-constraint-strategy/README.md) | Re-prioritize an engineering roadmap following an unexpected 20% budget reduction. | Complete Artifact Portfolio |
+| **capstone-01-critical-program** | [Capstone 1: Operating a Revenue-Critical Rebuild](capstone-01-critical-program/README.md) | Lead a high-stakes checkout rebuild across 7 teams under fixed launch deadlines. | Complete Artifact Portfolio |
+| **capstone-02-devex-strategy** | [Capstone 2: Enterprise Internal Developer Platform Strategy](capstone-02-devex-strategy/README.md) | Design and execute an internal platform strategy treating developers as customers. | Complete Artifact Portfolio |
+| **capstone-03-turnaround** | [Capstone 3: The Integrated Product & Technical Turnaround](capstone-03-turnaround/README.md) | Diagnose and repair a failing SaaS product suffering from churn, latency, and gridlock. | Complete Artifact Portfolio |
+| **capstone-04-merger-convergence** | [Capstone 4: Post-Acquisition Platform Convergence](capstone-04-merger-convergence/README.md) | Unify two competing technical stacks and engineering cultures following an acquisition. | Complete Artifact Portfolio |
+| **capstone-05-promotion-packet** | [Capstone 5: Staff-Level Promotion Packet Simulation](capstone-05-promotion-packet/README.md) | Assemble and defend a comprehensive staff engineering promotion packet with evidence. | Complete Artifact Portfolio |
+| **capstone-06-final-challenge** | [Phase 200: The Final Staff-Level Challenge](capstone-06-final-challenge/README.md) | Navigate an ambiguous organizational crisis requiring complete curriculum synthesis. | Complete Artifact Portfolio |

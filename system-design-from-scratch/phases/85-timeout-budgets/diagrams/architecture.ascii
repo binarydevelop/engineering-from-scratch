@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 85 - Timeout Budgets & Deadlines
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Each microservice hop configures an independent 5-second timeout.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Deadline propagation: passing remaining time budget in HTTP headers (`grpc-timeout`).
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

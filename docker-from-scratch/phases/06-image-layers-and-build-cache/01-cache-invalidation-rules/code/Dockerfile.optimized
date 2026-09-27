@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+WORKDIR /app
+
+# OPTIMIZED APPROACH: Copy low-volatility dependency file first
+COPY requirements.txt .
+
+# Expensive dependency installation step (Cached unless requirements.txt changes!)
+RUN python3 -c "import time; print('>>> [OPTIMIZED] Installing dependencies (3s)...'); time.sleep(3)"
+
+# Copy high-volatility application code AFTER dependency layer
+COPY app.py .
+
+CMD ["python3", "app.py"]

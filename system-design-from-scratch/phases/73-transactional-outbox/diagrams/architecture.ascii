@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 73 - Transactional Outbox Pattern
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Direct network calls to Kafka inside HTTP request handler.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Local outbox table polled by asynchronous publisher process.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 00 - System Design Laboratory
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   One single Python process handling simulated requests.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Add background metrics collector and local persistence.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

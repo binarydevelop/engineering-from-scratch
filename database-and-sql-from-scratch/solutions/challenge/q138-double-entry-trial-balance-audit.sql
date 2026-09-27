@@ -1,0 +1,1 @@
+SELECT SUM(CASE WHEN entry_type = 'DEBIT' THEN amount ELSE 0 END) AS total_system_debits, SUM(CASE WHEN entry_type = 'CREDIT' THEN amount ELSE 0 END) AS total_system_credits, (SUM(CASE WHEN entry_type = 'DEBIT' THEN amount ELSE 0 END) - SUM(CASE WHEN entry_type = 'CREDIT' THEN amount ELSE 0 END)) AS system_balance_delta FROM banking.ledger_entries;

@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 106 - API Gateway Security Boundary
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Exposing internal microservices directly to the public internet.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   API Gateway enforcing TLS 1.3, DDoS protection, rate limits, and JWT authentication.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================

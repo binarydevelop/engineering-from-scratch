@@ -1,0 +1,23 @@
+======================================================================
+  Architecture Diagram: Phase 49 - Hash Slots Partitioning
+======================================================================
+
+1. Simplest Baseline Architecture:
+----------------------------------------------------------------------
+   Dynamic key-range boundaries requiring complex rebalancing coordination.
+
+   [Client] ──▶ [Application Server] ──▶ [Primary Datastore]
+
+
+2. Scaled / Resilient Architecture:
+----------------------------------------------------------------------
+   Deterministic slot mapping ($CRC16(key) \% 16384$) with slot migration tracking.
+
+                               ┌──▶ [Worker Node A] ──┬──▶ [Cache]
+[Client] ──▶ [Load Balancer] ──┼──▶ [Worker Node B] ──┤
+                               └──▶ [Worker Node C] ──┴──▶ [Primary DB] ──▶ [Replicas]
+                                         │
+                                         ▼
+                                   [Event Queue] ──▶ [Async Workers]
+
+======================================================================
