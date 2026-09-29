@@ -14,6 +14,7 @@ A comprehensive, first-principles engineering academy covering systems, networki
 - **[`computer-networking-from-scratch/`](computer-networking-from-scratch/)** — Raw sockets, packet parsing, TCP handshake, sliding windows, congestion control, and epoll.
 
 ### 2. Core Craftsmanship, LLD & Backend Engineering
+- **[`data-structures-algorithms-practice/`](data-structures-algorithms-practice/)** — Data structures, sorting/searching algorithms, algorithmic paradigms, and problem solutions in JavaScript and Python.
 - **[`java-from-scratch/`](java-from-scratch/)** — Modern Java 21+, JVM bytecode execution, garbage collection, memory model, and concurrency.
 - **[`low-level-design-from-scratch/`](low-level-design-from-scratch/)** — Object-oriented modeling, Gang of Four design patterns, SOLID principles, and refactoring katas.
 - **[`backend-engineering-from-scratch/`](backend-engineering-from-scratch/)** — 206 phases, 905 tests: HTTP/wire protocols, connection pools, outbox pattern, **Raft consensus, Protobuf/gRPC, LSM-Trees, and Zero-Trust mTLS**.
@@ -33,7 +34,8 @@ A comprehensive, first-principles engineering academy covering systems, networki
 - **[`aws-from-scratch/`](aws-from-scratch/)** — Cloud design patterns, IAM security perimeters, VPC networking, and serverless architectures.
 - **[`system-design-from-scratch/`](system-design-from-scratch/)** — 201 phases, 899 tests: Back-of-envelope estimation, consensus, consistent hashing, and high-scale architectures.
 
-### 5. Production Reliability & SRE
+### 5. Production Reliability, Delivery & SRE
+- **[`ci-cd-and-software-delivery-from-scratch/`](ci-cd-and-software-delivery-from-scratch/)** — 30 parts, 224 phases, 42 broken labs: Pipeline design, artifact provenance, GitOps reconciliation, and progressive delivery.
 - **[`production-sre-observability-platform-engineering-from-scratch/`](production-sre-observability-platform-engineering-from-scratch/)** — 109 tests: OpenTelemetry tracing, Prometheus metrics, multi-window SLO burn rates, chaos engineering, and 42 broken labs.
 
 ### 6. Modern AI & Machine Learning Systems
