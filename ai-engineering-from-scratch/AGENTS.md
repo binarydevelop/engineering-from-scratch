@@ -33,6 +33,12 @@ certifications/claude/
   tracks/*.json               # exam blueprint, ordered route, study plans
   lessons/NN-slug/            # shared certification lesson contract
   assessments/<exam-code>/    # original diagnostics and full mocks
+manuals/
+  AUTHORING.md                # manual contract: shape, figures, capture kit, prose limits
+  <id>/manual.json            # pinned subject, palette, parts and sections
+  <id>/sections/*.md          # one file per section
+  <id>/figures/*.svg          # static figures; figure kit sources in figures/src/
+  <id>/capture/               # offline capture kit and the records it wrote
 scripts/                      # automation
 .github/workflows/
   curriculum.yml              # invariant + auto-sync workflow
@@ -103,6 +109,8 @@ The `**Languages:**` field must match the languages with a `main.*` file in `cod
 ```
 
 Exactly 6 questions: 1 pre + 3 check + 2 post. `correct` is zero-indexed. The site renderer only understands this shape — legacy `q/choices/answer` schemas crash silently.
+
+Keep the distractors comparable in length to the correct option. When the correct answer is the longest by a wide margin, a reader can guess it without knowing the material. `scripts/check_quiz_bias.py --check` gates this, and `scripts/debias_quizzes.py` spreads the correct option across positions.
 
 ### Claude certification contract
 
@@ -189,6 +197,10 @@ website and is intentionally outside the book-generation pipeline.
 It remains English-only and is intentionally outside the machine-translation
 pipeline as well.
 
+### Manual contract
+
+A manual under `manuals/<id>/` explains one subject at one pinned version, built from offline captures and ranked sources. Read `manuals/AUTHORING.md` before writing one. `node scripts/audit_manuals.js` must report `TOTAL 0`: it checks section shape, prose limits, figure legibility, listing provenance, verbatim quotes, and capture drift. Commit one section per commit as `feat(manual/<id>): <section slug>`. Manuals stay outside the book and translation pipelines; their PDFs are release assets, never committed.
+
 ### code/
 
 - Runs end-to-end and exits 0 on the canonical command for the language.
@@ -210,6 +222,7 @@ Run locally before pushing:
 python3 scripts/audit_lessons.py
 python3 scripts/audit_certifications.py
 python3 scripts/check_readme_counts.py        # advisory — CI fixes on merge
+node --test site/test_manuals.js && node scripts/audit_manuals.js   # when manuals/ changes
 
 # For each lesson touched:
 cd phases/NN-phase/MM-lesson/code
@@ -306,4 +319,4 @@ gh pr create --title "feat(phase-NN/MM): add <slug>" --body "<5-line summary>"
 
 ---
 
-Last reviewed: 2026-05-27.
+Last reviewed: 2026-10-06.
