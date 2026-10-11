@@ -17,7 +17,7 @@ console.log(bubbleSort([5, 3, 8, 4, 2]));
 
 
 // Optimised 
-function selectionSort(nums) {
+function bubbleSort(nums) {
     for(let i =0; i < nums.length; i++){
         let flag = false; // because if the flag is not swapped that means the array is already sorted
         for(let j = 0; j < nums.length- 1- i; j++){ // nums.length-1- i is because we subtract one because we compare j with j+1 and i because the last i elements will already be sorted after ith pass. 
@@ -31,4 +31,4 @@ function selectionSort(nums) {
     return nums
 }
 
-console.log(selectionSort([2,1,4,5,3,7]));
+console.log(bubbleSort([2,1,4,5,3,7]));

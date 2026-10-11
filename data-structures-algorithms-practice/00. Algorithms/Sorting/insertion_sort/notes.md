@@ -1,0 +1,1 @@
+Insertion sort is basically assuming the first element is sorted check from the second element check all the left elements and keep shifting the elements to the right.
