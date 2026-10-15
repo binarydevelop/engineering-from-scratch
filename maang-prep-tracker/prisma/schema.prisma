@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Task {
+  id              String   @id @default(cuid())
+  taskName        String
+  date            String   // Format: YYYY-MM-DD
+  sprint          String
+  week            String
+  phaseRepos      String
+  dsaTrack        String
+  morningSession  String
+  eveningSession  String
+  status          String   @default("To Do") // "To Do", "In Progress", "Done"
+  priority        String   @default("Medium") // "Low", "Medium", "High", "Critical"
+  notes           String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([date])
+  @@index([sprint])
+  @@index([status])
+}

@@ -38,6 +38,3 @@ bin/
 *.bak
 .git_sub_bak/
 
-# Standalone apps
-maang-prep-tracker/
-
