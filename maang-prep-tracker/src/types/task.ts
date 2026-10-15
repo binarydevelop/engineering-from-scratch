@@ -11,8 +11,8 @@ export interface Task {
   status: 'To Do' | 'In Progress' | 'Done' | string
   priority: 'Critical' | 'High' | 'Medium' | 'Low' | string
   notes: string
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: string | Date
+  updatedAt?: string | Date
 }
 
 export interface SprintStat {

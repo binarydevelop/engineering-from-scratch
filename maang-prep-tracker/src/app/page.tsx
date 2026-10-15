@@ -47,6 +47,8 @@ export default function TrackerDashboard() {
     }, 3500)
   }
 
+  const [hasDb, setHasDb] = useState(true)
+
   // Fetch Stats
   const loadStats = useCallback(async () => {
     try {
@@ -54,6 +56,7 @@ export default function TrackerDashboard() {
       const data = await res.json()
       if (data.success) {
         setStats(data.stats)
+        if (typeof data.hasDb === 'boolean') setHasDb(data.hasDb)
       }
     } catch (err) {
       console.error('Failed to load stats:', err)
@@ -73,6 +76,7 @@ export default function TrackerDashboard() {
       const data = await res.json()
       if (data.success) {
         setTasks(data.tasks)
+        if (typeof data.hasDb === 'boolean') setHasDb(data.hasDb)
       }
     } catch (err) {
       console.error('Failed to load tasks:', err)
@@ -227,10 +231,32 @@ export default function TrackerDashboard() {
         isReseeding={isReseeding}
         totalDone={stats?.done || 0}
         totalTasks={stats?.total || 191}
+        hasDb={hasDb}
       />
 
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {!hasDb && appTab === 'tracker' && (
+          <div className="mb-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-200 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg">
+            <div>
+              <strong className="text-amber-300 font-bold block mb-0.5">
+                ⚡ Preview Mode (In-Memory Tasks Active)
+              </strong>
+              <span>
+                All 191 schedule tasks are loaded and working. To permanently save your status and notes in the cloud, add the <code className="bg-amber-950/60 px-1.5 py-0.5 rounded text-amber-300 font-mono">DATABASE_URL</code> environment variable in your Vercel Project Settings.
+              </span>
+            </div>
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-200 font-semibold whitespace-nowrap transition"
+            >
+              Vercel Settings &rarr;
+            </a>
+          </div>
+        )}
+
         {appTab === 'notes' ? (
           /* Tab 2: Repo Notes & Docs Browser GUI */
           <RepoNotesBrowser initialRepo={selectedRepoForNotes} />

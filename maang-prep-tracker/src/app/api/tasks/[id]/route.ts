@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import prisma from '@/lib/prisma'
+import { updateTask, deleteTask } from '@/lib/db'
 
 export async function PATCH(
   request: NextRequest,
@@ -9,12 +9,8 @@ export async function PATCH(
     const { id } = await params
     const body = await request.json()
 
-    const updatedTask = await prisma.task.update({
-      where: { id },
-      data: body,
-    })
-
-    return NextResponse.json({ success: true, task: updatedTask })
+    const { task, hasDb } = await updateTask(id, body)
+    return NextResponse.json({ success: true, hasDb, task })
   } catch (error: unknown) {
     const err = error as Error
     console.error('Error updating task:', err)
@@ -32,11 +28,8 @@ export async function DELETE(
   try {
     const { id } = await params
 
-    await prisma.task.delete({
-      where: { id },
-    })
-
-    return NextResponse.json({ success: true, message: 'Task deleted successfully' })
+    const { success, hasDb } = await deleteTask(id)
+    return NextResponse.json({ success, hasDb, message: 'Task deleted successfully' })
   } catch (error: unknown) {
     const err = error as Error
     console.error('Error deleting task:', err)

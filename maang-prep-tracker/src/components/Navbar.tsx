@@ -11,6 +11,7 @@ interface NavbarProps {
   isReseeding: boolean
   totalDone: number
   totalTasks: number
+  hasDb?: boolean
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -21,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   isReseeding,
   totalDone,
   totalTasks,
+  hasDb = false,
 }) => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-zinc-800/80 bg-[#0a0b12]/85 backdrop-blur-md">
@@ -35,10 +37,20 @@ export const Navbar: React.FC<NavbarProps> = ({
               <div>
                 <div className="flex items-center gap-2">
                   <h1 className="text-base sm:text-lg font-bold text-white tracking-tight">MAANG Staff Tracker</h1>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Live
-                  </span>
+                  {hasDb ? (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      PostgreSQL
+                    </span>
+                  ) : (
+                    <span
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20"
+                      title="Add DATABASE_URL in Vercel to enable cloud database"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                      In-Memory Mode
+                    </span>
+                  )}
                 </div>
                 <p className="text-[11px] text-zinc-400 hidden sm:block">
                   Target: May 2027 · SDE-2 → Staff Target
