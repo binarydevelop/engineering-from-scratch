@@ -4,7 +4,7 @@
 **Weekend Hours:** 6:00 AM–4:00 PM + 7:00–10:00 PM = **~10 hrs/day**  
 **DSA:** [Striver A2Z Sheet](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/) — 455+ problems, 18 Steps  
 **SD Supplement:** [systemoverflow.com](https://systemoverflow.com) — 33 Topics, 200+ Concepts, 3000+ Cards  
-**Start:** October 13, 2026 · **Target:** May 2027
+**Start:** October 17, 2026 · **Target:** May 2027
 
 ---
 
@@ -300,13 +300,13 @@
 ---
 
 ## 🔶 Sprint 1 — Foundations Blitz
-**Weeks 1–4 | Oct 13 – Nov 11, 2026**  
+**Weeks 1–4 | Oct 17 – Nov 19, 2026**  
 **Repos:** `os` (132) + `linux` (136) + `networking` (139) + `sql` (102) + `java` start  
 **Striver:** Steps 1–5 (Basics, Sorting, Arrays, Binary Search, Strings)
 
 ---
 
-### Week 1 — Oct 13–19 | OS + Linux + Striver Steps 1–2
+### Week 1 — Oct 17–23 | OS + Linux + Striver Steps 1–2
 
 | Day | 7:45–10:00 AM (Domain A) | 7:00–8:30 PM (Domain B) | 8:45–10:00 PM (Practice) |
 |---|---|---|---|
@@ -320,7 +320,7 @@
 
 ---
 
-### Week 2 — Oct 20–26 | OS Finish + Networking Start
+### Week 2 — Oct 24–30 | OS Finish + Networking Start
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -334,7 +334,7 @@
 
 ---
 
-### Week 3 — Oct 29 – Nov 4 | Networking + Striver Step 3 Hard Finish + Step 4 Binary Search
+### Week 3 — Nov 2 – Nov 8 | Networking + Striver Step 3 Hard Finish + Step 4 Binary Search
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -348,7 +348,7 @@
 
 ---
 
-### Week 4 — Nov 3–9 | SQL + Java + Striver Step 4 Finish + Step 5 Strings
+### Week 4 — Nov 7–13 | SQL + Java + Striver Step 4 Finish + Step 5 Strings
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -365,13 +365,13 @@
 ---
 
 ## 🔶 Sprint 2 — Backend Engineering Core
-**Weeks 5–8 | Nov 10 – Dec 9, 2026**  
+**Weeks 5–8 | Nov 14 – Dec 17, 2026**  
 **Repos:** `backend` (206) + `docker` (31) + `kafka` (68) + `redis` (51) + `java` finish  
 **Striver:** Steps 6–9 (Linked Lists, Recursion, Bit Manipulation, Stacks & Queues)
 
 ---
 
-### Week 5 — Nov 10–16 | Backend Part 1 + Java Finish + Striver Step 6 LL
+### Week 5 — Nov 14–20 | Backend Part 1 + Java Finish + Striver Step 6 LL
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -385,7 +385,7 @@
 
 ---
 
-### Week 6 — Nov 17–23 | Backend Part 2 + Docker + Kafka + Striver Step 7
+### Week 6 — Nov 21–27 | Backend Part 2 + Docker + Kafka + Striver Step 7
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -399,7 +399,7 @@
 
 ---
 
-### Week 7 — Nov 24–30 | Redis + Backend Finish + Striver Step 7 Finish + Step 8
+### Week 7 — Dec 2 – Dec 8 | Redis + Backend Finish + Striver Step 7 Finish + Step 8
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -413,7 +413,7 @@
 
 ---
 
-### Week 8 — Dec 1–Dec 7 | Consolidation + LLD Preview + Striver Step 9 Start
+### Week 8 — Dec 5–Dec 11 | Consolidation + LLD Preview + Striver Step 9 Start
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -430,7 +430,7 @@
 ---
 
 ## 🔶 Sprint 3 — LLD Mastery
-**Weeks 9–13 | Dec 8, 2026 – Jan 11, 2027**  
+**Weeks 9–13 | Dec 12, 2026 – Jan 15, 2027**  
 **Repo:** `lld` (147 phases) — all problems coded  
 **Striver:** Steps 9 finish → Step 10 (Sliding Window) → Step 11 (Heaps) → Step 12 (Greedy) → Step 13 (Binary Trees)
 
@@ -439,7 +439,7 @@
 
 ---
 
-### Week 9 — Dec 8–14 | Design Patterns Batch 2 + Striver Steps 9–10
+### Week 9 — Dec 12–18 | Design Patterns Batch 2 + Striver Steps 9–10
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -453,7 +453,7 @@
 
 ---
 
-### Week 10 — Dec 15–21 | LLD Classic Problems Batch 1 + Striver Step 10 Finish + Step 11
+### Week 10 — Dec 19–25 | LLD Classic Problems Batch 1 + Striver Step 10 Finish + Step 11
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -467,7 +467,7 @@
 
 ---
 
-### Week 11 — Dec 22–28 | LLD Classic Problems Batch 2 + Striver Step 11 Hard + Step 12
+### Week 11 — Dec 30 – Jan 5 | LLD Classic Problems Batch 2 + Striver Step 11 Hard + Step 12
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -481,7 +481,7 @@
 
 ---
 
-### Week 12 — Dec 29 – Jan 4 | LLD Batch 3 + Striver Step 12 Hard + Step 13 Trees Start
+### Week 12 — Jan 2 – Jan 8 | LLD Batch 3 + Striver Step 12 Hard + Step 13 Trees Start
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -495,7 +495,7 @@
 
 ---
 
-### Week 13 — Jan 5–11 | LLD Capstone + Striver Step 13 Hard + SD Preview
+### Week 13 — Jan 9–15 | LLD Capstone + Striver Step 13 Hard + SD Preview
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -512,7 +512,7 @@
 ---
 
 ## 🔶 Sprint 4 — System Design: Foundations
-**Weeks 14–17 | Jan 12 – Feb 10, 2027**  
+**Weeks 14–17 | Jan 16 – Feb 18, 2027**  
 **Repo:** `sd` (all 201 phases) + `kafka` reinforcement + `redis` reinforcement  
 **Striver:** Step 14 (BST) → Step 15 (Graphs — all variants)  
 **System Overflow:** Use weekend revision blocks to study matching topic cards
@@ -522,7 +522,7 @@
 
 ---
 
-### Week 14 — Jan 12–18 | SD Scaling + Caching + Striver Step 14 BST
+### Week 14 — Jan 16–22 | SD Scaling + Caching + Striver Step 14 BST
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -536,7 +536,7 @@
 
 ---
 
-### Week 15 — Jan 19–25 | SD Distributed Systems + Resilience + Striver Step 15 Topo
+### Week 15 — Jan 23–29 | SD Distributed Systems + Resilience + Striver Step 15 Topo
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -550,7 +550,7 @@
 
 ---
 
-### Week 16 — Jan 28 – Feb 3 | SD Real Systems Part 1 + Striver Step 15 MST
+### Week 16 — Feb 1 – Feb 7 | SD Real Systems Part 1 + Striver Step 15 MST
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -564,7 +564,7 @@
 
 ---
 
-### Week 17 — Feb 2–Feb 8 | SD Real Systems Part 2 + Striver Step 15 Finish
+### Week 17 — Feb 6–Feb 12 | SD Real Systems Part 2 + Striver Step 15 Finish
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -581,13 +581,13 @@
 ---
 
 ## 🔶 Sprint 5 — SD Interview Mode + Infrastructure
-**Weeks 18–20 | Feb 11 – Mar 4, 2027**  
+**Weeks 18–20 | Feb 15 – Mar 12, 2027**  
 **Repos:** `k8s` (121) + `cicd` (31) + `es` (88)  
 **Striver:** Step 16 — Dynamic Programming (all patterns)
 
 ---
 
-### Week 18 — Feb 9–15 | K8s + Striver Step 16 DP 1D + 2D
+### Week 18 — Feb 13–19 | K8s + Striver Step 16 DP 1D + 2D
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -601,7 +601,7 @@
 
 ---
 
-### Week 19 — Feb 17–23 | Elasticsearch + Striver Step 16 DP Strings + LIS
+### Week 19 — Feb 21–27 | Elasticsearch + Striver Step 16 DP Strings + LIS
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -615,7 +615,7 @@
 
 ---
 
-### Week 20 — Feb 26 – Mar 4 | Infra Review + Striver Step 16 DP Stocks + Partition
+### Week 20 — Mar 2 – Mar 8 | Infra Review + Striver Step 16 DP Stocks + Partition
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -632,13 +632,13 @@
 ---
 
 ## 🔶 Sprint 6 — Advanced / Differentiation Track
-**Weeks 21–24 | Mar 3–30, 2027**  
+**Weeks 21–24 | Mar 11 – Apr 7, 2027**  
 **Repos:** `nosql` (264) + `sre` (23) + `aws` (13) + `ai-eng` (20) + `ai-sys` (19) + `data-eng` start  
 **Striver:** Steps 17 (Tries) + Step 18 (Strings Hard) + Company-tagged Hards
 
 ---
 
-### Week 21 — Mar 3–9 | NoSQL Deep-Dive + Striver Step 17 Tries
+### Week 21 — Mar 7–13 | NoSQL Deep-Dive + Striver Step 17 Tries
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -652,7 +652,7 @@
 
 ---
 
-### Week 22 — Mar 10–16 | AWS + AI Engineering + Striver Step 18
+### Week 22 — Mar 14–20 | AWS + AI Engineering + Striver Step 18
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
@@ -666,26 +666,26 @@
 
 ---
 
-### Week 23–24 — Mar 17–30 | Data Engineering + Contest Mode + Final Differentiation
+### Week 23–24 — Mar 25 – Apr 7 | Data Engineering + Contest Mode + Final Differentiation
 
 | Day | 7:45–10:00 AM | 7:00–8:30 PM | 8:45–10:00 PM |
 |---|---|---|---|
-| **Wed Mar 17** | `data-eng` 01–60 (what is DE, CSV/Parquet, batch processing, ETL, Spark basics, data warehouses) | `data-eng` 61–120 (stream processing, Flink, Lambda/Kappa, data quality, freshness, schema evolution) | Striver: Amazon tagged hard (2 problems) |
-| **Thu Mar 18** | `data-eng` 121–201 (finish: data lakes, Iceberg, Delta Lake, Airflow orchestration, ML pipelines, feature stores, capstones) | `olap` 01–80 (OLTP vs OLAP, columnar storage, DuckDB, ClickHouse, Druid, Pinot for real-time analytics) | Striver: Microsoft tagged hard (2 problems) |
-| **Fri Mar 19** | Verbal: "How would you design a real-time analytics pipeline for an e-commerce platform?" | Verbal: "Explain Lambda vs Kappa architecture — when to use each" | Striver: Stripe/Uber tagged hard (2 problems) |
-| **Sat Mar 20** | Differentiation summary: write "5 technical things I know that most SDE candidates don't" | Deep review: all 8 advanced topics — what are your top 3 differentiators? | Striver: 90-min contest simulation (2 med + 1 hard) |
-| **Sun Mar 21** | `linux` deep revisit: eBPF/bpftrace, io_uring concept (30-min reads each, modern production tools) | Review Java 21 virtual threads (Project Loom) — modern concurrency model | Striver: 90-min contest simulation (2 med + 1 hard) |
-| **Tue Mar 23** | **REVISION A:** Full SD verbal — "Design a Data Pipeline for a streaming analytics platform" | **REVISION B:** System Overflow — "Data Processing Patterns" + "Big Data Systems" cards | **MOCK SD #10:** Peer mock — "Design Databricks / Spark Streaming ingestion system" |
-| **Wed Mar 24** | **REVISION C:** Sprint 6 gap drill — 2 topics you're weakest in | **REVISION D:** Behavioral STAR: "Tell me about a time you handled a system with inconsistent/bad data" | Striver: 90-min contest (2 med + 1 hard) |
-| **Thu Mar 25** | Full sprint review — all 6 sprints, what's strong, what needs more work | Company-specific research: read engineering blogs of top 5 target companies | Striver: 90-min contest (2 med + 1 hard) |
-| **Tue Mar 30** | **REVISION A:** Full 2-hr mock loop — DSA (45) + SD (60) + LLD (45) | **REVISION B:** System Overflow — any 2 weak topics | Sprint 6 complete 🎉 |
+| **Sun Mar 21** | `data-eng` 01–60 (what is DE, CSV/Parquet, batch processing, ETL, Spark basics, data warehouses) | `data-eng` 61–120 (stream processing, Flink, Lambda/Kappa, data quality, freshness, schema evolution) | Striver: Amazon tagged hard (2 problems) |
+| **Mon Mar 22** | `data-eng` 121–201 (finish: data lakes, Iceberg, Delta Lake, Airflow orchestration, ML pipelines, feature stores, capstones) | `olap` 01–80 (OLTP vs OLAP, columnar storage, DuckDB, ClickHouse, Druid, Pinot for real-time analytics) | Striver: Microsoft tagged hard (2 problems) |
+| **Tue Mar 23** | Verbal: "How would you design a real-time analytics pipeline for an e-commerce platform?" | Verbal: "Explain Lambda vs Kappa architecture — when to use each" | Striver: Stripe/Uber tagged hard (2 problems) |
+| **Wed Mar 24** | Differentiation summary: write "5 technical things I know that most SDE candidates don't" | Deep review: all 8 advanced topics — what are your top 3 differentiators? | Striver: 90-min contest simulation (2 med + 1 hard) |
+| **Thu Mar 25** | `linux` deep revisit: eBPF/bpftrace, io_uring concept (30-min reads each, modern production tools) | Review Java 21 virtual threads (Project Loom) — modern concurrency model | Striver: 90-min contest simulation (2 med + 1 hard) |
+| **Sat Mar 27** | **REVISION A:** Full SD verbal — "Design a Data Pipeline for a streaming analytics platform" | **REVISION B:** System Overflow — "Data Processing Patterns" + "Big Data Systems" cards | **MOCK SD #10:** Peer mock — "Design Databricks / Spark Streaming ingestion system" |
+| **Sun Mar 28** | **REVISION C:** Sprint 6 gap drill — 2 topics you're weakest in | **REVISION D:** Behavioral STAR: "Tell me about a time you handled a system with inconsistent/bad data" | Striver: 90-min contest (2 med + 1 hard) |
+| **Mon Mar 29** | Full sprint review — all 6 sprints, what's strong, what needs more work | Company-specific research: read engineering blogs of top 5 target companies | Striver: 90-min contest (2 med + 1 hard) |
+| **Sat Apr 3** | **REVISION A:** Full 2-hr mock loop — DSA (45) + SD (60) + LLD (45) | **REVISION B:** System Overflow — any 2 weak topics | Sprint 6 complete 🎉 |
 
 **Sprint 6 Striver: Steps 17–18 + company-tagged ≈ 60 problems → ~580 total**
 
 ---
 
 ## 🔶 Sprint 7 — Staff Engineering + Behavioral
-**Weeks 25–28 | Mar 31 – Apr 29, 2027**  
+**Weeks 25–28 | Apr 4 – May 7, 2027**  
 **Repo:** `staff` (201 phases — all)  
 **Striver:** Maintenance — 8–10 company-tagged hard problems/week
 
@@ -753,7 +753,7 @@
 ---
 
 ## 🏁 Sprint 8 — Application + Conversion
-**Weeks 29–36 | Apr 28 – Jun 24, 2027**
+**Weeks 29–36 | May 2 – Jul 2, 2027**
 
 ### Application Strategy
 
@@ -782,14 +782,14 @@
 
 ```mermaid
 flowchart TD
-    S1["🔶 Sprint 1\nFoundations Blitz\nStriver Steps 1–5\nOct 13 – Nov 11, 2026"]
-    S2["🔶 Sprint 2\nBackend + Docker + Kafka + Redis\nStriver Steps 6–9\nNov 10 – Dec 9, 2026"]
+    S1["🔶 Sprint 1\nFoundations Blitz\nStriver Steps 1–5\nOct 17 – Nov 19, 2026"]
+    S2["🔶 Sprint 2\nBackend + Docker + Kafka + Redis\nStriver Steps 6–9\nNov 14 – Dec 17, 2026"]
     S3["🔶 Sprint 3\nLLD Mastery\nStriver Steps 9–13\nDec 6 2026 – Jan 9 2027"]
-    S4["🔶 Sprint 4\nSystem Design Foundations\nStriver Steps 14–15\nJan 12 – Feb 8 2027"]
-    S5["🔶 Sprint 5\nSD Interview Mode + Infra\nStriver Step 16 DP\nFeb 11 – Mar 4 2027"]
-    S6["🔶 Sprint 6\nAdvanced Differentiation\nStriver Steps 17–18\nMar 3–30 2027"]
-    S7["🔶 Sprint 7\nStaff + Behavioral\nMaintenance DSA\nMar 31 – Apr 27 2027"]
-    S8["🏁 Sprint 8\nApply + Convert\nApr 28 – Jun 22 2027"]
+    S4["🔶 Sprint 4\nSystem Design Foundations\nStriver Steps 14–15\nJan 16 – Feb 12 2027"]
+    S5["🔶 Sprint 5\nSD Interview Mode + Infra\nStriver Step 16 DP\nFeb 15 – Mar 8 2027"]
+    S6["🔶 Sprint 6\nAdvanced Differentiation\nStriver Steps 17–18\nMar 11 – Apr 7 2027"]
+    S7["🔶 Sprint 7\nStaff + Behavioral\nMaintenance DSA\nApr 4 – May 1 2027"]
+    S8["🏁 Sprint 8\nApply + Convert\nMay 2 – Jun 26 2027"]
 
     S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8
 ```
@@ -830,15 +830,15 @@ flowchart TD
 ## ✅ Master Milestone Checklist
 
 ```
-[ ] Nov 9, 2026 — OS + Linux + Networking + SQL + Java done · Striver Steps 1–5 (120 problems)
-[ ] Dec 7, 2026 — Backend + Docker + Kafka + Redis done · Striver Steps 6–9 (220 problems)
-[ ] Jan 11, 2027 — ALL 147 LLD phases + 15 problems coded · Striver Steps 9–13 (350 problems)
-[ ] Feb 8, 2027 — ALL 201 SD phases · 4+ SD mocks · Striver Steps 14–15 (420 problems)
-[ ] Mar 2, 2027 — K8s + CI/CD + ES done · 7+ SD mocks · Striver Step 16 DP (520 problems)
-[ ] Mar 30, 2027 — NoSQL + SRE + AWS + AI + Data Eng done · Striver Steps 17–18 (580 problems)
-[ ] Apr 27, 2027 — ALL staff phases done · 10 STAR stories refined · 630+ problems
-[ ] Apr 28, 2027 — Resume finalized · Applications sent · Pipeline open
-[ ] Jun 22, 2027 — Offer signed 🎉
+[ ] Nov 13, 2026 — OS + Linux + Networking + SQL + Java done · Striver Steps 1–5 (120 problems)
+[ ] Dec 11, 2026 — Backend + Docker + Kafka + Redis done · Striver Steps 6–9 (220 problems)
+[ ] Jan 15, 2027 — ALL 147 LLD phases + 15 problems coded · Striver Steps 9–13 (350 problems)
+[ ] Feb 12, 2027 — ALL 201 SD phases · 4+ SD mocks · Striver Steps 14–15 (420 problems)
+[ ] Mar 6, 2027 — K8s + CI/CD + ES done · 7+ SD mocks · Striver Step 16 DP (520 problems)
+[ ] Apr 3, 2027 — NoSQL + SRE + AWS + AI + Data Eng done · Striver Steps 17–18 (580 problems)
+[ ] May 1, 2027 — ALL staff phases done · 10 STAR stories refined · 630+ problems
+[ ] May 2, 2027 — Resume finalized · Applications sent · Pipeline open
+[ ] Jun 26, 2027 — Offer signed 🎉
 ```
 
 ---
