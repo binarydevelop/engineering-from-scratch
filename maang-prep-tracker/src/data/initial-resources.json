@@ -1,0 +1,101 @@
+[
+  {
+    "id": "res-os-1",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": "01-what-is-an-operating-system",
+    "title": "MIT 6.S081: Operating System Engineering (xv6 Lecture 1)",
+    "url": "https://www.youtube.com/watch?v=L6YqNxCsf5Q",
+    "type": "youtube",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/L6YqNxCsf5Q",
+    "description": "MIT Prof. Robert Morris on OS overview, hardware isolation boundaries, system calls, and the xv6 architecture.",
+    "tags": "MIT, xv6, kernel, isolation"
+  },
+  {
+    "id": "res-os-2",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": "01-what-is-an-operating-system",
+    "title": "OSTEP: Operating Systems - Three Easy Pieces (Full Book)",
+    "url": "https://pages.cs.wisc.edu/~remzi/OSTEP/",
+    "type": "doc",
+    "embedUrl": null,
+    "description": "The gold-standard OS textbook by Remzi & Andrea Arpaci-Dusseau covering Virtualization, Concurrency, and Persistence.",
+    "tags": "OSTEP, Textbook, Free, Foundations"
+  },
+  {
+    "id": "res-os-3",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": "02-user-space-and-kernel-space",
+    "title": "How System Calls Work at the Hardware Level (CPU Rings)",
+    "url": "https://www.youtube.com/watch?v=26QPDBe-NB8",
+    "type": "youtube",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/26QPDBe-NB8",
+    "description": "Visualizing Ring 0 vs Ring 3, CPU mode switches, Interrupt Descriptor Tables (IDT), and syscall execution.",
+    "tags": "CPU, Ring 0, Syscall, Assembly"
+  },
+  {
+    "id": "res-os-4",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": null,
+    "title": "Linux Kernel Source Explorer (Bootlin Elixir)",
+    "url": "https://elixir.bootlin.com/linux/latest/source",
+    "type": "interactive",
+    "embedUrl": null,
+    "description": "Interactive cross-referenced Linux kernel source code repository. Search sys_fork, schedule(), vfs_read, and page tables.",
+    "tags": "Linux, Kernel, Source Code, C"
+  },
+  {
+    "id": "res-os-5",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": "06-fork-deep-dive",
+    "title": "Copy-on-Write (CoW) in Linux fork() Explained",
+    "url": "https://www.youtube.com/watch?v=0h3jOshg_Vw",
+    "type": "youtube",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/0h3jOshg_Vw",
+    "description": "How the MMU and Page Tables mark pages read-only to avoid duplicating physical memory during fork().",
+    "tags": "fork, CoW, Virtual Memory, MMU"
+  },
+  {
+    "id": "res-os-6",
+    "repoId": "operating-systems-from-scratch",
+    "phaseId": "10-shell-redirection",
+    "title": "File Descriptors and dup2() Internals",
+    "url": "https://man7.org/linux/man-pages/man2/dup.2.html",
+    "type": "doc",
+    "embedUrl": null,
+    "description": "Official Linux manual page for dup, dup2, and dup3 syscalls. Details on open file tables and inode references.",
+    "tags": "Linux Man, dup2, File Descriptors, POSIX"
+  },
+  {
+    "id": "res-linux-1",
+    "repoId": "linux-from-scratch",
+    "phaseId": null,
+    "title": "Brendan Gregg: Linux Performance Analysis & Tools",
+    "url": "https://www.brendangregg.com/linuxperf.html",
+    "type": "article",
+    "embedUrl": null,
+    "description": "The definitive guide to Linux performance observation: USE Method, CPU profiling, perf, eBPF, and memory tuning.",
+    "tags": "Performance, Brendan Gregg, eBPF, Tracing"
+  },
+  {
+    "id": "res-net-1",
+    "repoId": "computer-networking-from-scratch",
+    "phaseId": null,
+    "title": "Computer Networks: A Systems Approach",
+    "url": "https://book.systemsapproach.org/",
+    "type": "doc",
+    "embedUrl": null,
+    "description": "Open source edition of the classic networking textbook by Larry Peterson and Bruce Davie.",
+    "tags": "Networking, TCP/IP, Protocols, Textbook"
+  },
+  {
+    "id": "res-sd-1",
+    "repoId": "system-design-from-scratch",
+    "phaseId": null,
+    "title": "System Overflow — Architecture Trade-offs & Flashcards",
+    "url": "https://systemoverflow.com",
+    "type": "interactive",
+    "embedUrl": null,
+    "description": "33 topics, 200+ architectural concepts, 3000+ flashcards focused on Senior/Staff interview scenarios.",
+    "tags": "System Design, Flashcards, Staff Prep"
+  }
+]

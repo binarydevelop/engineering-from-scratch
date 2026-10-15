@@ -1,7 +1,9 @@
 import prisma, { getResolvedDatabaseUrl } from './prisma'
 import { Prisma } from '@prisma/client'
 import initialTasks from '@/data/initial-tasks.json'
+import initialResources from '@/data/initial-resources.json'
 import { Task, TaskStats } from '@/types/task'
+import { Resource } from '@/types/resource'
 
 export function isDbAvailable(): boolean {
   return Boolean(getResolvedDatabaseUrl())
@@ -280,3 +282,164 @@ export async function fetchTaskStats(): Promise<{ stats: TaskStats; hasDb: boole
     },
   }
 }
+
+// -------------------------------------------------------------
+// Resource Management (Embedded Videos, Articles, Tools, Links)
+// -------------------------------------------------------------
+
+let isResourceTableInitialized = false
+
+async function ensureResourceTableExists() {
+  if (isResourceTableInitialized) return
+  try {
+    await prisma.$executeRawUnsafe(`
+      CREATE TABLE IF NOT EXISTS "Resource" (
+        "id" TEXT NOT NULL PRIMARY KEY,
+        "repoId" TEXT NOT NULL,
+        "phaseId" TEXT,
+        "title" TEXT NOT NULL,
+        "url" TEXT NOT NULL,
+        "type" TEXT NOT NULL DEFAULT 'article',
+        "embedUrl" TEXT,
+        "description" TEXT NOT NULL DEFAULT '',
+        "tags" TEXT NOT NULL DEFAULT '',
+        "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        "updatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+      );
+      CREATE INDEX IF NOT EXISTS "Resource_repoId_idx" ON "Resource"("repoId");
+      CREATE INDEX IF NOT EXISTS "Resource_phaseId_idx" ON "Resource"("phaseId");
+    `)
+    isResourceTableInitialized = true
+  } catch (err) {
+    console.warn('Could not run auto-resource-table create:', err)
+  }
+}
+
+let inMemoryResources: Resource[] = initialResources.map((r) => ({
+  ...r,
+  createdAt: new Date().toISOString(),
+  updatedAt: new Date().toISOString(),
+}))
+
+export async function fetchResources(
+  repoId: string,
+  phaseId?: string | null
+): Promise<{ resources: Resource[]; hasDb: boolean }> {
+  if (isDbAvailable()) {
+    try {
+      await ensureResourceTableExists()
+
+      // Auto seed resources if table is empty
+      const count = await prisma.resource.count()
+      if (count === 0) {
+        await prisma.resource.createMany({
+          data: initialResources.map((r) => ({
+            id: r.id,
+            repoId: r.repoId,
+            phaseId: r.phaseId || null,
+            title: r.title,
+            url: r.url,
+            type: r.type || 'article',
+            embedUrl: r.embedUrl || null,
+            description: r.description || '',
+            tags: r.tags || '',
+          })),
+        })
+      }
+
+      const where: Prisma.ResourceWhereInput = { repoId }
+      if (phaseId) {
+        where.phaseId = phaseId
+      }
+
+      const resources = await prisma.resource.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+      })
+
+      return {
+        resources: resources.map((r) => ({
+          ...r,
+          createdAt: r.createdAt.toISOString(),
+          updatedAt: r.updatedAt.toISOString(),
+        })),
+        hasDb: true,
+      }
+    } catch (e) {
+      console.warn('Database query for resources failed, using in-memory fallback:', e)
+    }
+  }
+
+  // Fallback to in-memory
+  let filtered = inMemoryResources.filter((r) => r.repoId === repoId)
+  if (phaseId) {
+    filtered = filtered.filter((r) => r.phaseId === phaseId)
+  }
+
+  return { resources: filtered, hasDb: false }
+}
+
+export async function createResource(
+  data: Omit<Resource, 'id'>
+): Promise<{ resource: Resource; hasDb: boolean }> {
+  if (isDbAvailable()) {
+    try {
+      await ensureResourceTableExists()
+      const created = await prisma.resource.create({
+        data: {
+          repoId: data.repoId,
+          phaseId: data.phaseId || null,
+          title: data.title,
+          url: data.url,
+          type: data.type || 'article',
+          embedUrl: data.embedUrl || null,
+          description: data.description || '',
+          tags: data.tags || '',
+        },
+      })
+
+      return {
+        resource: {
+          ...created,
+          createdAt: created.createdAt.toISOString(),
+          updatedAt: created.updatedAt.toISOString(),
+        },
+        hasDb: true,
+      }
+    } catch (e) {
+      console.warn('Database create resource failed, creating in-memory:', e)
+    }
+  }
+
+  const newResource: Resource = {
+    ...data,
+    id: `res-${Date.now()}`,
+    phaseId: data.phaseId || null,
+    embedUrl: data.embedUrl || null,
+    description: data.description || '',
+    tags: data.tags || '',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+  }
+
+  inMemoryResources.unshift(newResource)
+  return { resource: newResource, hasDb: false }
+}
+
+export async function deleteResource(
+  id: string
+): Promise<{ success: boolean; hasDb: boolean }> {
+  if (isDbAvailable()) {
+    try {
+      await ensureResourceTableExists()
+      await prisma.resource.delete({ where: { id } })
+      return { success: true, hasDb: true }
+    } catch (e) {
+      console.warn('Database delete resource failed, deleting in-memory:', e)
+    }
+  }
+
+  inMemoryResources = inMemoryResources.filter((r) => r.id !== id)
+  return { success: true, hasDb: false }
+}
+

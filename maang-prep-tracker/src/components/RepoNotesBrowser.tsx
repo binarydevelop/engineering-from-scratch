@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { MarkdownViewer } from './MarkdownViewer'
 import { NotesEditor } from './NotesEditor'
+import { ResourcesViewer } from './ResourcesViewer'
+import { AddResourceModal } from './AddResourceModal'
+import { Resource } from '@/types/resource'
 import {
   FolderGit2,
   BookOpen,
@@ -66,6 +69,15 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
   const [isFileLoading, setIsFileLoading] = useState(false)
   const [phaseSearch, setPhaseSearch] = useState('')
 
+  // Navigation Tabs: 'phases' vs 'resources'
+  const [sidebarTab, setSidebarTab] = useState<'phases' | 'resources'>('phases')
+  const [contentView, setContentView] = useState<'file' | 'resources'>('file')
+
+  // Resources & Embeds state
+  const [resources, setResources] = useState<Resource[]>([])
+  const [isAddResourceModalOpen, setIsAddResourceModalOpen] = useState(false)
+  const [targetPhaseForModal, setTargetPhaseForModal] = useState<string | null>(null)
+
   // Editor states
   const [isEditing, setIsEditing] = useState(false)
   const [isCreatingNew, setIsCreatingNew] = useState(false)
@@ -93,7 +105,20 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
     loadRepos()
   }, [])
 
-  // 2. Fetch Selected Repo Detail
+  // 2. Fetch Resources for repo
+  const loadResources = useCallback(async (repoId: string) => {
+    try {
+      const res = await fetch(`/api/repos/${repoId}/resources`)
+      const data = await res.json()
+      if (data.success) {
+        setResources(data.resources)
+      }
+    } catch (e) {
+      console.error('Failed to load resources:', e)
+    }
+  }, [])
+
+  // 3. Fetch Selected Repo Detail
   const loadRepoDetail = useCallback(async (repoId: string, targetPhaseId?: string) => {
     setIsLoading(true)
     try {
@@ -129,15 +154,17 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
   useEffect(() => {
     if (selectedRepoId) {
       loadRepoDetail(selectedRepoId, initialPhaseId)
+      loadResources(selectedRepoId)
     }
-  }, [selectedRepoId, loadRepoDetail, initialPhaseId])
+  }, [selectedRepoId, loadRepoDetail, loadResources, initialPhaseId])
 
-  // 3. Load File Content
+  // 4. Load File Content
   const loadFileContent = async (repoId: string, path: string) => {
     setIsFileLoading(true)
     setActiveFilePath(path)
     setIsEditing(false)
     setIsCreatingNew(false)
+    setContentView('file')
     try {
       const res = await fetch(`/api/repos/${repoId}/file?path=${encodeURIComponent(path)}`)
       const data = await res.json()
@@ -155,7 +182,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
     }
   }
 
-  // 4. Save / Create File
+  // 5. Save / Create File
   const handleSaveFile = async (
     targetPath: string,
     content: string,
@@ -194,6 +221,25 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
     }
   }
 
+  // 6. Delete Resource
+  const handleDeleteResource = async (id: string) => {
+    try {
+      const res = await fetch(`/api/repos/${selectedRepoId}/resources?id=${encodeURIComponent(id)}`, {
+        method: 'DELETE',
+      })
+      const data = await res.json()
+      if (data.success) {
+        showStatus('Resource removed')
+        loadResources(selectedRepoId)
+      } else {
+        showStatus(`Error: ${data.error}`)
+      }
+    } catch (err: unknown) {
+      const e = err as Error
+      showStatus(`Delete failed: ${e.message}`)
+    }
+  }
+
   // Filter phases by search
   const filteredPhases = repoDetail?.phases.filter(
     (p) =>
@@ -201,6 +247,11 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
       p.id.toLowerCase().includes(phaseSearch.toLowerCase()) ||
       p.notes.some((n) => n.title.toLowerCase().includes(phaseSearch.toLowerCase()))
   ) || []
+
+  // Count resources for current selected phase
+  const currentPhaseResources = selectedPhase
+    ? resources.filter((r) => r.phaseId === selectedPhase.id)
+    : []
 
   return (
     <div className="flex flex-col h-[calc(100vh-140px)] bg-[#090a0f] text-zinc-100 rounded-2xl border border-zinc-800 overflow-hidden shadow-2xl">
@@ -230,6 +281,18 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
+          {/* Embed Resource Button */}
+          <button
+            onClick={() => {
+              setTargetPhaseForModal(selectedPhase?.id || null)
+              setIsAddResourceModalOpen(true)
+            }}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 transition flex items-center gap-1.5"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>Embed Resource</span>
+          </button>
+
           {selectedPhase && !isEditing && (
             <button
               onClick={() => {
@@ -238,6 +301,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                 setFileContent(`# Notes on ${selectedPhase.name}\n\n## Key Concepts\n- \n\n## Interview Questions\n- \n\n## Trade-offs & Production Gotchas\n- \n`)
                 setIsCreatingNew(true)
                 setIsEditing(true)
+                setContentView('file')
               }}
               className="px-3 py-1.5 rounded-lg text-xs font-semibold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition flex items-center gap-1.5"
             >
@@ -246,7 +310,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
             </button>
           )}
 
-          {activeFilePath && !isEditing && (
+          {activeFilePath && !isEditing && contentView === 'file' && (
             <button
               onClick={() => setIsEditing(true)}
               className="px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-750 border border-zinc-700 transition flex items-center gap-1.5"
@@ -273,8 +337,41 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
 
       {/* Main Split Layout: Sidebar & Content Area */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Left Sidebar: Phases & Files Tree */}
+        {/* Left Sidebar: Phases Tree & Additional Resources Switcher */}
         <div className="w-80 md:w-96 border-r border-zinc-800/80 bg-[#0a0b10] flex flex-col">
+          {/* Top Segmented Tabs: Phases & Notes vs Additional Resources */}
+          <div className="p-2 border-b border-zinc-800 bg-zinc-950/80 flex items-center gap-1">
+            <button
+              onClick={() => {
+                setSidebarTab('phases')
+                setContentView('file')
+              }}
+              className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5 ${
+                sidebarTab === 'phases'
+                  ? 'bg-zinc-800 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900'
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-blue-400" />
+              <span>Phases ({repoDetail?.phases.length || 0})</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setSidebarTab('resources')
+                setContentView('resources')
+              }}
+              className={`flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5 ${
+                sidebarTab === 'resources'
+                  ? 'bg-zinc-800 text-white shadow-sm'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Resources ({resources.length})</span>
+            </button>
+          </div>
+
           {/* Phase search bar */}
           <div className="p-3 border-b border-zinc-800">
             <div className="relative">
@@ -299,7 +396,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                 <button
                   onClick={() => loadFileContent(selectedRepoId, 'ROADMAP.md')}
                   className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                    activeFilePath === 'ROADMAP.md'
+                    activeFilePath === 'ROADMAP.md' && contentView === 'file'
                       ? 'bg-blue-600/20 text-blue-300 font-semibold'
                       : 'text-zinc-400 hover:text-white'
                   }`}
@@ -312,7 +409,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                 <button
                   onClick={() => loadFileContent(selectedRepoId, 'README.md')}
                   className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                    activeFilePath === 'README.md'
+                    activeFilePath === 'README.md' && contentView === 'file'
                       ? 'bg-blue-600/20 text-blue-300 font-semibold'
                       : 'text-zinc-400 hover:text-white'
                   }`}
@@ -326,7 +423,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                   key={rn.path}
                   onClick={() => loadFileContent(selectedRepoId, rn.path)}
                   className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                    activeFilePath === rn.path
+                    activeFilePath === rn.path && contentView === 'file'
                       ? 'bg-blue-600/20 text-blue-300 font-semibold'
                       : 'text-zinc-400 hover:text-white'
                   }`}
@@ -347,6 +444,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
             ) : (
               filteredPhases.map((phase) => {
                 const isSelected = selectedPhase?.id === phase.id
+                const phaseResCount = resources.filter((r) => r.phaseId === phase.id).length
 
                 return (
                   <div key={phase.id} className="p-2">
@@ -358,6 +456,8 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                           loadFileContent(selectedRepoId, phase.notes[0].path)
                         } else if (phase.docPath) {
                           loadFileContent(selectedRepoId, phase.docPath)
+                        } else {
+                          setContentView('file')
                         }
                       }}
                       className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-semibold transition flex items-center justify-between ${
@@ -367,10 +467,19 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                       }`}
                     >
                       <span className="truncate flex-1">{phase.name}</span>
-                      <div className="flex items-center gap-1.5 ml-2">
+                      <div className="flex items-center gap-1 ml-2">
+                        {phaseResCount > 0 && (
+                          <span
+                            className="px-1.5 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 font-bold flex items-center gap-0.5"
+                            title={`${phaseResCount} embedded resources`}
+                          >
+                            <Sparkles className="w-2.5 h-2.5 text-amber-400" />
+                            {phaseResCount}
+                          </span>
+                        )}
                         {phase.notes.length > 0 && (
                           <span className="px-1.5 py-0.5 rounded text-[10px] bg-purple-500/20 text-purple-300 font-bold">
-                            {phase.notes.length} notes
+                            {phase.notes.length}
                           </span>
                         )}
                         {isSelected ? (
@@ -389,7 +498,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                           <button
                             onClick={() => loadFileContent(selectedRepoId, phase.docPath!)}
                             className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                              activeFilePath === phase.docPath
+                              activeFilePath === phase.docPath && contentView === 'file'
                                 ? 'bg-blue-600/20 text-blue-300 font-semibold'
                                 : 'text-zinc-400 hover:text-white'
                             }`}
@@ -405,7 +514,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                             key={note.path}
                             onClick={() => loadFileContent(selectedRepoId, note.path)}
                             className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                              activeFilePath === note.path
+                              activeFilePath === note.path && contentView === 'file'
                                 ? 'bg-purple-600/20 text-purple-300 font-semibold'
                                 : 'text-zinc-400 hover:text-white'
                             }`}
@@ -417,13 +526,28 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
                           </button>
                         ))}
 
+                        {/* Phase resources quick-link */}
+                        {phaseResCount > 0 && (
+                          <button
+                            onClick={() => setContentView('resources')}
+                            className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
+                              contentView === 'resources'
+                                ? 'bg-amber-600/20 text-amber-300 font-semibold'
+                                : 'text-amber-400/80 hover:text-amber-300'
+                            }`}
+                          >
+                            <Sparkles className="w-3 h-3 text-amber-400 flex-shrink-0" />
+                            <span className="truncate font-medium">Resources & Embeds ({phaseResCount})</span>
+                          </button>
+                        )}
+
                         {/* Code files */}
                         {phase.codeFiles.map((code) => (
                           <button
                             key={code.path}
                             onClick={() => loadFileContent(selectedRepoId, code.path)}
                             className={`w-full text-left px-2 py-1 rounded text-xs transition flex items-center gap-1.5 ${
-                              activeFilePath === code.path
+                              activeFilePath === code.path && contentView === 'file'
                                 ? 'bg-emerald-600/20 text-emerald-300 font-semibold'
                                 : 'text-zinc-500 hover:text-zinc-300'
                             }`}
@@ -443,50 +567,97 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
 
         {/* Right Main Content Pane */}
         <div className="flex-1 flex flex-col bg-[#0b0c12] overflow-hidden">
-          {/* Breadcrumb / File Header */}
-          <div className="px-4 py-2.5 bg-zinc-900/40 border-b border-zinc-800/80 flex items-center justify-between text-xs">
-            <div className="flex items-center gap-1.5 text-zinc-400 font-mono truncate">
-              <span className="text-zinc-300">{selectedRepoId}</span>
-              <span>/</span>
-              <span className="text-blue-400 truncate">{activeFilePath || 'Select a document'}</span>
-            </div>
+          {contentView === 'resources' || sidebarTab === 'resources' ? (
+            /* Additional Resources & Embeds Hub */
+            <ResourcesViewer
+              resources={resources}
+              repoId={selectedRepoId}
+              selectedPhaseId={sidebarTab === 'phases' ? selectedPhase?.id : null}
+              phases={repoDetail?.phases.map((p) => ({ id: p.id, name: p.name })) || []}
+              onOpenAddModal={() => {
+                setTargetPhaseForModal(selectedPhase?.id || null)
+                setIsAddResourceModalOpen(true)
+              }}
+              onDeleteResource={handleDeleteResource}
+              onSelectPhaseFilter={(pId) => {
+                if (pId && repoDetail) {
+                  const target = repoDetail.phases.find((p) => p.id === pId)
+                  if (target) setSelectedPhase(target)
+                }
+              }}
+            />
+          ) : (
+            /* File Viewer / Notes Editor */
+            <>
+              {/* Breadcrumb / File Header */}
+              <div className="px-4 py-2.5 bg-zinc-900/40 border-b border-zinc-800/80 flex items-center justify-between text-xs">
+                <div className="flex items-center gap-1.5 text-zinc-400 font-mono truncate">
+                  <span className="text-zinc-300">{selectedRepoId}</span>
+                  <span>/</span>
+                  <span className="text-blue-400 truncate">{activeFilePath || 'Select a document'}</span>
+                </div>
 
-            <div className="flex items-center gap-2">
-              <span
-                className={`text-[10px] font-mono px-2 py-0.5 rounded ${
-                  fileSource === 'local'
-                    ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
-                    : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
-                }`}
-              >
-                {fileSource === 'local' ? 'Local Disk' : 'GitHub Live'}
-              </span>
-            </div>
-          </div>
+                <div className="flex items-center gap-2">
+                  {currentPhaseResources.length > 0 && (
+                    <button
+                      onClick={() => setContentView('resources')}
+                      className="text-[11px] font-semibold px-2.5 py-0.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 transition flex items-center gap-1"
+                    >
+                      <Sparkles className="w-3 h-3 text-amber-400" />
+                      <span>{currentPhaseResources.length} Resources & Videos</span>
+                    </button>
+                  )}
 
-          {/* Body: Either Editor or Viewer */}
-          <div className="flex-1 overflow-y-auto p-4 sm:p-8">
-            {isFileLoading ? (
-              <div className="py-24 text-center text-xs text-zinc-500">Loading document...</div>
-            ) : isEditing ? (
-              <NotesEditor
-                initialContent={fileContent}
-                filePath={activeFilePath || ''}
-                repo={selectedRepoId}
-                isCreatingNew={isCreatingNew}
-                onSave={handleSaveFile}
-                onCancel={() => {
-                  setIsEditing(false)
-                  setIsCreatingNew(false)
-                }}
-                isSaving={isSaving}
-              />
-            ) : (
-              <MarkdownViewer content={fileContent} />
-            )}
-          </div>
+                  <span
+                    className={`text-[10px] font-mono px-2 py-0.5 rounded ${
+                      fileSource === 'local'
+                        ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                        : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
+                    }`}
+                  >
+                    {fileSource === 'local' ? 'Local Disk' : 'GitHub Live'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Body: Either Editor or Viewer */}
+              <div className="flex-1 overflow-y-auto p-4 sm:p-8">
+                {isFileLoading ? (
+                  <div className="py-24 text-center text-xs text-zinc-500">Loading document...</div>
+                ) : isEditing ? (
+                  <NotesEditor
+                    initialContent={fileContent}
+                    filePath={activeFilePath || ''}
+                    repo={selectedRepoId}
+                    isCreatingNew={isCreatingNew}
+                    onSave={handleSaveFile}
+                    onCancel={() => {
+                      setIsEditing(false)
+                      setIsCreatingNew(false)
+                    }}
+                    isSaving={isSaving}
+                  />
+                ) : (
+                  <MarkdownViewer content={fileContent} />
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
+
+      {/* Add Resource Modal */}
+      <AddResourceModal
+        isOpen={isAddResourceModalOpen}
+        onClose={() => setIsAddResourceModalOpen(false)}
+        repoId={selectedRepoId}
+        phases={repoDetail?.phases.map((p) => ({ id: p.id, name: p.name })) || []}
+        initialPhaseId={targetPhaseForModal}
+        onSuccess={(msg) => {
+          showStatus(msg)
+          loadResources(selectedRepoId)
+        }}
+      />
 
       {/* Toast Notification */}
       {statusMessage && (

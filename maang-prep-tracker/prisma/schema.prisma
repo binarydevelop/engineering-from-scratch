@@ -27,3 +27,21 @@ model Task {
   @@index([sprint])
   @@index([status])
 }
+
+model Resource {
+  id          String   @id @default(cuid())
+  repoId      String   // e.g. "operating-systems-from-scratch"
+  phaseId     String?  // optional: e.g. "01-what-is-an-operating-system"
+  title       String
+  url         String
+  type        String   @default("article") // "youtube", "article", "doc", "interactive", "embed"
+  embedUrl    String?
+  description String   @default("")
+  tags        String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([repoId])
+  @@index([phaseId])
+}
+
