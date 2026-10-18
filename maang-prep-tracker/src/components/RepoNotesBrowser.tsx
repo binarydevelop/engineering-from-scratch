@@ -19,6 +19,7 @@ import {
   Edit2,
   CheckCircle2,
   Sparkles,
+  RefreshCw,
 } from 'lucide-react'
 
 interface RepoMeta {
@@ -77,6 +78,7 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
   const [resources, setResources] = useState<Resource[]>([])
   const [isAddResourceModalOpen, setIsAddResourceModalOpen] = useState(false)
   const [targetPhaseForModal, setTargetPhaseForModal] = useState<string | null>(null)
+  const [isSyncing, setIsSyncing] = useState(false)
 
   // Editor states
   const [isEditing, setIsEditing] = useState(false)
@@ -118,11 +120,16 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
     }
   }, [])
 
-  // 3. Fetch Selected Repo Detail
-  const loadRepoDetail = useCallback(async (repoId: string, targetPhaseId?: string) => {
+  // 3. Fetch Selected Repo Detail (with optional live GitHub sync)
+  const loadRepoDetail = useCallback(async (repoId: string, targetPhaseId?: string, syncWithGitHub: boolean = false) => {
     setIsLoading(true)
+    if (syncWithGitHub) setIsSyncing(true)
     try {
-      const res = await fetch(`/api/repos/${repoId}`)
+      const url = targetPhaseId
+        ? `/api/repos/${repoId}?phaseId=${encodeURIComponent(targetPhaseId)}${syncWithGitHub ? '&sync=true' : ''}`
+        : `/api/repos/${repoId}${syncWithGitHub ? '?sync=true' : ''}`
+
+      const res = await fetch(url, { cache: 'no-store' })
       const data = await res.json()
       if (data.success) {
         setRepoDetail(data.repo)
@@ -143,11 +150,16 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
         } else if (data.repo.hasRoadmap) {
           loadFileContent(repoId, 'ROADMAP.md')
         }
+
+        if (syncWithGitHub) {
+          showStatus('Synced with latest GitHub content!')
+        }
       }
     } catch (e) {
       console.error('Failed to load repo detail:', e)
     } finally {
       setIsLoading(false)
+      setIsSyncing(false)
     }
   }, [])
 
@@ -281,6 +293,21 @@ export const RepoNotesBrowser: React.FC<RepoNotesBrowserProps> = ({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
+          {/* Sync GitHub Button */}
+          <button
+            onClick={() => {
+              loadRepoDetail(selectedRepoId, selectedPhase?.id, true)
+              loadResources(selectedRepoId)
+              if (activeFilePath) loadFileContent(selectedRepoId, activeFilePath)
+            }}
+            disabled={isSyncing}
+            className="px-3 py-1.5 rounded-lg text-xs font-semibold text-zinc-300 hover:text-white bg-zinc-800 hover:bg-zinc-750 border border-zinc-700 transition flex items-center gap-1.5 shadow-sm"
+            title="Fetch latest notes, phases & edits from GitHub main branch"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 text-blue-400 ${isSyncing ? 'animate-spin' : ''}`} />
+            <span>{isSyncing ? 'Syncing...' : 'Sync GitHub'}</span>
+          </button>
+
           {/* Embed Resource Button */}
           <button
             onClick={() => {

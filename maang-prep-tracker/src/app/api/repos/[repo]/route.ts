@@ -3,6 +3,10 @@ import manifest from '@/data/repos-manifest.json'
 import fs from 'fs'
 import path from 'path'
 
+const GITHUB_OWNER = 'binarydevelop'
+const GITHUB_REPO = 'engineering-from-scratch'
+const GITHUB_BRANCH = 'main'
+
 interface NoteItem {
   filename: string
   path: string
@@ -34,12 +38,25 @@ interface RepoData {
   phases: PhaseDetail[]
 }
 
+function formatTitle(str: string): string {
+  return str
+    .replace(/\.md$/, '')
+    .replace(/^[0-9]+[_\.\-]/, '')
+    .replace(/[-_]/g, ' ')
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ repo: string }> }
 ) {
   try {
     const { repo } = await params
+    const searchParams = request.nextUrl.searchParams
+    const targetPhaseId = searchParams.get('phaseId')
+    const shouldSync = searchParams.get('sync') === 'true'
+
     const typedManifest = manifest as unknown as RepoData[]
     const repoData = typedManifest.find((r) => r.id === repo)
 
@@ -54,22 +71,33 @@ export async function GET(
     const localRepoDir = path.join(parentDir, repo)
     const isLocal = fs.existsSync(localRepoDir)
 
-    let phases: PhaseDetail[] = repoData.phases
-    let rootNotes: NoteItem[] = repoData.rootNotes
+    // Deep clone phases so runtime modifications do not mutate cached modules
+    let phases: PhaseDetail[] = JSON.parse(JSON.stringify(repoData.phases))
+    let rootNotes: NoteItem[] = JSON.parse(JSON.stringify(repoData.rootNotes || []))
 
+    // 1. If running locally on user's machine, scan filesystem directly
     if (isLocal) {
       try {
         const phasesDir = path.join(localRepoDir, 'phases')
         if (fs.existsSync(phasesDir)) {
-          const scannedPhases: PhaseDetail[] = fs.readdirSync(phasesDir)
+          const scannedPhases: PhaseDetail[] = fs
+            .readdirSync(phasesDir)
             .filter((p) => !p.startsWith('.') && fs.statSync(path.join(phasesDir, p)).isDirectory())
-            .sort()
+            .sort((a, b) => {
+              const numA = parseInt(a.match(/\d+/)?.[0] || '0', 10)
+              const numB = parseInt(b.match(/\d+/)?.[0] || '0', 10)
+              return numA - numB
+            })
             .map((p) => {
               const pDir = path.join(phasesDir, p)
-              const hasDoc = fs.existsSync(path.join(pDir, 'docs/en.md')) || fs.existsSync(path.join(pDir, 'README.md'))
-              const docPath = fs.existsSync(path.join(pDir, 'docs/en.md'))
+              const hasEnDoc = fs.existsSync(path.join(pDir, 'docs/en.md'))
+              const hasPhaseReadme = fs.existsSync(path.join(pDir, 'README.md'))
+              const hasDoc = hasEnDoc || hasPhaseReadme
+              const docPath = hasEnDoc
                 ? `phases/${p}/docs/en.md`
-                : (fs.existsSync(path.join(pDir, 'README.md')) ? `phases/${p}/README.md` : null)
+                : hasPhaseReadme
+                ? `phases/${p}/README.md`
+                : null
 
               const notesDir = path.join(pDir, 'notes')
               const notes: NoteItem[] = []
@@ -79,7 +107,7 @@ export async function GET(
                     notes.push({
                       filename: nf,
                       path: `phases/${p}/notes/${nf}`,
-                      title: nf.replace('.md', '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+                      title: formatTitle(nf),
                     })
                   }
                 }
@@ -100,7 +128,7 @@ export async function GET(
 
               return {
                 id: p,
-                name: p.replace(/^phase-/, '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+                name: formatTitle(p),
                 hasDoc,
                 docPath,
                 notes,
@@ -115,16 +143,63 @@ export async function GET(
 
         const rootNotesDir = path.join(localRepoDir, 'notes')
         if (fs.existsSync(rootNotesDir)) {
-          rootNotes = fs.readdirSync(rootNotesDir)
+          rootNotes = fs
+            .readdirSync(rootNotesDir)
             .filter((nf) => nf.endsWith('.md') && !nf.startsWith('.'))
             .map((nf) => ({
               filename: nf,
               path: `notes/${nf}`,
-              title: nf.replace('.md', '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+              title: formatTitle(nf),
             }))
         }
       } catch (e) {
         console.warn('Could not read local filesystem, using manifest:', e)
+      }
+    }
+
+    // 2. On Vercel / Cloud: Live GitHub API sync when a phase is viewed or sync requested
+    if (!isLocal && (targetPhaseId || shouldSync)) {
+      try {
+        const targetPhasesToSync = targetPhaseId
+          ? [targetPhaseId]
+          : phases.slice(0, 5).map((p) => p.id)
+
+        const apiHeaders: Record<string, string> = {
+          Accept: 'application/vnd.github.v3+json',
+          'User-Agent': 'MAANG-Prep-Tracker',
+        }
+        const token = process.env.GITHUB_TOKEN || request.headers.get('x-github-token')
+        if (token) apiHeaders['Authorization'] = `token ${token}`
+
+        await Promise.all(
+          targetPhasesToSync.map(async (pId) => {
+            const notesUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${repo}/phases/${pId}/notes?ref=${GITHUB_BRANCH}`
+            const res = await fetch(notesUrl, {
+              headers: apiHeaders,
+              cache: 'no-store',
+            })
+
+            if (res.ok) {
+              const items = await res.json()
+              if (Array.isArray(items)) {
+                const liveNotes: NoteItem[] = items
+                  .filter((f) => f.name.endsWith('.md') && !f.name.startsWith('.'))
+                  .map((f) => ({
+                    filename: f.name,
+                    path: `phases/${pId}/notes/${f.name}`,
+                    title: formatTitle(f.name),
+                  }))
+
+                const targetPhaseObj = phases.find((p) => p.id === pId)
+                if (targetPhaseObj) {
+                  targetPhaseObj.notes = liveNotes
+                }
+              }
+            }
+          })
+        )
+      } catch (err) {
+        console.warn('Failed to fetch live notes from GitHub API:', err)
       }
     }
 

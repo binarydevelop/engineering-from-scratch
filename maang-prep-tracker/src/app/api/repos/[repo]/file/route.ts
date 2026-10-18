@@ -41,24 +41,59 @@ export async function GET(
       })
     }
 
-    // 2. Fallback to GitHub raw content (for Vercel deployment)
-    const githubRawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${repo}/${filePath}`
-    const headers: Record<string, string> = {}
+    // 2. Fallback to GitHub raw content with cache-busting (for Vercel deployment)
+    const githubRawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${repo}/${encodeURIComponent(filePath).replace(/%2F/g, '/')}?t=${Date.now()}`
+    const headers: Record<string, string> = {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+    }
     const token = process.env.GITHUB_TOKEN || request.headers.get('x-github-token')
     if (token) {
       headers['Authorization'] = `token ${token}`
     }
 
-    const githubRes = await fetch(githubRawUrl, { headers })
+    const githubRes = await fetch(githubRawUrl, {
+      headers,
+      cache: 'no-store',
+    })
     if (githubRes.ok) {
       const content = await githubRes.text()
       return NextResponse.json({
         success: true,
-        source: 'github',
+        source: 'github-raw',
         repo,
         path: filePath,
         content,
       })
+    }
+
+    // 3. Fallback to GitHub REST Contents API (reads real-time Git commit tree, 0-second cache)
+    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${repo}/${filePath}?ref=${GITHUB_BRANCH}`
+    const apiHeaders: Record<string, string> = {
+      Accept: 'application/vnd.github.v3+json',
+      'User-Agent': 'MAANG-Prep-Tracker',
+    }
+    if (token) {
+      apiHeaders['Authorization'] = `token ${token}`
+    }
+
+    const apiRes = await fetch(apiUrl, {
+      headers: apiHeaders,
+      cache: 'no-store',
+    })
+
+    if (apiRes.ok) {
+      const fileData = await apiRes.json()
+      if (fileData.content && fileData.encoding === 'base64') {
+        const content = Buffer.from(fileData.content, 'base64').toString('utf-8')
+        return NextResponse.json({
+          success: true,
+          source: 'github-api',
+          repo,
+          path: filePath,
+          content,
+        })
+      }
     }
 
     return NextResponse.json(
